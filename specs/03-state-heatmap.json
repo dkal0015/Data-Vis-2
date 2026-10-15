@@ -1,0 +1,424 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#6c796f",
+      "titleColor": "#203b32",
+      "gridColor": "#e1e4d9",
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelPadding": 8,
+      "titlePadding": 12
+    },
+    "legend": {
+      "labelColor": "#203b32",
+      "titleColor": "#203b32",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "orient": "bottom",
+      "padding": 10
+    },
+    "title": {
+      "anchor": "start",
+      "color": "#203b32",
+      "fontSize": 15
+    }
+  },
+  "description": "Weekly cycling participation, percent of each jurisdiction population. Historical estimates use the 2025 report weights.",
+  "height": 290,
+  "data": {
+    "values": [
+      {
+        "year": 2015,
+        "period": "Week",
+        "state": "NSW",
+        "rate": 8.4
+      },
+      {
+        "year": 2015,
+        "period": "Week",
+        "state": "QLD",
+        "rate": 16.4
+      },
+      {
+        "year": 2015,
+        "period": "Week",
+        "state": "VIC",
+        "rate": 16.8
+      },
+      {
+        "year": 2015,
+        "period": "Week",
+        "state": "WA",
+        "rate": 23.3
+      },
+      {
+        "year": 2015,
+        "period": "Week",
+        "state": "ACT",
+        "rate": 21.5
+      },
+      {
+        "year": 2015,
+        "period": "Week",
+        "state": "SA",
+        "rate": 16.8
+      },
+      {
+        "year": 2015,
+        "period": "Week",
+        "state": "NT",
+        "rate": 24.6
+      },
+      {
+        "year": 2015,
+        "period": "Week",
+        "state": "TAS",
+        "rate": 18.1
+      },
+      {
+        "year": 2017,
+        "period": "Week",
+        "state": "NSW",
+        "rate": 12.7
+      },
+      {
+        "year": 2017,
+        "period": "Week",
+        "state": "QLD",
+        "rate": 16.3
+      },
+      {
+        "year": 2017,
+        "period": "Week",
+        "state": "VIC",
+        "rate": 17.1
+      },
+      {
+        "year": 2017,
+        "period": "Week",
+        "state": "WA",
+        "rate": 18.7
+      },
+      {
+        "year": 2017,
+        "period": "Week",
+        "state": "ACT",
+        "rate": 26.2
+      },
+      {
+        "year": 2017,
+        "period": "Week",
+        "state": "SA",
+        "rate": 14.2
+      },
+      {
+        "year": 2017,
+        "period": "Week",
+        "state": "NT",
+        "rate": 26.3
+      },
+      {
+        "year": 2017,
+        "period": "Week",
+        "state": "TAS",
+        "rate": 16.3
+      },
+      {
+        "year": 2019,
+        "period": "Week",
+        "state": "NSW",
+        "rate": 13.1
+      },
+      {
+        "year": 2019,
+        "period": "Week",
+        "state": "QLD",
+        "rate": 13.7
+      },
+      {
+        "year": 2019,
+        "period": "Week",
+        "state": "VIC",
+        "rate": 14
+      },
+      {
+        "year": 2019,
+        "period": "Week",
+        "state": "WA",
+        "rate": 15.9
+      },
+      {
+        "year": 2019,
+        "period": "Week",
+        "state": "ACT",
+        "rate": 22.7
+      },
+      {
+        "year": 2019,
+        "period": "Week",
+        "state": "SA",
+        "rate": 13.2
+      },
+      {
+        "year": 2019,
+        "period": "Week",
+        "state": "NT",
+        "rate": 21.9
+      },
+      {
+        "year": 2019,
+        "period": "Week",
+        "state": "TAS",
+        "rate": 15
+      },
+      {
+        "year": 2021,
+        "period": "Week",
+        "state": "NSW",
+        "rate": 14.9
+      },
+      {
+        "year": 2021,
+        "period": "Week",
+        "state": "QLD",
+        "rate": 18.1
+      },
+      {
+        "year": 2021,
+        "period": "Week",
+        "state": "VIC",
+        "rate": 19.1
+      },
+      {
+        "year": 2021,
+        "period": "Week",
+        "state": "WA",
+        "rate": 20.3
+      },
+      {
+        "year": 2021,
+        "period": "Week",
+        "state": "ACT",
+        "rate": 22.3
+      },
+      {
+        "year": 2021,
+        "period": "Week",
+        "state": "SA",
+        "rate": 16.1
+      },
+      {
+        "year": 2021,
+        "period": "Week",
+        "state": "NT",
+        "rate": 21.6
+      },
+      {
+        "year": 2021,
+        "period": "Week",
+        "state": "TAS",
+        "rate": 16.4
+      },
+      {
+        "year": 2023,
+        "period": "Week",
+        "state": "NSW",
+        "rate": 14.5
+      },
+      {
+        "year": 2023,
+        "period": "Week",
+        "state": "QLD",
+        "rate": 14.4
+      },
+      {
+        "year": 2023,
+        "period": "Week",
+        "state": "VIC",
+        "rate": 16.7
+      },
+      {
+        "year": 2023,
+        "period": "Week",
+        "state": "WA",
+        "rate": 13.9
+      },
+      {
+        "year": 2023,
+        "period": "Week",
+        "state": "ACT",
+        "rate": 13
+      },
+      {
+        "year": 2023,
+        "period": "Week",
+        "state": "SA",
+        "rate": 12.5
+      },
+      {
+        "year": 2023,
+        "period": "Week",
+        "state": "NT",
+        "rate": 16.1
+      },
+      {
+        "year": 2023,
+        "period": "Week",
+        "state": "TAS",
+        "rate": 11.5
+      },
+      {
+        "year": 2025,
+        "period": "Week",
+        "state": "NSW",
+        "rate": 14.8
+      },
+      {
+        "year": 2025,
+        "period": "Week",
+        "state": "QLD",
+        "rate": 14.1
+      },
+      {
+        "year": 2025,
+        "period": "Week",
+        "state": "VIC",
+        "rate": 15.7
+      },
+      {
+        "year": 2025,
+        "period": "Week",
+        "state": "WA",
+        "rate": 16.5
+      },
+      {
+        "year": 2025,
+        "period": "Week",
+        "state": "ACT",
+        "rate": 20
+      },
+      {
+        "year": 2025,
+        "period": "Week",
+        "state": "SA",
+        "rate": 11.8
+      },
+      {
+        "year": 2025,
+        "period": "Week",
+        "state": "NT",
+        "rate": 17.6
+      },
+      {
+        "year": 2025,
+        "period": "Week",
+        "state": "TAS",
+        "rate": 13.8
+      }
+    ]
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "state",
+      "type": "ordinal",
+      "sort": [
+        "NSW",
+        "QLD",
+        "VIC",
+        "WA",
+        "ACT",
+        "SA",
+        "NT",
+        "TAS"
+      ],
+      "title": null
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "cornerRadius": 3,
+        "stroke": "#f5f3e9",
+        "strokeWidth": 4
+      },
+      "encoding": {
+        "color": {
+          "field": "rate",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              30
+            ],
+            "range": [
+              "#eef0e3",
+              "#245646"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "rate",
+            "type": "quantitative",
+            "title": "Weekly (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 11
+      },
+      "encoding": {
+        "text": {
+          "field": "rate",
+          "format": ".1f"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.rate > 18",
+            "value": "#fff"
+          },
+          "value": "#203b32"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,314 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#6c796f",
+      "titleColor": "#203b32",
+      "gridColor": "#e1e4d9",
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelPadding": 8,
+      "titlePadding": 12
+    },
+    "legend": {
+      "labelColor": "#203b32",
+      "titleColor": "#203b32",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "orient": "bottom",
+      "padding": 10
+    },
+    "title": {
+      "anchor": "start",
+      "color": "#203b32",
+      "fontSize": 15
+    }
+  },
+  "description": "National bicycle participation. The three recall windows overlap; they must not be added.",
+  "height": 280,
+  "data": {
+    "values": [
+      {
+        "year": 2015,
+        "period": "Week",
+        "state": "AUS",
+        "rate": 14.9
+      },
+      {
+        "year": 2015,
+        "period": "Month",
+        "state": "AUS",
+        "rate": 21.8
+      },
+      {
+        "year": 2015,
+        "period": "Year",
+        "state": "AUS",
+        "rate": 34
+      },
+      {
+        "year": 2017,
+        "period": "Week",
+        "state": "AUS",
+        "rate": 15.7
+      },
+      {
+        "year": 2017,
+        "period": "Month",
+        "state": "AUS",
+        "rate": 22.2
+      },
+      {
+        "year": 2017,
+        "period": "Year",
+        "state": "AUS",
+        "rate": 34.7
+      },
+      {
+        "year": 2019,
+        "period": "Week",
+        "state": "AUS",
+        "rate": 14
+      },
+      {
+        "year": 2019,
+        "period": "Month",
+        "state": "AUS",
+        "rate": 21.8
+      },
+      {
+        "year": 2019,
+        "period": "Year",
+        "state": "AUS",
+        "rate": 35.6
+      },
+      {
+        "year": 2021,
+        "period": "Week",
+        "state": "AUS",
+        "rate": 17.5
+      },
+      {
+        "year": 2021,
+        "period": "Month",
+        "state": "AUS",
+        "rate": 26.4
+      },
+      {
+        "year": 2021,
+        "period": "Year",
+        "state": "AUS",
+        "rate": 39.3
+      },
+      {
+        "year": 2023,
+        "period": "Week",
+        "state": "AUS",
+        "rate": 14.8
+      },
+      {
+        "year": 2023,
+        "period": "Month",
+        "state": "AUS",
+        "rate": 23.7
+      },
+      {
+        "year": 2023,
+        "period": "Year",
+        "state": "AUS",
+        "rate": 36.6
+      },
+      {
+        "year": 2025,
+        "period": "Week",
+        "state": "AUS",
+        "rate": 14.9
+      },
+      {
+        "year": 2025,
+        "period": "Month",
+        "state": "AUS",
+        "rate": 24.4
+      },
+      {
+        "year": 2025,
+        "period": "Year",
+        "state": "AUS",
+        "rate": 34.8
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "title": null,
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "rate",
+          "type": "quantitative",
+          "title": "Population (%)",
+          "axis": {
+            "labelExpr": "datum.value + '%'"
+          },
+          "scale": {
+            "domain": [
+              0,
+              45
+            ]
+          }
+        },
+        "color": {
+          "field": "period",
+          "type": "nominal",
+          "title": "Rode within the last",
+          "scale": {
+            "domain": [
+              "Week",
+              "Month",
+              "Year"
+            ],
+            "range": [
+              "#245646",
+              "#8a9e57",
+              "#bb6244"
+            ]
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "windowFocus",
+            "value": 1
+          },
+          "value": 0.18
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "period",
+            "type": "nominal",
+            "title": "Recall window"
+          },
+          {
+            "field": "rate",
+            "type": "quantitative",
+            "title": "Population (%)",
+            "format": ".1f"
+          }
+        ]
+      },
+      "params": [
+        {
+          "name": "windowFocus",
+          "select": {
+            "type": "point",
+            "fields": [
+              "period"
+            ]
+          },
+          "bind": "legend"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 45
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "title": null,
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "rate",
+          "type": "quantitative",
+          "title": "Population (%)",
+          "axis": {
+            "labelExpr": "datum.value + '%'"
+          },
+          "scale": {
+            "domain": [
+              0,
+              45
+            ]
+          }
+        },
+        "color": {
+          "field": "period",
+          "type": "nominal",
+          "title": "Rode within the last",
+          "scale": {
+            "domain": [
+              "Week",
+              "Month",
+              "Year"
+            ],
+            "range": [
+              "#245646",
+              "#8a9e57",
+              "#bb6244"
+            ]
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "windowFocus",
+            "value": 1
+          },
+          "value": 0.18
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "period",
+            "type": "nominal",
+            "title": "Recall window"
+          },
+          {
+            "field": "rate",
+            "type": "quantitative",
+            "title": "Population (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    }
+  ]
+}

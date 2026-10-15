@@ -1,0 +1,166 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#6c796f",
+      "titleColor": "#203b32",
+      "gridColor": "#e1e4d9",
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelPadding": 8,
+      "titlePadding": 12
+    },
+    "legend": {
+      "labelColor": "#203b32",
+      "titleColor": "#203b32",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "orient": "bottom",
+      "padding": 10
+    },
+    "title": {
+      "anchor": "start",
+      "color": "#203b32",
+      "fontSize": 15
+    }
+  },
+  "description": "Self-reported change in riding frequency among main respondents who have cycled for more than 12 months. Different survey respondents each wave; not a cohort.",
+  "height": 180,
+  "data": {
+    "values": [
+      {
+        "year": 2021,
+        "change": "Less often",
+        "rate": 47.9,
+        "order": 0
+      },
+      {
+        "year": 2021,
+        "change": "About the same",
+        "rate": 32.9,
+        "order": 1
+      },
+      {
+        "year": 2021,
+        "change": "More often",
+        "rate": 19.2,
+        "order": 2
+      },
+      {
+        "year": 2023,
+        "change": "Less often",
+        "rate": 34,
+        "order": 0
+      },
+      {
+        "year": 2023,
+        "change": "About the same",
+        "rate": 43.2,
+        "order": 1
+      },
+      {
+        "year": 2023,
+        "change": "More often",
+        "rate": 22.9,
+        "order": 2
+      },
+      {
+        "year": 2025,
+        "change": "Less often",
+        "rate": 35,
+        "order": 0
+      },
+      {
+        "year": 2025,
+        "change": "About the same",
+        "rate": 50.2,
+        "order": 1
+      },
+      {
+        "year": 2025,
+        "change": "More often",
+        "rate": 14.8,
+        "order": 2
+      }
+    ]
+  },
+  "mark": {
+    "type": "bar",
+    "height": 27,
+    "cornerRadius": 2
+  },
+  "encoding": {
+    "y": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "sort": "ascending"
+    },
+    "x": {
+      "field": "rate",
+      "type": "quantitative",
+      "stack": "zero",
+      "title": "Share of established riders (%)",
+      "scale": {
+        "domain": [
+          0,
+          100
+        ]
+      },
+      "axis": {
+        "labelExpr": "datum.value + '%'"
+      }
+    },
+    "color": {
+      "field": "change",
+      "scale": {
+        "domain": [
+          "Less often",
+          "About the same",
+          "More often"
+        ],
+        "range": [
+          "#bb6244",
+          "#d9ddc9",
+          "#245646"
+        ]
+      },
+      "title": null
+    },
+    "order": {
+      "field": "order"
+    },
+    "tooltip": [
+      {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      {
+        "field": "change",
+        "type": "nominal",
+        "title": "Riding frequency"
+      },
+      {
+        "field": "rate",
+        "type": "quantitative",
+        "title": "Share (%)",
+        "format": ".1f"
+      }
+    ]
+  }
+}

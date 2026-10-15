@@ -1,0 +1,146 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#6c796f",
+      "titleColor": "#203b32",
+      "gridColor": "#e1e4d9",
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelPadding": 8,
+      "titlePadding": 12
+    },
+    "legend": {
+      "labelColor": "#203b32",
+      "titleColor": "#203b32",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "orient": "bottom",
+      "padding": 10
+    },
+    "title": {
+      "anchor": "start",
+      "color": "#203b32",
+      "fontSize": 15
+    }
+  },
+  "description": "A geographic line map of OpenStreetMap relation 29695, Lilydale–Warburton Rail Trail. Mapped member ways remain separate. The additional Yarra Valley branch is excluded. This is a geographic illustration, not navigation.",
+  "height": 380,
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/trail-route.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "stroke": "#245646",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "type": "nominal",
+            "title": "Mapped route"
+          },
+          {
+            "field": "properties.source",
+            "type": "nominal",
+            "title": "Source"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "name": "Lilydale end",
+            "lon": 145.3499496,
+            "lat": -37.7538298
+          },
+          {
+            "name": "Warburton end",
+            "lon": 145.6959959,
+            "lat": -37.753023
+          }
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "size": 80,
+        "fill": "#bb6244",
+        "stroke": "#f5f3e9",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "name": "Lilydale end",
+            "lon": 145.3499496,
+            "lat": -37.7538298
+          },
+          {
+            "name": "Warburton end",
+            "lon": 145.6959959,
+            "lat": -37.753023
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dy": -15,
+        "color": "#203b32",
+        "fontSize": 11,
+        "align": "center"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "name"
+        }
+      }
+    }
+  ]
+}

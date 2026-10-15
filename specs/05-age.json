@@ -1,0 +1,210 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#6c796f",
+      "titleColor": "#203b32",
+      "gridColor": "#e1e4d9",
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelPadding": 8,
+      "titlePadding": 12
+    },
+    "legend": {
+      "labelColor": "#203b32",
+      "titleColor": "#203b32",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "orient": "bottom",
+      "padding": 10
+    },
+    "title": {
+      "anchor": "start",
+      "color": "#203b32",
+      "fontSize": 15
+    }
+  },
+  "description": "Weekly cycling participation by age in 2025; national comparison is 14.9%. Two to four is the youngest published band here.",
+  "height": 310,
+  "data": {
+    "values": [
+      {
+        "age": "2–4",
+        "rate": 31.7,
+        "order": 0
+      },
+      {
+        "age": "5–9",
+        "rate": 37.1,
+        "order": 1
+      },
+      {
+        "age": "10–17",
+        "rate": 25.2,
+        "order": 2
+      },
+      {
+        "age": "18–24",
+        "rate": 7.4,
+        "order": 3
+      },
+      {
+        "age": "25–29",
+        "rate": 9.3,
+        "order": 4
+      },
+      {
+        "age": "30–39",
+        "rate": 14.8,
+        "order": 5
+      },
+      {
+        "age": "40–49",
+        "rate": 12.6,
+        "order": 6
+      },
+      {
+        "age": "50–59",
+        "rate": 13.4,
+        "order": 7
+      },
+      {
+        "age": "60–69",
+        "rate": 10.9,
+        "order": 8
+      },
+      {
+        "age": "70–79",
+        "rate": 8.4,
+        "order": 9
+      },
+      {
+        "age": "80+",
+        "rate": 6.5,
+        "order": 10
+      }
+    ]
+  },
+  "encoding": {
+    "y": {
+      "field": "age",
+      "type": "ordinal",
+      "sort": {
+        "field": "order"
+      },
+      "title": "Age (years)"
+    },
+    "x": {
+      "field": "rate",
+      "type": "quantitative",
+      "title": "Rode in the last week (%)",
+      "axis": {
+        "labelExpr": "datum.value + '%'"
+      },
+      "scale": {
+        "domain": [
+          0,
+          42
+        ]
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 2,
+        "color": "#c7cdb9"
+      },
+      "encoding": {
+        "x2": {
+          "datum": 0
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 85
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum.order < 3",
+            "value": "#245646"
+          },
+          "value": "#bb6244"
+        },
+        "tooltip": [
+          {
+            "field": "age",
+            "type": "nominal",
+            "title": "Age (years)"
+          },
+          {
+            "field": "rate",
+            "type": "quantitative",
+            "title": "Weekly (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "color": "#203b32"
+      },
+      "encoding": {
+        "text": {
+          "field": "rate",
+          "format": ".1f"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "rate": 14.9
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          4,
+          4
+        ],
+        "color": "#6c796f"
+      },
+      "encoding": {
+        "y": {
+          "value": 0
+        },
+        "y2": {
+          "value": {
+            "expr": "height"
+          }
+        }
+      }
+    }
+  ]
+}

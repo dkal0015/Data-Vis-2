@@ -1,0 +1,56 @@
+[
+  {
+    "year": 2021,
+    "change": "Less often",
+    "rate": 47.9,
+    "order": 0
+  },
+  {
+    "year": 2021,
+    "change": "About the same",
+    "rate": 32.9,
+    "order": 1
+  },
+  {
+    "year": 2021,
+    "change": "More often",
+    "rate": 19.2,
+    "order": 2
+  },
+  {
+    "year": 2023,
+    "change": "Less often",
+    "rate": 34.0,
+    "order": 0
+  },
+  {
+    "year": 2023,
+    "change": "About the same",
+    "rate": 43.2,
+    "order": 1
+  },
+  {
+    "year": 2023,
+    "change": "More often",
+    "rate": 22.9,
+    "order": 2
+  },
+  {
+    "year": 2025,
+    "change": "Less often",
+    "rate": 35.0,
+    "order": 0
+  },
+  {
+    "year": 2025,
+    "change": "About the same",
+    "rate": 50.2,
+    "order": 1
+  },
+  {
+    "year": 2025,
+    "change": "More often",
+    "rate": 14.8,
+    "order": 2
+  }
+]

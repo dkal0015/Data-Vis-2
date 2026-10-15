@@ -1,0 +1,215 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#6c796f",
+      "titleColor": "#203b32",
+      "gridColor": "#e1e4d9",
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelPadding": 8,
+      "titlePadding": 12
+    },
+    "legend": {
+      "labelColor": "#203b32",
+      "titleColor": "#203b32",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "orient": "bottom",
+      "padding": 10
+    },
+    "title": {
+      "anchor": "start",
+      "color": "#203b32",
+      "fontSize": 15
+    }
+  },
+  "description": "Change in weekly participation from 2023 to 2025 in percentage points. These point estimates do not establish statistical significance.",
+  "height": 290,
+  "data": {
+    "values": [
+      {
+        "state": "NSW",
+        "before": 14.5,
+        "after": 14.8,
+        "change": 0.3
+      },
+      {
+        "state": "QLD",
+        "before": 14.4,
+        "after": 14.1,
+        "change": -0.3
+      },
+      {
+        "state": "VIC",
+        "before": 16.7,
+        "after": 15.7,
+        "change": -1
+      },
+      {
+        "state": "WA",
+        "before": 13.9,
+        "after": 16.5,
+        "change": 2.6
+      },
+      {
+        "state": "ACT",
+        "before": 13,
+        "after": 20,
+        "change": 7
+      },
+      {
+        "state": "SA",
+        "before": 12.5,
+        "after": 11.8,
+        "change": -0.7
+      },
+      {
+        "state": "NT",
+        "before": 16.1,
+        "after": 17.6,
+        "change": 1.5
+      },
+      {
+        "state": "TAS",
+        "before": 11.5,
+        "after": 13.8,
+        "change": 2.3
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 3,
+        "height": 18
+      },
+      "encoding": {
+        "x": {
+          "field": "change",
+          "type": "quantitative",
+          "title": "Change, 2023 → 2025 (percentage points)",
+          "scale": {
+            "domain": [
+              -2,
+              8
+            ]
+          },
+          "axis": {
+            "values": [
+              -2,
+              0,
+              2,
+              4,
+              6,
+              8
+            ]
+          }
+        },
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "title": null,
+          "sort": [
+            "ACT",
+            "WA",
+            "TAS",
+            "NT",
+            "NSW",
+            "QLD",
+            "SA",
+            "VIC"
+          ]
+        },
+        "color": {
+          "condition": {
+            "test": "datum.change < 0",
+            "value": "#bb6244"
+          },
+          "value": "#245646"
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "before",
+            "type": "quantitative",
+            "title": "2023 (%)"
+          },
+          {
+            "field": "after",
+            "type": "quantitative",
+            "title": "2025 (%)"
+          },
+          {
+            "field": "change",
+            "type": "quantitative",
+            "title": "Change (points)"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#6c796f"
+      },
+      "encoding": {
+        "x": {
+          "datum": 0
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "color": "#203b32",
+        "fontSize": 11
+      },
+      "encoding": {
+        "x": {
+          "field": "change",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": [
+            "ACT",
+            "WA",
+            "TAS",
+            "NT",
+            "NSW",
+            "QLD",
+            "SA",
+            "VIC"
+          ]
+        },
+        "text": {
+          "field": "change",
+          "format": "+.1f"
+        }
+      }
+    }
+  ]
+}

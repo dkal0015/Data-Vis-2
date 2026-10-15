@@ -1,0 +1,169 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#6c796f",
+      "titleColor": "#203b32",
+      "gridColor": "#e1e4d9",
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelPadding": 8,
+      "titlePadding": 12
+    },
+    "legend": {
+      "labelColor": "#203b32",
+      "titleColor": "#203b32",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "orient": "bottom",
+      "padding": 10
+    },
+    "title": {
+      "anchor": "start",
+      "color": "#203b32",
+      "fontSize": 15
+    }
+  },
+  "description": "Each point is a state or territory: population who rode in the last year against population who rode in the last week. Association does not imply a causal effect of trails.",
+  "height": 280,
+  "data": {
+    "values": [
+      {
+        "state": "NSW",
+        "annual": 33.9,
+        "weekly": 14.8
+      },
+      {
+        "state": "QLD",
+        "annual": 32.9,
+        "weekly": 14.1
+      },
+      {
+        "state": "VIC",
+        "annual": 36.6,
+        "weekly": 15.7
+      },
+      {
+        "state": "WA",
+        "annual": 37.6,
+        "weekly": 16.5
+      },
+      {
+        "state": "ACT",
+        "annual": 40.5,
+        "weekly": 20
+      },
+      {
+        "state": "SA",
+        "annual": 32.8,
+        "weekly": 11.8
+      },
+      {
+        "state": "NT",
+        "annual": 36.7,
+        "weekly": 17.6
+      },
+      {
+        "state": "TAS",
+        "annual": 31.1,
+        "weekly": 13.8
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 95,
+        "color": "#245646"
+      },
+      "encoding": {
+        "x": {
+          "field": "annual",
+          "type": "quantitative",
+          "title": "Rode in the last year (%)",
+          "axis": {
+            "labelExpr": "datum.value + '%'"
+          },
+          "scale": {
+            "domain": [
+              28,
+              45
+            ],
+            "zero": false
+          }
+        },
+        "y": {
+          "field": "weekly",
+          "type": "quantitative",
+          "title": "Rode in the last week (%)",
+          "axis": {
+            "labelExpr": "datum.value + '%'"
+          },
+          "scale": {
+            "domain": [
+              8,
+              24
+            ],
+            "zero": false
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "annual",
+            "type": "quantitative",
+            "title": "Annual (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "weekly",
+            "type": "quantitative",
+            "title": "Weekly (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": -13,
+        "color": "#203b32",
+        "fontSize": 11
+      },
+      "encoding": {
+        "x": {
+          "field": "annual",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "weekly",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state"
+        }
+      }
+    }
+  ]
+}

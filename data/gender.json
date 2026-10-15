@@ -1,0 +1,218 @@
+[
+  {
+    "year": 2015,
+    "period": "Week",
+    "gender": "Male",
+    "rate": 18.6
+  },
+  {
+    "year": 2015,
+    "period": "Week",
+    "gender": "Female",
+    "rate": 11.3
+  },
+  {
+    "year": 2015,
+    "period": "Month",
+    "gender": "Male",
+    "rate": 26.3
+  },
+  {
+    "year": 2015,
+    "period": "Month",
+    "gender": "Female",
+    "rate": 17.4
+  },
+  {
+    "year": 2015,
+    "period": "Year",
+    "gender": "Male",
+    "rate": 39.1
+  },
+  {
+    "year": 2015,
+    "period": "Year",
+    "gender": "Female",
+    "rate": 29.1
+  },
+  {
+    "year": 2017,
+    "period": "Week",
+    "gender": "Male",
+    "rate": 20.7
+  },
+  {
+    "year": 2017,
+    "period": "Week",
+    "gender": "Female",
+    "rate": 10.9
+  },
+  {
+    "year": 2017,
+    "period": "Month",
+    "gender": "Male",
+    "rate": 27.7
+  },
+  {
+    "year": 2017,
+    "period": "Month",
+    "gender": "Female",
+    "rate": 16.8
+  },
+  {
+    "year": 2017,
+    "period": "Year",
+    "gender": "Male",
+    "rate": 40.2
+  },
+  {
+    "year": 2017,
+    "period": "Year",
+    "gender": "Female",
+    "rate": 29.3
+  },
+  {
+    "year": 2019,
+    "period": "Week",
+    "gender": "Male",
+    "rate": 17.6
+  },
+  {
+    "year": 2019,
+    "period": "Week",
+    "gender": "Female",
+    "rate": 10.6
+  },
+  {
+    "year": 2019,
+    "period": "Month",
+    "gender": "Male",
+    "rate": 26.1
+  },
+  {
+    "year": 2019,
+    "period": "Month",
+    "gender": "Female",
+    "rate": 17.6
+  },
+  {
+    "year": 2019,
+    "period": "Year",
+    "gender": "Male",
+    "rate": 39.9
+  },
+  {
+    "year": 2019,
+    "period": "Year",
+    "gender": "Female",
+    "rate": 31.4
+  },
+  {
+    "year": 2021,
+    "period": "Week",
+    "gender": "Male",
+    "rate": 22.2
+  },
+  {
+    "year": 2021,
+    "period": "Week",
+    "gender": "Female",
+    "rate": 12.9
+  },
+  {
+    "year": 2021,
+    "period": "Month",
+    "gender": "Male",
+    "rate": 31.8
+  },
+  {
+    "year": 2021,
+    "period": "Month",
+    "gender": "Female",
+    "rate": 21.0
+  },
+  {
+    "year": 2021,
+    "period": "Year",
+    "gender": "Male",
+    "rate": 45.4
+  },
+  {
+    "year": 2021,
+    "period": "Year",
+    "gender": "Female",
+    "rate": 33.3
+  },
+  {
+    "year": 2023,
+    "period": "Week",
+    "gender": "Male",
+    "rate": 18.3
+  },
+  {
+    "year": 2023,
+    "period": "Week",
+    "gender": "Female",
+    "rate": 11.3
+  },
+  {
+    "year": 2023,
+    "period": "Month",
+    "gender": "Male",
+    "rate": 29.1
+  },
+  {
+    "year": 2023,
+    "period": "Month",
+    "gender": "Female",
+    "rate": 18.5
+  },
+  {
+    "year": 2023,
+    "period": "Year",
+    "gender": "Male",
+    "rate": 42.7
+  },
+  {
+    "year": 2023,
+    "period": "Year",
+    "gender": "Female",
+    "rate": 30.7
+  },
+  {
+    "year": 2025,
+    "period": "Week",
+    "gender": "Male",
+    "rate": 19.3
+  },
+  {
+    "year": 2025,
+    "period": "Week",
+    "gender": "Female",
+    "rate": 10.9
+  },
+  {
+    "year": 2025,
+    "period": "Month",
+    "gender": "Male",
+    "rate": 29.7
+  },
+  {
+    "year": 2025,
+    "period": "Month",
+    "gender": "Female",
+    "rate": 19.5
+  },
+  {
+    "year": 2025,
+    "period": "Year",
+    "gender": "Male",
+    "rate": 41.1
+  },
+  {
+    "year": 2025,
+    "period": "Year",
+    "gender": "Female",
+    "rate": 29.0
+  }
+]

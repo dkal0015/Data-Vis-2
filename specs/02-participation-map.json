@@ -1,0 +1,246 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#6c796f",
+      "titleColor": "#203b32",
+      "gridColor": "#e1e4d9",
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelPadding": 8,
+      "titlePadding": 12
+    },
+    "legend": {
+      "labelColor": "#203b32",
+      "titleColor": "#203b32",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "orient": "bottom",
+      "padding": 10
+    },
+    "title": {
+      "anchor": "start",
+      "color": "#203b32",
+      "fontSize": 15
+    }
+  },
+  "description": "Choropleth of 2025 cycling participation by state and territory. ACT label is offset east for visibility.",
+  "height": 440,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -134,
+      0,
+      0
+    ],
+    "center": [
+      0,
+      -28
+    ]
+  },
+  "params": [
+    {
+      "name": "period",
+      "value": "Week"
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/states.geojson?v=2",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.properties[period]",
+          "as": "rate"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#f5f3e9",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "color": {
+          "field": "rate",
+          "type": "quantitative",
+          "title": "Population (%)",
+          "scale": {
+            "domain": [
+              10,
+              45
+            ],
+            "range": [
+              "#e7edd6",
+              "#245646"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "type": "nominal",
+            "title": "State / territory"
+          },
+          {
+            "field": "rate",
+            "type": "quantitative",
+            "title": "Population (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "state": "WA",
+            "lon": 121,
+            "lat": -25,
+            "Week": 16.5,
+            "Month": 25.9,
+            "Year": 37.6
+          },
+          {
+            "state": "NT",
+            "lon": 133,
+            "lat": -20,
+            "Week": 17.6,
+            "Month": 27.5,
+            "Year": 36.7
+          },
+          {
+            "state": "SA",
+            "lon": 135,
+            "lat": -30,
+            "Week": 11.8,
+            "Month": 21.3,
+            "Year": 32.8
+          },
+          {
+            "state": "QLD",
+            "lon": 144.5,
+            "lat": -23,
+            "Week": 14.1,
+            "Month": 23.1,
+            "Year": 32.9
+          },
+          {
+            "state": "NSW",
+            "lon": 147,
+            "lat": -32,
+            "Week": 14.8,
+            "Month": 25.1,
+            "Year": 33.9
+          },
+          {
+            "state": "VIC",
+            "lon": 144.6,
+            "lat": -36.6,
+            "Week": 15.7,
+            "Month": 24.4,
+            "Year": 36.6
+          },
+          {
+            "state": "TAS",
+            "lon": 147,
+            "lat": -42.1,
+            "Week": 13.8,
+            "Month": 21.7,
+            "Year": 31.1
+          },
+          {
+            "state": "ACT",
+            "lon": 153,
+            "lat": -36,
+            "Week": 20,
+            "Month": 31.3,
+            "Year": 40.5
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "datum.state + ' ' + format(datum[period], '.1f') + '%'",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#203b32"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        },
+        "color": {
+          "condition": {
+            "test": "datum[period] > 30 && datum.state !== 'ACT'",
+            "value": "#f5f3e9"
+          },
+          "value": "#203b32"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 149.13,
+            "lat": -35.28
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "shape": "diamond",
+        "filled": true,
+        "color": "#bb6244",
+        "size": 60
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    }
+  ]
+}

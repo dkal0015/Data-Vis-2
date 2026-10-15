@@ -1,0 +1,17 @@
+[
+  {
+    "style": "Prefer paths or quiet streets",
+    "rate": 69,
+    "order": 0
+  },
+  {
+    "style": "Prefer the most direct route",
+    "rate": 22,
+    "order": 1
+  },
+  {
+    "style": "Would never ride on a road",
+    "rate": 9,
+    "order": 2
+  }
+]
