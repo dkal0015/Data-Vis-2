@@ -13,13 +13,13 @@
       "stroke": null
     },
     "axis": {
-      "labelColor": "#6c796f",
+      "labelColor": "#526354",
       "titleColor": "#203b32",
       "gridColor": "#e1e4d9",
       "domain": false,
       "ticks": false,
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "titleFontWeight": "normal",
       "labelPadding": 8,
       "titlePadding": 12
@@ -27,19 +27,24 @@
     "legend": {
       "labelColor": "#203b32",
       "titleColor": "#203b32",
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "orient": "bottom",
-      "padding": 10
+      "padding": 10,
+      "labelLimit": 270,
+      "columns": 1
     },
     "title": {
       "anchor": "start",
       "color": "#203b32",
       "fontSize": 15
+    },
+    "text": {
+      "fontSize": 12
     }
   },
   "description": "Self-reported change in riding frequency among main respondents who have cycled for more than 12 months. Different survey respondents each wave; not a cohort.",
-  "height": 180,
+  "height": 225,
   "data": {
     "values": [
       {
@@ -98,69 +103,177 @@
       }
     ]
   },
-  "mark": {
-    "type": "bar",
-    "height": 27,
-    "cornerRadius": 2
-  },
-  "encoding": {
-    "y": {
-      "field": "year",
-      "type": "ordinal",
-      "title": null,
-      "sort": "ascending"
-    },
-    "x": {
-      "field": "rate",
-      "type": "quantitative",
-      "stack": "zero",
-      "title": "Share of established riders (%)",
-      "scale": {
-        "domain": [
-          0,
-          100
-        ]
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "height": 27,
+        "cornerRadius": 2
       },
-      "axis": {
-        "labelExpr": "datum.value + '%'"
+      "encoding": {
+        "y": {
+          "field": "year",
+          "type": "ordinal",
+          "title": null,
+          "sort": "ascending"
+        },
+        "x": {
+          "field": "rate",
+          "type": "quantitative",
+          "stack": "zero",
+          "title": "Share of established riders (%)",
+          "scale": {
+            "domain": [
+              0,
+              100
+            ]
+          },
+          "axis": {
+            "labelExpr": "datum.value + '%'"
+          }
+        },
+        "color": {
+          "field": "change",
+          "scale": {
+            "domain": [
+              "Less often",
+              "About the same",
+              "More often"
+            ],
+            "range": [
+              "#a4482f",
+              "#d9ddc9",
+              "#245646"
+            ]
+          },
+          "title": null
+        },
+        "order": {
+          "field": "order"
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "change",
+            "type": "nominal",
+            "title": "Riding frequency"
+          },
+          {
+            "field": "rate",
+            "type": "quantitative",
+            "title": "Share (%)",
+            "format": ".1f"
+          }
+        ]
       }
     },
-    "color": {
-      "field": "change",
-      "scale": {
-        "domain": [
-          "Less often",
-          "About the same",
-          "More often"
-        ],
-        "range": [
-          "#bb6244",
-          "#d9ddc9",
-          "#245646"
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2021,
+            "change": "Less often",
+            "rate": 47.9,
+            "order": 0,
+            "mid": 23.95,
+            "label": "47.9%"
+          },
+          {
+            "year": 2021,
+            "change": "About the same",
+            "rate": 32.9,
+            "order": 1,
+            "mid": 64.35,
+            "label": "32.9%"
+          },
+          {
+            "year": 2021,
+            "change": "More often",
+            "rate": 19.2,
+            "order": 2,
+            "mid": 90.39999999999999,
+            "label": "19.2%"
+          },
+          {
+            "year": 2023,
+            "change": "Less often",
+            "rate": 34,
+            "order": 0,
+            "mid": 17,
+            "label": "34.0%"
+          },
+          {
+            "year": 2023,
+            "change": "About the same",
+            "rate": 43.2,
+            "order": 1,
+            "mid": 55.6,
+            "label": "43.2%"
+          },
+          {
+            "year": 2023,
+            "change": "More often",
+            "rate": 22.9,
+            "order": 2,
+            "mid": 88.65,
+            "label": "22.9%"
+          },
+          {
+            "year": 2025,
+            "change": "Less often",
+            "rate": 35,
+            "order": 0,
+            "mid": 17.5,
+            "label": "35.0%"
+          },
+          {
+            "year": 2025,
+            "change": "About the same",
+            "rate": 50.2,
+            "order": 1,
+            "mid": 60.1,
+            "label": "50.2%"
+          },
+          {
+            "year": 2025,
+            "change": "More often",
+            "rate": 14.8,
+            "order": 2,
+            "mid": 92.60000000000001,
+            "label": "14.8%"
+          }
         ]
       },
-      "title": null
-    },
-    "order": {
-      "field": "order"
-    },
-    "tooltip": [
-      {
-        "field": "year",
-        "type": "ordinal",
-        "title": "Year"
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 600
       },
-      {
-        "field": "change",
-        "type": "nominal",
-        "title": "Riding frequency"
-      },
-      {
-        "field": "rate",
-        "type": "quantitative",
-        "title": "Share (%)",
-        "format": ".1f"
+      "encoding": {
+        "x": {
+          "field": "mid",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "year",
+          "type": "ordinal",
+          "sort": "ascending"
+        },
+        "text": {
+          "field": "label"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.change==='About the same'",
+            "value": "#203b32"
+          },
+          "value": "#f7f5ed"
+        }
       }
-    ]
-  }
+    }
+  ]
 }

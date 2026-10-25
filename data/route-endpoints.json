@@ -1,0 +1,24 @@
+[
+  {
+    "town": "Lilydale",
+    "label": "Lilydale mapped end",
+    "node_id": 634093804,
+    "lon": 145.3499496,
+    "lat": -37.7538298,
+    "role": "Mapped relation terminus, not a certified navigation trailhead",
+    "verification": "Degree-one node in relation member-way topology; relation from/to towns agree with the Rail Trails Australia trail guide",
+    "checked": "2026-10-25",
+    "source_url": "https://www.openstreetmap.org/node/634093804"
+  },
+  {
+    "town": "Warburton",
+    "label": "Warburton mapped end",
+    "node_id": 4383369108,
+    "lon": 145.6959959,
+    "lat": -37.753023,
+    "role": "Mapped relation terminus, not a certified navigation trailhead",
+    "verification": "Degree-one node in relation member-way topology; relation from/to towns agree with the Rail Trails Australia trail guide",
+    "checked": "2026-10-25",
+    "source_url": "https://www.openstreetmap.org/node/4383369108"
+  }
+]

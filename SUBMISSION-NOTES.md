@@ -1,5 +1,7 @@
 # FIT3179 submission notes — draft for Duveen Kalansooriya
 
+Revised 25 October 2026. The current figure inventory, encoding rationale and second review are in REVIEW.md. Use REVIEW.md for the revised figure numbers and idioms.
+
 ## Domain, audience and purpose
 
 **Domain:** Cycling participation and recreational rail trails in Australia.
@@ -12,27 +14,15 @@
 
 1. **CWANZ / Painted Dog Research — National Walking and Cycling Participation Survey 2025.** Public report: https://www.cwanz.com.au/wp-content/uploads/2025/10/251001-CWANZ-National-Walking-and-Cycling-Participation-Survey-Report-National.pdf. Participation by state/year/window was extracted from p. 127; gender from p. 130; age from p. 51; riding frequency from p. 60; riding style from p. 76. Historical participation uses the revised values published in the 2025 report. Values are weighted survey estimates, not counts from trail counters. Some report bases vary, and these are retained in the citations. Age chart omits the national and 'prefer not to say' rows to display the substantive age bands.
 2. **Rail Trails Australia.** Fourteen chosen public listings, researched 15 October 2026. The selection covers six states and a variety of lengths and surfaces. Exact page URLs and status are retained per row. Headline length is not always a continuous open ride length. Surface groups are derived from factual surface tags: sealed materials only, unsealed materials only, or both. No kilometre shares are inferred. This is a purposefully selected illustrative sample; do not make state totals or representativeness claims from it. No RTA geometry, prose descriptions, map artwork or photographs are reproduced.
-3. **OpenStreetMap.** Official API for https://www.openstreetmap.org/relation/29695, retrieved 15 October 2026. Relation version 75, edited 5 October 2026. Original node coordinates from 94 member ways are converted to a MultiLineString with no invented connecting segments. This covers Lilydale–Warburton only, whereas the separate RTA 48 km listing includes the additional Yarra Valley branch. ODbL notice and source link are displayed and the GeoJSON remains available under ODbL.
+3. **OpenStreetMap.** Official API for https://www.openstreetmap.org/relation/29695, retrieved 15 October 2026. Relation version 75, edited 5 October 2026. Original node coordinates from 94 member ways are retained in a MultiLineString and a separate per-way surface GeoJSON with no invented connecting segments. Recorded way tags classify 74 ways as unsealed, 19 as sealed and one as not recorded; these counts are not distance shares. Named mapped ends use explicit terminal IDs checked on 25 October 2026 against the stored topology and published guide. These are not certified access points or current surface inspections. This covers Lilydale–Warburton only, whereas the separate RTA 48 km listing includes the additional Yarra Valley branch. ODbL notice and source link are displayed and the GeoJSON remains available under ODbL.
 4. **Natural Earth.** Public-domain state/territory boundaries at 1:50m. Australia features are filtered from the admin-1 GeoJSON, postal abbreviations standardised, and 2025 participation attributes joined by state. Jervis Bay is omitted as it has no separate survey estimate. Boundary geometry is cartographic, not a survey/cadastral representation.
 5. **Australian Sports Commission / AusPlay.** https://www.ausport.gov.au/clearinghouse/research/archive/cycling. A separate 2025 adult cycling estimate provides context. Its sport/physical activity definition and population differ, so it is not combined with the travel survey or plotted as a comparable time point.
 
 ## How: marks, channels and tasks
 
-| Figure | Idiom and encoding | Reader task and design rationale |
-|---|---|---|
-| 1 | Choropleth: state area, sequential colour | Locate high/low population participation rates. Equal-area conic projection; constant 10–45% colour domain across recall windows; ACT label offset. |
-| 2 | Multi-line chart: year position, rate height, colour | Follow national survey history. Zero baseline; distinct recall windows; legend focus. Recall windows overlap and are not additive. |
-| 3 | Heatmap: year × jurisdiction, colour and numeric labels | Compare many state/year values compactly with a common 0–30% scale. |
-| 4 | Diverging bars: signed length from zero | Compare the direction and size of recent change, in percentage points. Does not label all differences statistically significant. |
-| 5 | Lollipop: age order and common rate position | Compare age groups and identify the childhood/young-adult contrast. A dashed line supplies the national reference. It is not a tracked cohort. |
-| 6 | Dumbbell: paired positions joined within recall window | Compare source-reported male/female rates within each gender population. |
-| 7 | Waffle: 100 equal cells, colour category | Communicate a 69/22/9 split in riding preferences in an approachable form. One cell is one percentage point, not one respondent. |
-| 8 | Stacked composition: common 0–100% scale and colour | Compare the balance of more/same/less riding across survey waves. Different respondents each wave. |
-| 9 | Proportional-symbol map: location, symbol area and surface colour | Locate selected trail examples; compare listed lengths without confusing larger land areas with more trails. |
-| 10 | Ranked horizontal bars: common length baseline and surface colour | Compare individual published listing lengths and filter surface categories. Long labels are shortened only on the chart; complete names remain in tooltips/table. |
-| 11 | Boxplots with all observed dots | Compare distributions within this selection. Explain median, middle half and whiskers; avoid population inference from the small selected groups. |
-| 12 | Geographic line map: actual route geometry | Inspect a route corridor at local scale. Mercator is suitable for this small extent; north is up. This is not navigation. |
-| 13 | Scatterplot with direct labels: annual vs weekly rate | Compare occasional reach with weekly routine. Truncated axes are explicitly disclosed; association is not a causal claim. |
+The revised page leads with the trail selection, then presents participation, rider preferences and a local route. See [REVIEW.md](REVIEW.md) for the current figure-by-figure inventory and justification of the eight advanced idioms. Basic diagrams are not classified as advanced simply because they are interactive.
+
+Additional derived views: the treemap sums published listing lengths within this selection; its areas are not unique network kilometres. The alluvial preserves joint surface, length-band and status attributes, with width counting listings rather than distance. Its stages are not changes over time. The final rate comparison uses a 0–100% scale with national and 50% references. It is weekly population rate divided by annual population rate, multiplied by 100; it is not individual retention or measured riding frequency.
 
 ## Munzner What / Why / How
 
@@ -40,16 +30,16 @@
 
 **Why:** Present a coherent narrative; compare, rank, locate, identify trends and inspect a geographic detail. The main task is communication for the public, not expert open-ended analysis.
 
-**How:** A single scrolling page, four chapters, restrained green/rust palette, serif chapter headings, aligned figures, direct numeric annotations, source-level captions and limited meaningful interactions. The two national maps use equal-area conic projection; the local route uses Mercator. Symbol size represents area, not radius. Rates and raw lengths remain separate. Controls alter chart elements without swapping major page sections. All maps/charts use original Vega-Lite JSON.
+**How:** A single scrolling page, four chapters, restrained green/rust palette, serif chapter headings, aligned figures, direct numeric annotations, source-level captions and limited meaningful interactions. The two national maps use equal-area conic projection; the local route uses Mercator. Symbol size represents area, not radius. Rates and raw lengths remain separate. Controls alter chart elements without swapping major page sections. All maps/charts use original Vega-Lite or Vega JSON.
 
 ## Technical delivery and validation
 
-- 13 chart panels and three map idioms: choropleth, proportional symbols and route lines.
+- 15 main chart panels and three map idioms: choropleth, proportional symbols and route lines.
 - More than two substantive sources; local data and libraries, with no live API requests required to view charts.
 - Readable chart JSON in `specs/`; prepared CSV/JSON/GeoJSON in `data/`.
-- All charts compiled and rendered in Vega; selector signals exercised. Desktop/mobile browser checks recorded during implementation.
+- All 16 specifications (15 main charts plus locator inset) compiled and rendered in Vega; selector signals exercised. Desktop/mobile browser checks recorded during implementation.
 - Responsive CSS, chart descriptions, labelled controls, visible source links, downloadable data and a keyboard-accessible data table.
-- No external photographs or copied charts. The small bicycle icon is original inline SVG decoration.
+- Metadata includes author, revision date, source dates, licences and an AI acknowledgement. No external photographs or copied charts. The small bicycle icon is original inline SVG decoration.
 
 ## Student review and submission
 

@@ -1,8 +1,8 @@
 # Australia on Two Wheels
 
-**Duveen Kalansooriya · FIT3179 Data Visualisation 2 · 15 October 2026**
+**Duveen Kalansooriya · FIT3179 Data Visualisation 2 · Revised 25 October 2026**
 
-A single scrolling data story about Australian cycling participation and recreational rail trails. It includes **13 original Vega-Lite charts**, with three map idioms: choropleth, proportional-symbol and geographic route-line maps.
+A single scrolling data story about Australian cycling participation and recreational rail trails. It includes **15 original Vega/Vega-Lite charts**, with three map idioms: choropleth, proportional-symbol and geographic route-line maps.
 
 ## Website
 
@@ -17,16 +17,16 @@ From this repository run `python -m http.server 8000` and open http://localhost:
 ## Source files
 
 - `index.html`, `style.css`, `app.js`: narrative, layout and chart embedding.
-- `specs/`: all 13 human-readable Vega-Lite JSON specifications, each linked from the page.
+- `specs/`: 15 main chart specifications plus a contextual map inset, each linked from the page.
 - `data/`: prepared CSV/JSON tables and geographic data. Data is a dated local snapshot; no live external API is required to view charts.
 - `vendor/`: local Vega 5.33.0, Vega-Lite 5.23.0, Vega-Embed 6.29.0 and their licence notices.
-- `development/`: chart generation/validation and data-preparation source for reproducibility. Chart scripts run from repository root; preparation scripts require the original report/research inputs described in the provenance notes.
+- `development/`: chart generation/validation and data-preparation source for reproducibility. Run `node development/refine-encodings.mjs` from repository root to regenerate the reviewed charts. Validation scripts run from repository root; preparation scripts require the original report/research inputs described in the provenance notes.
 - [SUBMISSION-NOTES.md](SUBMISSION-NOTES.md): draft domain/audience/purpose and What/Why/How rationale; remaining student submission tasks.
 - [DATA-PROVENANCE.md](DATA-PROVENANCE.md): trail selection, surface grouping, geometry and licensing details.
 
 ## Interactions and accessibility
 
-The participation-map selector switches between weekly, monthly and annual recall windows. The surface selector filters the selected-trail map and ranked-length chart together. The national line-chart legend can focus a series. All sections stay on the page. Source links, chart JSON, downloadable data, accessible tables and chart descriptions remain available.
+The participation-map selector switches between weekly, monthly and annual recall windows. The surface selector filters the selected-trail map and ranked-length chart together. The national line-chart legend can focus a series. A pinned trail selection shows its complete name, state, surface and published length in a persistent readout. The map and heatmap share a 0–45% scale; route colours show recorded OSM way surfaces. All sections stay on the page. Source links, chart JSON, downloadable data, accessible tables and chart descriptions remain available.
 
 ## Sources
 
@@ -42,4 +42,6 @@ OpenAI Codex assisted with research, data preparation, narrative, implementation
 
 ## Validation
 
-Run `node development/validate.mjs` to compile/render all charts, verify selected source values and exercise filter signals. Browser checks covered desktop and mobile widths, all 13 chart renders, the annual recall-window selection and five sealed trails in the linked filter. Numerical survey estimates and source definitions should be reviewed before submission.
+Run `node development/validate.mjs` to compile/render all 16 specifications (15 main charts and one inset), verify selected source values and exercise filter signals, check actual rendered label contrast, verify all individual boxplot points and named route ends, and reconcile 94 route surface segments. Browser checks covered desktop and mobile widths, all 16 specification renders, the annual recall-window selection and five sealed trails in the linked filter. Numerical survey estimates and source definitions should be reviewed before submission.
+
+The updated review and eight-advanced-idiom inventory are in [REVIEW.md](REVIEW.md). The alluvial becomes vertical on a phone. Map geometry is embedded in the specifications to avoid separate GeoJSON requests.

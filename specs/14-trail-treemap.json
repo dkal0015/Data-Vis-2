@@ -1,0 +1,492 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Treemap of summed published listing lengths in the 14-trail selection; not unique network kilometres or a representative national total.",
+  "width": 700,
+  "height": 410,
+  "padding": 3,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "background": "transparent",
+  "signals": [
+    {
+      "name": "highlight",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "name": "tree",
+      "values": [
+        {
+          "id": "root",
+          "parent": null,
+          "name": "Selection",
+          "km": 0
+        },
+        {
+          "id": "Sealed",
+          "parent": "root",
+          "name": "Sealed",
+          "km": 0,
+          "listedKm": 258
+        },
+        {
+          "id": "Mixed",
+          "parent": "root",
+          "name": "Mixed",
+          "km": 0,
+          "listedKm": 448
+        },
+        {
+          "id": "Unsealed",
+          "parent": "root",
+          "name": "Unsealed",
+          "km": 0,
+          "listedKm": 199
+        },
+        {
+          "name": "Brisbane Valley Rail Trail",
+          "state": "QLD",
+          "km": 161,
+          "surface": "Coarse gravel, Compacted earth, Fine gravel, Sealed",
+          "lon": 152.72494918197,
+          "lat": -27.607367186043,
+          "url": "https://www.railtrails.org.au/trails/brisbane-valley-rail-trail/",
+          "coordinate_note": "Source: embedded Rail Trails Australia trail map marker: Official start of the rail trail. Coordinates are a location pin; see source for formal trailhead and current route access.",
+          "endpoints": "Wulkuraka to Yarraman",
+          "status": "Trail Open",
+          "accessed": "2026-10-15",
+          "surface_group": "Mixed",
+          "short_name": "Brisbane Valley",
+          "id": "t0",
+          "parent": "Mixed"
+        },
+        {
+          "name": "Coast to Vines Rail Trail",
+          "state": "SA",
+          "km": 37,
+          "surface": "Sealed",
+          "lon": 138.5111476481,
+          "lat": -35.047174724844,
+          "url": "https://www.railtrails.org.au/trails/coast-to-vines-rail-trail/",
+          "coordinate_note": "Source: embedded Rail Trails Australia trail map marker: Start of Trail near Marino Rocks Railway Station. Coordinates are a location pin; see source for formal trailhead and current route access.",
+          "endpoints": "Marino Rocks to Willunga",
+          "status": "Trail Open",
+          "accessed": "2026-10-15",
+          "surface_group": "Sealed",
+          "short_name": "Coast to Vines",
+          "id": "t1",
+          "parent": "Sealed"
+        },
+        {
+          "name": "Denmark – Nornalup Heritage Rail Trail",
+          "state": "WA",
+          "km": 61,
+          "surface": "Coarse gravel, Compacted earth, Fine gravel",
+          "lon": 117.46354907751,
+          "lat": -34.964687012882,
+          "url": "https://www.railtrails.org.au/trails/denmark-to-nornalup-including-wilsons-inlet-rail-trail/",
+          "coordinate_note": "Source: embedded Rail Trails Australia trail map marker: Start of trail at Hay River. Coordinates are a location pin; see source for formal trailhead and current route access.",
+          "endpoints": "Hay River, Denmark to Station Rd, Nornalup",
+          "status": "Trail Partially open",
+          "accessed": "2026-10-15",
+          "surface_group": "Unsealed",
+          "short_name": "Denmark – Nornalup Heritage",
+          "id": "t2",
+          "parent": "Unsealed"
+        },
+        {
+          "name": "East Gippsland Rail Trail",
+          "state": "VIC",
+          "km": 96,
+          "surface": "Asphalt, Concrete, Fine gravel",
+          "lon": 147.64164865017,
+          "lat": -37.824548669179,
+          "url": "https://www.railtrails.org.au/trails/east-gippsland-rail-trail/",
+          "coordinate_note": "Source: embedded Rail Trails Australia trail map marker: The rail trail starts on the southern side of the Princes Hwy on McEacharn St. You can reach it from the Howitt Park playground car park via a path under the highway bridge.. Coordinates are a location pin; see source for formal trailhead and current route access.",
+          "endpoints": "Bairnsdale to Orbost",
+          "status": "Trail Open",
+          "accessed": "2026-10-15",
+          "surface_group": "Mixed",
+          "short_name": "East Gippsland",
+          "id": "t3",
+          "parent": "Mixed"
+        },
+        {
+          "name": "Kilkivan – Kingaroy Rail Trail",
+          "state": "QLD",
+          "km": 89,
+          "surface": "Coarse gravel, Fine gravel, Sealed",
+          "lon": 152.23450183868,
+          "lat": -26.084441679042,
+          "url": "https://www.railtrails.org.au/trails/kilkivan-kingaroy-rail-trail/",
+          "coordinate_note": "Source: embedded Rail Trails Australia trail map marker: Station Site. Coordinates are a location pin; see source for formal trailhead and current route access.",
+          "endpoints": "Kilkivan to Kingaroy",
+          "status": "Trail Open",
+          "accessed": "2026-10-15",
+          "surface_group": "Mixed",
+          "short_name": "Kilkivan – Kingaroy",
+          "id": "t4",
+          "parent": "Mixed"
+        },
+        {
+          "name": "Warburton Rail Trail/Yarra Valley Trail",
+          "state": "VIC",
+          "km": 48,
+          "surface": "Asphalt, Fine gravel",
+          "lon": 145.35026215588,
+          "lat": -37.757307312858,
+          "url": "https://www.railtrails.org.au/trails/lilydale-to-warburton-yarra-valley-rail-trail/",
+          "coordinate_note": "Source: embedded Rail Trails Australia trail map marker: Bike repair and e-bike charging stations. Coordinates are a location pin; see source for formal trailhead and current route access.",
+          "endpoints": "Lilydale to Warburton and Yering",
+          "status": "Trail Open",
+          "accessed": "2026-10-15",
+          "surface_group": "Mixed",
+          "short_name": "Warburton/Yarra Valley Trail",
+          "id": "t5",
+          "parent": "Mixed"
+        },
+        {
+          "name": "Murray to Mountains Rail Trail",
+          "state": "VIC",
+          "km": 137,
+          "surface": "Asphalt",
+          "lon": 146.33065864444,
+          "lat": -36.351996423934,
+          "url": "https://www.railtrails.org.au/trails/murray-to-mountains-rail-trail/",
+          "coordinate_note": "Source: embedded Rail Trails Australia trail map marker: Parking. Coordinates are a location pin; see source for formal trailhead and current route access.",
+          "endpoints": "Wangaratta to Bright, Yackandandah and Oxley; Rutherglen to Wahgunyah",
+          "status": "Trail Open",
+          "accessed": "2026-10-15",
+          "surface_group": "Sealed",
+          "short_name": "Murray to Mountains",
+          "id": "t6",
+          "parent": "Sealed"
+        },
+        {
+          "name": "North-East Tasmania Rail Trail",
+          "state": "TAS",
+          "km": 26,
+          "surface": "Compacted earth",
+          "lon": 147.51176476479,
+          "lat": -41.159545337115,
+          "url": "https://www.railtrails.org.au/trails/north-east-tasmania-rail-trail/",
+          "coordinate_note": "Source: embedded Rail Trails Australia trail map marker: Scottsdale Station site. Coordinates are a location pin; see source for formal trailhead and current route access.",
+          "endpoints": "Scottsdale to Tulendeena (Billycock Hill)",
+          "status": "Trail Open",
+          "accessed": "2026-10-15",
+          "surface_group": "Unsealed",
+          "short_name": "North-East Tasmania",
+          "id": "t7",
+          "parent": "Unsealed"
+        },
+        {
+          "name": "North-West Tasmanian Coastal Pathway",
+          "state": "TAS",
+          "km": 20,
+          "surface": "Asphalt, Bitumen, Concrete, Sealed",
+          "lon": 145.72183689077,
+          "lat": -40.992187869973,
+          "url": "https://www.railtrails.org.au/trails/north-west-coastal-cycleway/",
+          "coordinate_note": "Source: embedded Rail Trails Australia trail map marker: Wynyard railway station site. Coordinates are a location pin; see source for formal trailhead and current route access.",
+          "endpoints": "Devonport to Wynyard",
+          "status": "Trail Partially open",
+          "accessed": "2026-10-15",
+          "surface_group": "Sealed",
+          "short_name": "NW Tasmanian Coastal Pathway",
+          "id": "t8",
+          "parent": "Sealed"
+        },
+        {
+          "name": "Northern Rivers Rail Trail",
+          "state": "NSW",
+          "km": 54,
+          "surface": "Asphalt, Concrete, Fine gravel",
+          "lon": 153.39493602514,
+          "lat": -28.332936469231,
+          "url": "https://www.railtrails.org.au/trails/northern-rivers-rail-trail/",
+          "coordinate_note": "Source: embedded Rail Trails Australia trail map marker: Murwillumbah Station Site. Coordinates are a location pin; see source for formal trailhead and current route access.",
+          "endpoints": "Murwillumbah to Crabbes Creek and Lismore to Casino",
+          "status": "Trail Open",
+          "accessed": "2026-10-15",
+          "surface_group": "Mixed",
+          "short_name": "Northern Rivers",
+          "id": "t9",
+          "parent": "Mixed"
+        },
+        {
+          "name": "Railway Reserves Heritage Trail",
+          "state": "WA",
+          "km": 59,
+          "surface": "Coarse gravel, Compacted earth, Fine gravel",
+          "lon": 116.06081411242485,
+          "lat": -31.88606939511469,
+          "url": "https://www.railtrails.org.au/trails/railway-reserves-heritage-trail/",
+          "coordinate_note": "Source: first vertex of an existing trail segment in the embedded Rail Trails Australia map. Representative route location, not a verified formal trailhead.",
+          "endpoints": "Bellevue to Wooroloo",
+          "status": "Trail Open",
+          "accessed": "2026-10-15",
+          "surface_group": "Unsealed",
+          "short_name": "Railway Reserves",
+          "id": "t10",
+          "parent": "Unsealed"
+        },
+        {
+          "name": "Barossa Rail Trail",
+          "state": "SA",
+          "km": 43,
+          "surface": "Sealed",
+          "lon": 139.04563009739,
+          "lat": -34.50206562254,
+          "url": "https://www.railtrails.org.au/trails/the-barossa-trail/",
+          "coordinate_note": "Source: embedded Rail Trails Australia trail map marker: Angaston trailhead. Coordinates are a location pin; see source for formal trailhead and current route access.",
+          "endpoints": "Gawler  to Angaston",
+          "status": "Trail Open",
+          "accessed": "2026-10-15",
+          "surface_group": "Sealed",
+          "short_name": "Barossa",
+          "id": "t11",
+          "parent": "Sealed"
+        },
+        {
+          "name": "Riesling and Rattler Trails",
+          "state": "SA",
+          "km": 53,
+          "surface": "Fine gravel",
+          "lon": 138.75105515122,
+          "lat": -34.154469847574,
+          "url": "https://www.railtrails.org.au/trails/the-riesling-and-rattler-trail/",
+          "coordinate_note": "Source: embedded Rail Trails Australia trail map marker: Trail Start/Finish. Coordinates are a location pin; see source for formal trailhead and current route access.",
+          "endpoints": "Riverton to White Hut",
+          "status": "Trail Open",
+          "accessed": "2026-10-15",
+          "surface_group": "Unsealed",
+          "short_name": "Riesling and Rattler Trails",
+          "id": "t12",
+          "parent": "Unsealed"
+        },
+        {
+          "name": "Riverina Highlands (Tumbarumba) Rail Trail",
+          "state": "NSW",
+          "km": 21,
+          "surface": "Sealed",
+          "lon": 147.86497473717,
+          "lat": -35.672745665421,
+          "url": "https://www.railtrails.org.au/trails/tumbarumba-to-rosewood-riverina-highlands-rail-trail/",
+          "coordinate_note": "Source: embedded Rail Trails Australia trail map marker: Rosewood railway station Site. Coordinates are a location pin; see source for formal trailhead and current route access.",
+          "endpoints": "Rosewood   to Tumbarumba",
+          "status": "Trail Open",
+          "accessed": "2026-10-15",
+          "surface_group": "Sealed",
+          "short_name": "Tumbarumba",
+          "id": "t13",
+          "parent": "Sealed"
+        }
+      ],
+      "transform": [
+        {
+          "type": "stratify",
+          "key": "id",
+          "parentKey": "parent"
+        },
+        {
+          "type": "treemap",
+          "field": "km",
+          "sort": {
+            "field": "value",
+            "order": "descending"
+          },
+          "method": "squarify",
+          "ratio": 1.3,
+          "round": true,
+          "paddingInner": 3,
+          "paddingOuter": 5,
+          "paddingTop": 25,
+          "size": [
+            {
+              "signal": "width"
+            },
+            {
+              "signal": "height"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "leaves",
+      "source": "tree",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.depth===2"
+        }
+      ]
+    },
+    {
+      "name": "groups",
+      "source": "tree",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.depth===1"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "surface",
+      "type": "ordinal",
+      "domain": [
+        "Sealed",
+        "Mixed",
+        "Unsealed"
+      ],
+      "range": [
+        "#245646",
+        "#a4482f",
+        "#806926"
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "field": "x0"
+          },
+          "x2": {
+            "field": "x1"
+          },
+          "y": {
+            "field": "y0"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "fill": {
+            "scale": "surface",
+            "field": "surface_group"
+          },
+          "stroke": {
+            "value": "#f7f5ed"
+          },
+          "fillOpacity": {
+            "signal": "highlight==='' || datum.short_name===highlight ? 1 : .25"
+          },
+          "tooltip": {
+            "signal": "{'Trail':datum.name,'Listed length (km)':datum.km,'Surface':datum.surface_group,'State':datum.state,'Status':datum.status}"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "interactive": false,
+      "from": {
+        "data": "groups"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "datum.x0+7"
+          },
+          "y": {
+            "signal": "datum.y0+15"
+          },
+          "text": {
+            "signal": "datum.name+' · '+format(datum.listedKm,',')+' listed km'"
+          },
+          "fill": {
+            "value": "#203b32"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": 600
+          },
+          "limit": {
+            "signal": "datum.x1-datum.x0-12"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "interactive": false,
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "datum.x0+7"
+          },
+          "y": {
+            "signal": "datum.y0+17"
+          },
+          "text": {
+            "field": "short_name"
+          },
+          "fill": {
+            "value": "#f7f5ed"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": 600
+          },
+          "limit": {
+            "signal": "max(0,datum.x1-datum.x0-14)"
+          },
+          "opacity": {
+            "signal": "datum.x1-datum.x0>75 && datum.y1-datum.y0>38 ? 1 : 0"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "interactive": false,
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "datum.x0+7"
+          },
+          "y": {
+            "signal": "datum.y0+34"
+          },
+          "text": {
+            "signal": "datum.km+' km'"
+          },
+          "fill": {
+            "value": "#f7f5ed"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "limit": {
+            "signal": "max(0,datum.x1-datum.x0-14)"
+          },
+          "opacity": {
+            "signal": "datum.x1-datum.x0>42 && datum.y1-datum.y0>38 ? 1 : 0"
+          }
+        }
+      }
+    }
+  ]
+}

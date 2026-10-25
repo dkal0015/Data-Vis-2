@@ -13,13 +13,13 @@
       "stroke": null
     },
     "axis": {
-      "labelColor": "#6c796f",
+      "labelColor": "#526354",
       "titleColor": "#203b32",
       "gridColor": "#e1e4d9",
       "domain": false,
       "ticks": false,
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "titleFontWeight": "normal",
       "labelPadding": 8,
       "titlePadding": 12
@@ -27,19 +27,24 @@
     "legend": {
       "labelColor": "#203b32",
       "titleColor": "#203b32",
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "orient": "bottom",
-      "padding": 10
+      "padding": 10,
+      "labelLimit": 270,
+      "columns": 1
     },
     "title": {
       "anchor": "start",
       "color": "#203b32",
       "fontSize": 15
+    },
+    "text": {
+      "fontSize": 12
     }
   },
   "description": "2025 participation within each reported gender group. The male/female categories are those available in the report.",
-  "height": 210,
+  "height": 255,
   "layer": [
     {
       "data": {
@@ -164,7 +169,7 @@
               "Male"
             ],
             "range": [
-              "#bb6244",
+              "#7c5a87",
               "#245646"
             ]
           },
@@ -234,7 +239,7 @@
       "mark": {
         "type": "text",
         "dy": -13,
-        "fontSize": 11,
+        "fontSize": 12,
         "color": "#203b32"
       },
       "encoding": {
@@ -254,6 +259,51 @@
         "text": {
           "field": "rate",
           "format": ".1f"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "period": "Week",
+            "mid": 15.100000000000001,
+            "label": "8.4 pt gap"
+          },
+          {
+            "period": "Month",
+            "mid": 24.6,
+            "label": "10.2 pt gap"
+          },
+          {
+            "period": "Year",
+            "mid": 35.05,
+            "label": "12.1 pt gap"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dy": 23,
+        "color": "#203b32",
+        "fontSize": 12
+      },
+      "encoding": {
+        "x": {
+          "field": "mid",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "period",
+          "type": "ordinal",
+          "sort": [
+            "Week",
+            "Month",
+            "Year"
+          ]
+        },
+        "text": {
+          "field": "label"
         }
       }
     }

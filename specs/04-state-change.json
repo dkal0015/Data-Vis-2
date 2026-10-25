@@ -13,13 +13,13 @@
       "stroke": null
     },
     "axis": {
-      "labelColor": "#6c796f",
+      "labelColor": "#526354",
       "titleColor": "#203b32",
       "gridColor": "#e1e4d9",
       "domain": false,
       "ticks": false,
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "titleFontWeight": "normal",
       "labelPadding": 8,
       "titlePadding": 12
@@ -27,15 +27,20 @@
     "legend": {
       "labelColor": "#203b32",
       "titleColor": "#203b32",
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "orient": "bottom",
-      "padding": 10
+      "padding": 10,
+      "labelLimit": 270,
+      "columns": 1
     },
     "title": {
       "anchor": "start",
       "color": "#203b32",
       "fontSize": 15
+    },
+    "text": {
+      "fontSize": 12
     }
   },
   "description": "Change in weekly participation from 2023 to 2025 in percentage points. These point estimates do not establish statistical significance.",
@@ -184,7 +189,7 @@
         "align": "left",
         "dx": 5,
         "color": "#203b32",
-        "fontSize": 11
+        "fontSize": 12
       },
       "encoding": {
         "x": {
@@ -209,7 +214,50 @@
           "field": "change",
           "format": "+.1f"
         }
-      }
+      },
+      "transform": [
+        {
+          "filter": "datum.change>=0"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -5,
+        "color": "#203b32",
+        "fontSize": 12
+      },
+      "encoding": {
+        "x": {
+          "field": "change",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": [
+            "ACT",
+            "WA",
+            "TAS",
+            "NT",
+            "NSW",
+            "QLD",
+            "SA",
+            "VIC"
+          ]
+        },
+        "text": {
+          "field": "change",
+          "format": "+.1f"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.change<0"
+        }
+      ]
     }
   ]
 }

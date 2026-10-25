@@ -13,13 +13,13 @@
       "stroke": null
     },
     "axis": {
-      "labelColor": "#6c796f",
+      "labelColor": "#526354",
       "titleColor": "#203b32",
       "gridColor": "#e1e4d9",
       "domain": false,
       "ticks": false,
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "titleFontWeight": "normal",
       "labelPadding": 8,
       "titlePadding": 12
@@ -27,19 +27,24 @@
     "legend": {
       "labelColor": "#203b32",
       "titleColor": "#203b32",
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "orient": "bottom",
-      "padding": 10
+      "padding": 10,
+      "labelLimit": 270,
+      "columns": 1
     },
     "title": {
       "anchor": "start",
       "color": "#203b32",
       "fontSize": 15
+    },
+    "text": {
+      "fontSize": 12
     }
   },
   "description": "National bicycle participation. The three recall windows overlap; they must not be added.",
-  "height": 280,
+  "height": 340,
   "data": {
     "values": [
       {
@@ -161,9 +166,26 @@
       "encoding": {
         "x": {
           "field": "year",
-          "type": "ordinal",
+          "type": "quantitative",
           "title": null,
+          "scale": {
+            "zero": false,
+            "domain": [
+              2014.5,
+              2025.8
+            ]
+          },
           "axis": {
+            "values": [
+              2015,
+              2017,
+              2019,
+              2021,
+              2023,
+              2025
+            ],
+            "format": "d",
+            "grid": false,
             "labelAngle": 0
           }
         },
@@ -193,8 +215,8 @@
             ],
             "range": [
               "#245646",
-              "#8a9e57",
-              "#bb6244"
+              "#477bad",
+              "#7c5a87"
             ]
           }
         },
@@ -246,9 +268,26 @@
       "encoding": {
         "x": {
           "field": "year",
-          "type": "ordinal",
+          "type": "quantitative",
           "title": null,
+          "scale": {
+            "zero": false,
+            "domain": [
+              2014.5,
+              2025.8
+            ]
+          },
           "axis": {
+            "values": [
+              2015,
+              2017,
+              2019,
+              2021,
+              2023,
+              2025
+            ],
+            "format": "d",
+            "grid": false,
             "labelAngle": 0
           }
         },
@@ -278,8 +317,8 @@
             ],
             "range": [
               "#245646",
-              "#8a9e57",
-              "#bb6244"
+              "#477bad",
+              "#7c5a87"
             ]
           }
         },
@@ -308,6 +347,173 @@
             "format": ".1f"
           }
         ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2021,
+            "label": "2021 peak across all three windows"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          4,
+          4
+        ],
+        "color": "#8b9685"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "title": null,
+          "scale": {
+            "zero": false,
+            "domain": [
+              2014.5,
+              2025.8
+            ]
+          },
+          "axis": {
+            "values": [
+              2015,
+              2017,
+              2019,
+              2021,
+              2023,
+              2025
+            ],
+            "format": "d",
+            "grid": false,
+            "labelAngle": 0
+          }
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2021,
+            "rate": 44,
+            "label": "2021 peak"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dy": 0,
+        "align": "center",
+        "color": "#203b32",
+        "fontSize": 12
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "title": null,
+          "scale": {
+            "zero": false,
+            "domain": [
+              2014.5,
+              2025.8
+            ]
+          },
+          "axis": {
+            "values": [
+              2015,
+              2017,
+              2019,
+              2021,
+              2023,
+              2025
+            ],
+            "format": "d",
+            "grid": false,
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "rate",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2025,
+            "period": "Week",
+            "state": "AUS",
+            "rate": 14.9,
+            "label": "Week 14.9%"
+          },
+          {
+            "year": 2025,
+            "period": "Month",
+            "state": "AUS",
+            "rate": 24.4,
+            "label": "Month 24.4%"
+          },
+          {
+            "year": 2025,
+            "period": "Year",
+            "state": "AUS",
+            "rate": 34.8,
+            "label": "Year 34.8%"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -9,
+        "dy": -13,
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#203b32"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "title": null,
+          "scale": {
+            "zero": false,
+            "domain": [
+              2014.5,
+              2025.8
+            ]
+          },
+          "axis": {
+            "values": [
+              2015,
+              2017,
+              2019,
+              2021,
+              2023,
+              2025
+            ],
+            "format": "d",
+            "grid": false,
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "rate",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
       }
     }
   ]

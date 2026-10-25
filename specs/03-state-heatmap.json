@@ -13,13 +13,13 @@
       "stroke": null
     },
     "axis": {
-      "labelColor": "#6c796f",
+      "labelColor": "#526354",
       "titleColor": "#203b32",
       "gridColor": "#e1e4d9",
       "domain": false,
       "ticks": false,
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "titleFontWeight": "normal",
       "labelPadding": 8,
       "titlePadding": 12
@@ -27,15 +27,20 @@
     "legend": {
       "labelColor": "#203b32",
       "titleColor": "#203b32",
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "orient": "bottom",
-      "padding": 10
+      "padding": 10,
+      "labelLimit": 270,
+      "columns": 1
     },
     "title": {
       "anchor": "start",
       "color": "#203b32",
       "fontSize": 15
+    },
+    "text": {
+      "fontSize": 12
     }
   },
   "description": "Weekly cycling participation, percent of each jurisdiction population. Historical estimates use the 2025 report weights.",
@@ -46,289 +51,337 @@
         "year": 2015,
         "period": "Week",
         "state": "NSW",
-        "rate": 8.4
+        "rate": 8.4,
+        "labelColor": "#000000"
       },
       {
         "year": 2015,
         "period": "Week",
         "state": "QLD",
-        "rate": 16.4
+        "rate": 16.4,
+        "labelColor": "#000000"
       },
       {
         "year": 2015,
         "period": "Week",
         "state": "VIC",
-        "rate": 16.8
+        "rate": 16.8,
+        "labelColor": "#000000"
       },
       {
         "year": 2015,
         "period": "Week",
         "state": "WA",
-        "rate": 23.3
+        "rate": 23.3,
+        "labelColor": "#000000"
       },
       {
         "year": 2015,
         "period": "Week",
         "state": "ACT",
-        "rate": 21.5
+        "rate": 21.5,
+        "labelColor": "#000000"
       },
       {
         "year": 2015,
         "period": "Week",
         "state": "SA",
-        "rate": 16.8
+        "rate": 16.8,
+        "labelColor": "#000000"
       },
       {
         "year": 2015,
         "period": "Week",
         "state": "NT",
-        "rate": 24.6
+        "rate": 24.6,
+        "labelColor": "#000000"
       },
       {
         "year": 2015,
         "period": "Week",
         "state": "TAS",
-        "rate": 18.1
+        "rate": 18.1,
+        "labelColor": "#000000"
       },
       {
         "year": 2017,
         "period": "Week",
         "state": "NSW",
-        "rate": 12.7
+        "rate": 12.7,
+        "labelColor": "#000000"
       },
       {
         "year": 2017,
         "period": "Week",
         "state": "QLD",
-        "rate": 16.3
+        "rate": 16.3,
+        "labelColor": "#000000"
       },
       {
         "year": 2017,
         "period": "Week",
         "state": "VIC",
-        "rate": 17.1
+        "rate": 17.1,
+        "labelColor": "#000000"
       },
       {
         "year": 2017,
         "period": "Week",
         "state": "WA",
-        "rate": 18.7
+        "rate": 18.7,
+        "labelColor": "#000000"
       },
       {
         "year": 2017,
         "period": "Week",
         "state": "ACT",
-        "rate": 26.2
+        "rate": 26.2,
+        "labelColor": "#000000"
       },
       {
         "year": 2017,
         "period": "Week",
         "state": "SA",
-        "rate": 14.2
+        "rate": 14.2,
+        "labelColor": "#000000"
       },
       {
         "year": 2017,
         "period": "Week",
         "state": "NT",
-        "rate": 26.3
+        "rate": 26.3,
+        "labelColor": "#000000"
       },
       {
         "year": 2017,
         "period": "Week",
         "state": "TAS",
-        "rate": 16.3
+        "rate": 16.3,
+        "labelColor": "#000000"
       },
       {
         "year": 2019,
         "period": "Week",
         "state": "NSW",
-        "rate": 13.1
+        "rate": 13.1,
+        "labelColor": "#000000"
       },
       {
         "year": 2019,
         "period": "Week",
         "state": "QLD",
-        "rate": 13.7
+        "rate": 13.7,
+        "labelColor": "#000000"
       },
       {
         "year": 2019,
         "period": "Week",
         "state": "VIC",
-        "rate": 14
+        "rate": 14,
+        "labelColor": "#000000"
       },
       {
         "year": 2019,
         "period": "Week",
         "state": "WA",
-        "rate": 15.9
+        "rate": 15.9,
+        "labelColor": "#000000"
       },
       {
         "year": 2019,
         "period": "Week",
         "state": "ACT",
-        "rate": 22.7
+        "rate": 22.7,
+        "labelColor": "#000000"
       },
       {
         "year": 2019,
         "period": "Week",
         "state": "SA",
-        "rate": 13.2
+        "rate": 13.2,
+        "labelColor": "#000000"
       },
       {
         "year": 2019,
         "period": "Week",
         "state": "NT",
-        "rate": 21.9
+        "rate": 21.9,
+        "labelColor": "#000000"
       },
       {
         "year": 2019,
         "period": "Week",
         "state": "TAS",
-        "rate": 15
+        "rate": 15,
+        "labelColor": "#000000"
       },
       {
         "year": 2021,
         "period": "Week",
         "state": "NSW",
-        "rate": 14.9
+        "rate": 14.9,
+        "labelColor": "#000000"
       },
       {
         "year": 2021,
         "period": "Week",
         "state": "QLD",
-        "rate": 18.1
+        "rate": 18.1,
+        "labelColor": "#000000"
       },
       {
         "year": 2021,
         "period": "Week",
         "state": "VIC",
-        "rate": 19.1
+        "rate": 19.1,
+        "labelColor": "#000000"
       },
       {
         "year": 2021,
         "period": "Week",
         "state": "WA",
-        "rate": 20.3
+        "rate": 20.3,
+        "labelColor": "#000000"
       },
       {
         "year": 2021,
         "period": "Week",
         "state": "ACT",
-        "rate": 22.3
+        "rate": 22.3,
+        "labelColor": "#000000"
       },
       {
         "year": 2021,
         "period": "Week",
         "state": "SA",
-        "rate": 16.1
+        "rate": 16.1,
+        "labelColor": "#000000"
       },
       {
         "year": 2021,
         "period": "Week",
         "state": "NT",
-        "rate": 21.6
+        "rate": 21.6,
+        "labelColor": "#000000"
       },
       {
         "year": 2021,
         "period": "Week",
         "state": "TAS",
-        "rate": 16.4
+        "rate": 16.4,
+        "labelColor": "#000000"
       },
       {
         "year": 2023,
         "period": "Week",
         "state": "NSW",
-        "rate": 14.5
+        "rate": 14.5,
+        "labelColor": "#000000"
       },
       {
         "year": 2023,
         "period": "Week",
         "state": "QLD",
-        "rate": 14.4
+        "rate": 14.4,
+        "labelColor": "#000000"
       },
       {
         "year": 2023,
         "period": "Week",
         "state": "VIC",
-        "rate": 16.7
+        "rate": 16.7,
+        "labelColor": "#000000"
       },
       {
         "year": 2023,
         "period": "Week",
         "state": "WA",
-        "rate": 13.9
+        "rate": 13.9,
+        "labelColor": "#000000"
       },
       {
         "year": 2023,
         "period": "Week",
         "state": "ACT",
-        "rate": 13
+        "rate": 13,
+        "labelColor": "#000000"
       },
       {
         "year": 2023,
         "period": "Week",
         "state": "SA",
-        "rate": 12.5
+        "rate": 12.5,
+        "labelColor": "#000000"
       },
       {
         "year": 2023,
         "period": "Week",
         "state": "NT",
-        "rate": 16.1
+        "rate": 16.1,
+        "labelColor": "#000000"
       },
       {
         "year": 2023,
         "period": "Week",
         "state": "TAS",
-        "rate": 11.5
+        "rate": 11.5,
+        "labelColor": "#000000"
       },
       {
         "year": 2025,
         "period": "Week",
         "state": "NSW",
-        "rate": 14.8
+        "rate": 14.8,
+        "labelColor": "#000000"
       },
       {
         "year": 2025,
         "period": "Week",
         "state": "QLD",
-        "rate": 14.1
+        "rate": 14.1,
+        "labelColor": "#000000"
       },
       {
         "year": 2025,
         "period": "Week",
         "state": "VIC",
-        "rate": 15.7
+        "rate": 15.7,
+        "labelColor": "#000000"
       },
       {
         "year": 2025,
         "period": "Week",
         "state": "WA",
-        "rate": 16.5
+        "rate": 16.5,
+        "labelColor": "#000000"
       },
       {
         "year": 2025,
         "period": "Week",
         "state": "ACT",
-        "rate": 20
+        "rate": 20,
+        "labelColor": "#000000"
       },
       {
         "year": 2025,
         "period": "Week",
         "state": "SA",
-        "rate": 11.8
+        "rate": 11.8,
+        "labelColor": "#000000"
       },
       {
         "year": 2025,
         "period": "Week",
         "state": "NT",
-        "rate": 17.6
+        "rate": 17.6,
+        "labelColor": "#000000"
       },
       {
         "year": 2025,
         "period": "Week",
         "state": "TAS",
-        "rate": 13.8
+        "rate": 13.8,
+        "labelColor": "#000000"
       }
     ]
   },
@@ -345,14 +398,14 @@
       "field": "state",
       "type": "ordinal",
       "sort": [
+        "ACT",
+        "NT",
+        "WA",
+        "VIC",
         "NSW",
         "QLD",
-        "VIC",
-        "WA",
-        "ACT",
-        "SA",
-        "NT",
-        "TAS"
+        "TAS",
+        "SA"
       ],
       "title": null
     }
@@ -363,7 +416,7 @@
         "type": "rect",
         "cornerRadius": 3,
         "stroke": "#f5f3e9",
-        "strokeWidth": 4
+        "strokeWidth": 3
       },
       "encoding": {
         "color": {
@@ -372,14 +425,27 @@
           "scale": {
             "domain": [
               0,
-              30
+              45
             ],
             "range": [
-              "#eef0e3",
+              "#f1f4e9",
               "#245646"
-            ]
+            ],
+            "interpolate": "rgb"
           },
-          "legend": null
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 170,
+            "values": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "titleLimit": 330
+          },
+          "title": "Participation (%) · same scale as map"
         },
         "tooltip": [
           {
@@ -398,25 +464,28 @@
             "title": "Weekly (%)",
             "format": ".1f"
           }
-        ]
+        ],
+        "stroke": {
+          "condition": {
+            "test": "datum.year===2025",
+            "value": "#a4482f"
+          },
+          "value": "#f7f5ed"
+        }
       }
     },
     {
       "mark": {
         "type": "text",
-        "fontSize": 11
+        "fontSize": 12,
+        "color": {
+          "expr": "datum.labelColor"
+        }
       },
       "encoding": {
         "text": {
           "field": "rate",
           "format": ".1f"
-        },
-        "color": {
-          "condition": {
-            "test": "datum.rate > 18",
-            "value": "#fff"
-          },
-          "value": "#203b32"
         }
       }
     }

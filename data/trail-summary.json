@@ -1,0 +1,149 @@
+{
+  "listings": 14,
+  "totalListedKm": 905,
+  "groups": [
+    {
+      "surface": "Sealed",
+      "n": 5,
+      "listedKm": 258
+    },
+    {
+      "surface": "Mixed",
+      "n": 5,
+      "listedKm": 448
+    },
+    {
+      "surface": "Unsealed",
+      "n": 4,
+      "listedKm": 199
+    }
+  ],
+  "flows": [
+    {
+      "cats": [
+        "Mixed",
+        "100+ km",
+        "Open"
+      ],
+      "count": 1,
+      "names": "Brisbane Valley",
+      "p0": 9.7,
+      "p1": 13.4,
+      "p2": 10,
+      "id": 0,
+      "surface": "Mixed"
+    },
+    {
+      "cats": [
+        "Mixed",
+        "20–49 km",
+        "Open"
+      ],
+      "count": 1,
+      "names": "Warburton/Yarra Valley Trail",
+      "p0": 5.7,
+      "p1": 0,
+      "p2": 0,
+      "id": 1,
+      "surface": "Mixed"
+    },
+    {
+      "cats": [
+        "Mixed",
+        "50–99 km",
+        "Open"
+      ],
+      "count": 3,
+      "names": "East Gippsland; Kilkivan – Kingaroy; Northern Rivers",
+      "p0": 6.7,
+      "p1": 6.7,
+      "p2": 5,
+      "id": 2,
+      "surface": "Mixed"
+    },
+    {
+      "cats": [
+        "Sealed",
+        "100+ km",
+        "Open"
+      ],
+      "count": 1,
+      "names": "Murray to Mountains",
+      "p0": 4,
+      "p1": 14.4,
+      "p2": 11,
+      "id": 3,
+      "surface": "Sealed"
+    },
+    {
+      "cats": [
+        "Sealed",
+        "20–49 km",
+        "Open"
+      ],
+      "count": 3,
+      "names": "Coast to Vines; Barossa; Tumbarumba",
+      "p0": 0,
+      "p1": 1,
+      "p2": 1,
+      "id": 4,
+      "surface": "Sealed"
+    },
+    {
+      "cats": [
+        "Sealed",
+        "20–49 km",
+        "Partly open"
+      ],
+      "count": 1,
+      "names": "NW Tasmanian Coastal Pathway",
+      "p0": 3,
+      "p1": 4,
+      "p2": 12.7,
+      "id": 5,
+      "surface": "Sealed"
+    },
+    {
+      "cats": [
+        "Unsealed",
+        "20–49 km",
+        "Open"
+      ],
+      "count": 1,
+      "names": "North-East Tasmania",
+      "p0": 11.4,
+      "p1": 5,
+      "p2": 4,
+      "id": 6,
+      "surface": "Unsealed"
+    },
+    {
+      "cats": [
+        "Unsealed",
+        "50–99 km",
+        "Open"
+      ],
+      "count": 2,
+      "names": "Railway Reserves; Riesling and Rattler Trails",
+      "p0": 12.4,
+      "p1": 9.7,
+      "p2": 8,
+      "id": 7,
+      "surface": "Unsealed"
+    },
+    {
+      "cats": [
+        "Unsealed",
+        "50–99 km",
+        "Partly open"
+      ],
+      "count": 1,
+      "names": "Denmark – Nornalup Heritage",
+      "p0": 14.4,
+      "p1": 11.7,
+      "p2": 13.7,
+      "id": 8,
+      "surface": "Unsealed"
+    }
+  ]
+}

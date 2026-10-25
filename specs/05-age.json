@@ -13,13 +13,13 @@
       "stroke": null
     },
     "axis": {
-      "labelColor": "#6c796f",
+      "labelColor": "#526354",
       "titleColor": "#203b32",
       "gridColor": "#e1e4d9",
       "domain": false,
       "ticks": false,
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "titleFontWeight": "normal",
       "labelPadding": 8,
       "titlePadding": 12
@@ -27,19 +27,24 @@
     "legend": {
       "labelColor": "#203b32",
       "titleColor": "#203b32",
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "orient": "bottom",
-      "padding": 10
+      "padding": 10,
+      "labelLimit": 270,
+      "columns": 1
     },
     "title": {
       "anchor": "start",
       "color": "#203b32",
       "fontSize": 15
+    },
+    "text": {
+      "fontSize": 12
     }
   },
   "description": "Weekly cycling participation by age in 2025; national comparison is 14.9%. Two to four is the youngest published band here.",
-  "height": 310,
+  "height": 345,
   "data": {
     "values": [
       {
@@ -144,11 +149,23 @@
       },
       "encoding": {
         "color": {
-          "condition": {
-            "test": "datum.order < 3",
-            "value": "#245646"
+          "field": "lifeStage",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Under 18",
+              "18 and over"
+            ],
+            "range": [
+              "#245646",
+              "#477bad"
+            ]
           },
-          "value": "#bb6244"
+          "legend": {
+            "orient": "bottom",
+            "columns": 2
+          }
         },
         "tooltip": [
           {
@@ -205,6 +222,12 @@
           }
         }
       }
+    }
+  ],
+  "transform": [
+    {
+      "calculate": "datum.order < 3 ? 'Under 18' : '18 and over'",
+      "as": "lifeStage"
     }
   ]
 }

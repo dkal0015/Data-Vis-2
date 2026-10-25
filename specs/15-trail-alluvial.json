@@ -1,0 +1,453 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Alluvial / parallel sets diagram of joint surface, listed length band and status for 14 selected trail listings. Ribbon width is the number of listings, not kilometres, riders or changes through time.",
+  "width": 700,
+  "height": 410,
+  "padding": 5,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "background": "transparent",
+  "signals": [
+    {
+      "name": "unit",
+      "update": "(height-65)/15.4"
+    },
+    {
+      "name": "hoverFlow",
+      "value": -1,
+      "on": [
+        {
+          "events": "@ribbons:mouseover",
+          "update": "datum.id"
+        },
+        {
+          "events": "@ribbons:mouseout",
+          "update": "-1"
+        }
+      ]
+    },
+    {
+      "name": "narrow",
+      "update": "width<500"
+    },
+    {
+      "name": "hunit",
+      "update": "(width-20)/15.4"
+    }
+  ],
+  "data": [
+    {
+      "name": "flows",
+      "values": [
+        {
+          "cats": [
+            "Mixed",
+            "100+ km",
+            "Open"
+          ],
+          "count": 1,
+          "names": "Brisbane Valley",
+          "p0": 9.7,
+          "p1": 13.4,
+          "p2": 10,
+          "id": 0,
+          "surface": "Mixed"
+        },
+        {
+          "cats": [
+            "Mixed",
+            "20–49 km",
+            "Open"
+          ],
+          "count": 1,
+          "names": "Warburton/Yarra Valley Trail",
+          "p0": 5.7,
+          "p1": 0,
+          "p2": 0,
+          "id": 1,
+          "surface": "Mixed"
+        },
+        {
+          "cats": [
+            "Mixed",
+            "50–99 km",
+            "Open"
+          ],
+          "count": 3,
+          "names": "East Gippsland; Kilkivan – Kingaroy; Northern Rivers",
+          "p0": 6.7,
+          "p1": 6.7,
+          "p2": 5,
+          "id": 2,
+          "surface": "Mixed"
+        },
+        {
+          "cats": [
+            "Sealed",
+            "100+ km",
+            "Open"
+          ],
+          "count": 1,
+          "names": "Murray to Mountains",
+          "p0": 4,
+          "p1": 14.4,
+          "p2": 11,
+          "id": 3,
+          "surface": "Sealed"
+        },
+        {
+          "cats": [
+            "Sealed",
+            "20–49 km",
+            "Open"
+          ],
+          "count": 3,
+          "names": "Coast to Vines; Barossa; Tumbarumba",
+          "p0": 0,
+          "p1": 1,
+          "p2": 1,
+          "id": 4,
+          "surface": "Sealed"
+        },
+        {
+          "cats": [
+            "Sealed",
+            "20–49 km",
+            "Partly open"
+          ],
+          "count": 1,
+          "names": "NW Tasmanian Coastal Pathway",
+          "p0": 3,
+          "p1": 4,
+          "p2": 12.7,
+          "id": 5,
+          "surface": "Sealed"
+        },
+        {
+          "cats": [
+            "Unsealed",
+            "20–49 km",
+            "Open"
+          ],
+          "count": 1,
+          "names": "North-East Tasmania",
+          "p0": 11.4,
+          "p1": 5,
+          "p2": 4,
+          "id": 6,
+          "surface": "Unsealed"
+        },
+        {
+          "cats": [
+            "Unsealed",
+            "50–99 km",
+            "Open"
+          ],
+          "count": 2,
+          "names": "Railway Reserves; Riesling and Rattler Trails",
+          "p0": 12.4,
+          "p1": 9.7,
+          "p2": 8,
+          "id": 7,
+          "surface": "Unsealed"
+        },
+        {
+          "cats": [
+            "Unsealed",
+            "50–99 km",
+            "Partly open"
+          ],
+          "count": 1,
+          "names": "Denmark – Nornalup Heritage",
+          "p0": 14.4,
+          "p1": 11.7,
+          "p2": 13.7,
+          "id": 8,
+          "surface": "Unsealed"
+        }
+      ]
+    },
+    {
+      "name": "nodes",
+      "values": [
+        {
+          "axis": 0,
+          "cat": "Sealed",
+          "count": 5,
+          "start": 0,
+          "end": 5
+        },
+        {
+          "axis": 0,
+          "cat": "Mixed",
+          "count": 5,
+          "start": 5.7,
+          "end": 10.7
+        },
+        {
+          "axis": 0,
+          "cat": "Unsealed",
+          "count": 4,
+          "start": 11.4,
+          "end": 15.4
+        },
+        {
+          "axis": 1,
+          "cat": "20–49 km",
+          "count": 6,
+          "start": 0,
+          "end": 6
+        },
+        {
+          "axis": 1,
+          "cat": "50–99 km",
+          "count": 6,
+          "start": 6.7,
+          "end": 12.7
+        },
+        {
+          "axis": 1,
+          "cat": "100+ km",
+          "count": 2,
+          "start": 13.4,
+          "end": 15.4
+        },
+        {
+          "axis": 2,
+          "cat": "Open",
+          "count": 12,
+          "start": 0,
+          "end": 12
+        },
+        {
+          "axis": 2,
+          "cat": "Partly open",
+          "count": 2,
+          "start": 12.7,
+          "end": 14.7
+        }
+      ]
+    },
+    {
+      "name": "headers",
+      "values": [
+        {
+          "axis": 0,
+          "title": "Surface"
+        },
+        {
+          "axis": 1,
+          "title": "Listed length"
+        },
+        {
+          "axis": 2,
+          "title": "Opening status"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "surface",
+      "type": "ordinal",
+      "domain": [
+        "Sealed",
+        "Mixed",
+        "Unsealed"
+      ],
+      "range": [
+        "#245646",
+        "#a4482f",
+        "#806926"
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "name": "ribbons",
+      "type": "path",
+      "from": {
+        "data": "flows"
+      },
+      "encode": {
+        "update": {
+          "path": {
+            "signal": "narrow ? ('M'+(10+hunit*(datum.p0))+',70C'+(10+hunit*(datum.p0))+',145 '+(10+hunit*(datum.p1))+',145 '+(10+hunit*(datum.p1))+',220C'+(10+hunit*(datum.p1))+',295 '+(10+hunit*(datum.p2))+',295 '+(10+hunit*(datum.p2))+',370L'+(10+hunit*(datum.p2+datum.count))+',370C'+(10+hunit*(datum.p2+datum.count))+',295 '+(10+hunit*(datum.p1+datum.count))+',295 '+(10+hunit*(datum.p1+datum.count))+',220C'+(10+hunit*(datum.p1+datum.count))+',145 '+(10+hunit*(datum.p0+datum.count))+',145 '+(10+hunit*(datum.p0+datum.count))+',70Z') : ('M'+(16)+','+(42+unit*(datum.p0))+'C'+((16+width/2)/2)+','+(42+unit*(datum.p0))+' '+((16+width/2)/2)+','+(42+unit*(datum.p1))+' '+(width/2)+','+(42+unit*(datum.p1))+'C'+((width/2+width-16)/2)+','+(42+unit*(datum.p1))+' '+((width/2+width-16)/2)+','+(42+unit*(datum.p2))+' '+(width-16)+','+(42+unit*(datum.p2))+'L'+(width-16)+','+(42+unit*(datum.p2+datum.count))+'C'+((width-16+width/2)/2)+','+(42+unit*(datum.p2+datum.count))+' '+((width-16+width/2)/2)+','+(42+unit*(datum.p1+datum.count))+' '+(width/2)+','+(42+unit*(datum.p1+datum.count))+'C'+((width/2+16)/2)+','+(42+unit*(datum.p1+datum.count))+' '+((width/2+16)/2)+','+(42+unit*(datum.p0+datum.count))+' '+(16)+','+(42+unit*(datum.p0+datum.count))+'Z')"
+          },
+          "fill": {
+            "scale": "surface",
+            "field": "surface"
+          },
+          "fillOpacity": {
+            "signal": "hoverFlow===-1 ? .82 : hoverFlow===datum.id ? 1 : .1"
+          },
+          "stroke": {
+            "value": "#f7f5ed"
+          },
+          "strokeWidth": {
+            "value": 1.1
+          },
+          "tooltip": {
+            "signal": "{'Surface':datum.cats[0],'Length band':datum.cats[1],'Status':datum.cats[2],'Listings':datum.count,'Trails':datum.names}"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {
+        "data": "nodes"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "narrow ? 10+hunit*datum.start : (datum.axis===0 ? 9 : datum.axis===1 ? width/2-7 : width-23)"
+          },
+          "width": {
+            "signal": "narrow ? hunit*datum.count : 14"
+          },
+          "y": {
+            "signal": "narrow ? 64+datum.axis*150 : 42+unit*datum.start"
+          },
+          "y2": {
+            "signal": "narrow ? 76+datum.axis*150 : 42+unit*datum.end"
+          },
+          "fill": {
+            "value": "#203b32"
+          },
+          "tooltip": {
+            "signal": "{'Category':datum.cat,'Number of listings':datum.count}"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "interactive": false,
+      "from": {
+        "data": "nodes"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "narrow ? 10+hunit*(datum.start+datum.end)/2-44 : datum.axis===0 ? 27 : datum.axis===1 ? width/2-44 : width-115"
+          },
+          "width": {
+            "value": 88
+          },
+          "y": {
+            "signal": "narrow ? 30+datum.axis*150 : 22+unit*(datum.start+datum.end)/2"
+          },
+          "height": {
+            "value": 34
+          },
+          "fill": {
+            "value": "#f7f5ed"
+          },
+          "fillOpacity": {
+            "value": 0.94
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "interactive": false,
+      "from": {
+        "data": "nodes"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "narrow ? 10+hunit*(datum.start+datum.end)/2 : datum.axis===0 ? 31 : datum.axis===1 ? width/2 : width-31"
+          },
+          "y": {
+            "signal": "narrow ? 42+datum.axis*150 : 35+unit*(datum.start+datum.end)/2"
+          },
+          "text": {
+            "signal": "[datum.cat,datum.count+' listings']"
+          },
+          "align": {
+            "signal": "narrow ? 'center' : datum.axis===0 ? 'left' : datum.axis===1 ? 'center' : 'right'"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "fill": {
+            "value": "#203b32"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "limit": {
+            "value": 160
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "interactive": false,
+      "from": {
+        "data": "headers"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "value": 5
+          },
+          "y": {
+            "signal": "8+datum.axis*150"
+          },
+          "width": {
+            "value": 110
+          },
+          "height": {
+            "value": 20
+          },
+          "fill": {
+            "value": "#f7f5ed"
+          },
+          "opacity": {
+            "signal": "narrow ? 1 : 0"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "interactive": false,
+      "from": {
+        "data": "headers"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "narrow ? 10 : datum.axis===0 ? 9 : datum.axis===1 ? width/2 : width-9"
+          },
+          "y": {
+            "signal": "narrow ? 22+datum.axis*150 : 14"
+          },
+          "text": {
+            "field": "title"
+          },
+          "align": {
+            "signal": "narrow ? 'left' : datum.axis===0 ? 'left' : datum.axis===1 ? 'center' : 'right'"
+          },
+          "fill": {
+            "value": "#203b32"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": 600
+          }
+        }
+      }
+    }
+  ]
+}

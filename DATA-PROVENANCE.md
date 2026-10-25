@@ -34,3 +34,18 @@ An initial Overpass query timed out because the server was busy; the official OS
 - [Barossa Rail Trail](https://www.railtrails.org.au/trails/the-barossa-trail/) — 43 km; Sealed; Trail Open.
 - [Riesling and Rattler Trails](https://www.railtrails.org.au/trails/the-riesling-and-rattler-trail/) — 53 km; Fine gravel; Trail Open.
 - [Riverina Highlands (Tumbarumba) Rail Trail](https://www.railtrails.org.au/trails/tumbarumba-to-rosewood-riverina-highlands-rail-trail/) — 21 km; Sealed; Trail Open.
+
+
+## Derived diagrams added in the 24 October revision
+
+The treemap sums the 14 published listing lengths within surface groups: mixed 448, sealed 258, unsealed 199, total 905 listing-km. This is neither deduplicated nor continuous network length. The alluvial groups the same records jointly by surface, listed length band (20–49, 50–99, 100+ km) and opening status. Ribbon widths count listings; stages do not represent changes over time. Its nine observed attribute combinations sum to 14 listings, including two partially open listings.
+
+The closing comparison is a derived ratio of CWANZ's rounded weekly and annual population participation rates. It is not a longitudinal estimate of retention or an individual riding frequency. The approximate 5 km map reference is calculated along latitude using 111.32 × cos(latitude) kilometres per longitude degree; it is a local cartographic reference, not a trail-distance measurement.
+
+## Way-level surface and terminal verification — 25 October 2026
+
+`data/route-segments.geojson` retains the 94 member ways separately, including the original `surface` tag and OSM way ID. Paved, asphalt and concrete map to Sealed; unpaved, dirt, gravel and fine_gravel map to Unsealed; missing or unsupported tags map to Not recorded. The snapshot has 19 sealed ways, 74 unsealed ways and one way without a surface tag. These are counts of ways, not proportions of route distance. No surface is inferred from the separate RTA listing or from adjacent ways. The colours describe the stored community tags, not a site inspection.
+
+`data/route-endpoints.json` records terminal node 634093804 (Lilydale) and 4383369108 (Warburton). Both have degree one in the member-way topology and agree with the relation's from/to town tags and the [published RTA guide](https://www.railtrails.org.au/trails/lilydale-to-warburton-yarra-valley-rail-trail/). Minor side branches also have terminals, so generic minimum/maximum longitude is not used as a trailhead rule. The two selected nodes are labelled “mapped end”, not certified navigation access points. Verification used the stored 15 October snapshot on 25 October; it is not a fresh field or network survey.
+
+Reproduce these files from the original official full API JSON with `python development/prepare-route-details.py PATH_TO_OSM_FULL_JSON`, then run `node development/refine-encodings.mjs` from repository root. The original snapshot location is described in the preparation script; no live API is required to view the site. All derived OSM data remains under ODbL 1.0.

@@ -13,13 +13,13 @@
       "stroke": null
     },
     "axis": {
-      "labelColor": "#6c796f",
+      "labelColor": "#526354",
       "titleColor": "#203b32",
       "gridColor": "#e1e4d9",
       "domain": false,
       "ticks": false,
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "titleFontWeight": "normal",
       "labelPadding": 8,
       "titlePadding": 12
@@ -27,19 +27,24 @@
     "legend": {
       "labelColor": "#203b32",
       "titleColor": "#203b32",
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "orient": "bottom",
-      "padding": 10
+      "padding": 10,
+      "labelLimit": 270,
+      "columns": 1
     },
     "title": {
       "anchor": "start",
       "color": "#203b32",
       "fontSize": 15
+    },
+    "text": {
+      "fontSize": 12
     }
   },
   "description": "Lengths of the selected trail listings; branched routes and partially open listings are not directly comparable to continuous end-to-end routes. Surface is derived from the published surface tags.",
-  "height": 440,
+  "height": 490,
   "data": {
     "values": [
       {
@@ -258,6 +263,10 @@
     {
       "name": "surface",
       "value": "All"
+    },
+    {
+      "name": "highlight",
+      "value": ""
     }
   ],
   "transform": [
@@ -294,8 +303,8 @@
           ],
           "title": null,
           "axis": {
-            "labelLimit": 210,
-            "labelFontSize": 10
+            "labelLimit": 230,
+            "labelFontSize": 12
           }
         },
         "x": {
@@ -319,8 +328,8 @@
             ],
             "range": [
               "#245646",
-              "#bb6244",
-              "#b29c60"
+              "#a4482f",
+              "#806926"
             ]
           },
           "title": "Surface"
@@ -356,7 +365,14 @@
             "type": "nominal",
             "title": "Status"
           }
-        ]
+        ],
+        "opacity": {
+          "condition": {
+            "test": "highlight === '' || datum.short_name === highlight",
+            "value": 1
+          },
+          "value": 0.18
+        }
       }
     },
     {
@@ -365,7 +381,7 @@
         "align": "left",
         "dx": 5,
         "color": "#203b32",
-        "fontSize": 11
+        "fontSize": 12
       },
       "encoding": {
         "y": {
