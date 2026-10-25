@@ -8,15 +8,6 @@ A single scrolling data story about Australian cycling participation and recreat
 
 GitHub Pages address: https://dkal0015.github.io/Data-Vis-2/
 
-## Source files
-
-- `index.html`, `style.css`, `app.js`: narrative, layout and chart embedding.
-- `specs/`: 15 main chart specifications plus a contextual map inset, each linked from the page.
-- `data/`: prepared CSV/JSON tables and geographic data. Data is a dated local snapshot; no live external API is required to view charts.
-- `vendor/`: local Vega 5.33.0, Vega-Lite 5.23.0, Vega-Embed 6.29.0 and their licence notices.
-- `development/`: chart generation/validation and data-preparation source for reproducibility. Run `node development/refine-encodings.mjs` from repository root to regenerate the reviewed charts. Validation scripts run from repository root; preparation scripts require the original report/research inputs described in the provenance notes.
-- [SUBMISSION-NOTES.md](SUBMISSION-NOTES.md): draft domain/audience/purpose and What/Why/How rationale; remaining student submission tasks.
-- [DATA-PROVENANCE.md](DATA-PROVENANCE.md): trail selection, surface grouping, geometry and licensing details.
 
 ## Interactions and accessibility
 
