@@ -8,8 +8,6 @@ A single scrolling data story about Australian cycling participation and recreat
 
 GitHub Pages address: https://dkal0015.github.io/Data-Vis-2/
 
-To enable publishing, use **Settings → Pages → Build and deployment → Deploy from a branch → main → / (root)**. The address above is the intended Pages address; check deployment before submitting it.
-
 ## Local preview
 
 From this repository run `python -m http.server 8000` and open http://localhost:8000. There is no build step or package installation. Use an HTTP server because browsers restrict requests from `file://` pages.
