@@ -1,6 +1,6 @@
 # Australia on Two Wheels
 
-**Duveen Kalansooriya · FIT3179 Data Visualisation 2
+**Duveen Kalansooriya · FIT3179 Data Visualisation 2 **
 
 A single scrolling data story about Australian cycling participation and recreational rail trails. It includes **15 original Vega/Vega-Lite charts**, with three map idioms: choropleth, proportional-symbol and geographic route-line maps.
 
