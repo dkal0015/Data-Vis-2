@@ -4,13 +4,30 @@ const views=new Map();
 const nativeViews=new Set();
 let lockedFocus='',currentFocus='';
 window.chartStatus={ready:0,errors:[]};
+const chartPairs=[['chart-age','chart-gender'],['chart-quiet','chart-frequency']];
+function preferencePlotHeight(){return Math.max(0,Math.min(280,document.getElementById('chart-quiet').clientWidth-135));}
+function alignPairText(){
+ for(const pair of chartPairs){
+  const figures=pair.map(id=>document.getElementById(id).closest('article'));
+  for(const selector of ['h3','.figure-intro']){
+   const elements=figures.map(f=>f.querySelector(selector));elements.forEach(e=>e.style.minHeight='');
+   if(window.innerWidth>700){const height=Math.ceil(Math.max(...elements.map(e=>e.getBoundingClientRect().height)));elements.forEach(e=>e.style.minHeight=height+'px');}
+  }
+ }
+}
+function alignPairCanvases(){
+ for(const pair of chartPairs){const containers=pair.map(id=>document.getElementById(id));containers.forEach(e=>e.style.minHeight='');
+  if(window.innerWidth>700){const height=Math.ceil(Math.max(...containers.map(e=>e.querySelector('svg')?.getBoundingClientRect().height||0)));containers.forEach(e=>e.style.minHeight=height+'px');}
+ }
+}
 async function draw(id,name){
  const el=document.getElementById(id);el.innerHTML='<p class="loading">Drawing the data…</p>';
  try{
-  const response=await fetch(`specs/${name}.json?rev=20261025-map-selection-labels2`);if(!response.ok)throw new Error(`Chart source: ${response.status}`);
+  const response=await fetch(`specs/${name}.json?rev=20261025-shared-palette`);if(!response.ok)throw new Error(`Chart source: ${response.status}`);
   const spec=await response.json();
   const native=spec.$schema.includes('/vega/v5');
-  if(native){spec.width=el.clientWidth;spec.height=id==='chart-alluvial'?360:id==='chart-quiet'?(el.clientWidth<450?300:360):440;nativeViews.add(id);}
+  if(native){spec.width=el.clientWidth;spec.height=id==='chart-alluvial'?360:id==='chart-quiet'?preferencePlotHeight()+100:440;nativeViews.add(id);}
+  if(id==='chart-frequency')spec.height=preferencePlotHeight();
   // Keep national maps legible on narrow screens while preserving their aspect.
   if(['chart-map','chart-trail-map','chart-trail-inset'].includes(id)) spec.height=Math.max(270,Math.min(spec.height,el.clientWidth*.8));
   if(id==='chart-map'&&el.clientWidth<500)spec.layer[1].transform[0].calculate='datum.state';
@@ -68,6 +85,7 @@ async function updateTable(name){
 }
 document.getElementById('table-dataset').addEventListener('change',e=>updateTable(e.target.value));
 // Render every chart on load: all story sections remain visible and searchable.
-Promise.all(chartList.map(([id,name])=>draw(id,name))).then(()=>{document.documentElement.dataset.chartsReady=String(window.chartStatus.ready);});
+alignPairText();
+Promise.all(chartList.map(([id,name])=>draw(id,name))).then(()=>{alignPairCanvases();document.documentElement.dataset.chartsReady=String(window.chartStatus.ready);});
 setupData().catch(console.error);
-let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{for(const [id,v] of views){if(nativeViews.has(id))v.width(document.getElementById(id).clientWidth);v.resize().runAsync();}},150);});
+let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(async()=>{alignPairText();const tasks=[];for(const [id,v] of views){if(nativeViews.has(id))v.width(document.getElementById(id).clientWidth);if(id==='chart-frequency')v.height(preferencePlotHeight());if(id==='chart-quiet')v.height(preferencePlotHeight()+100);tasks.push(v.resize().runAsync());}await Promise.all(tasks);alignPairCanvases();},150);});

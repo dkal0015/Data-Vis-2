@@ -9216,7 +9216,7 @@
         "type": "point",
         "shape": "diamond",
         "filled": true,
-        "color": "#bb6244",
+        "color": "#a4482f",
         "size": 60
       },
       "encoding": {

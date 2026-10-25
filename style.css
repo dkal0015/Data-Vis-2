@@ -24,3 +24,7 @@
 @media(max-width:700px){.trail-map-pair{grid-template-columns:1fr;gap:18px}.tile-name-key{grid-template-columns:1fr}.route-context{grid-template-columns:1fr;gap:18px}.route-context .locator-panel{max-width:240px}.route-figure{padding:18px 12px}.route-surface-key{gap:9px 18px}.route-context p{font-size:14px}}
 
 .trails-grid{grid-template-columns:1fr;gap:28px}
+
+/* Two source columns; AI acknowledgement stands independently of source numbering. */
+.sources .source-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px}.ai-acknowledgement{border-top:1px solid var(--line);margin-top:24px;padding-top:18px}.ai-acknowledgement p{font-size:12px;line-height:1.8;margin-bottom:10px}
+@media(max-width:700px){.sources .source-grid{grid-template-columns:1fr;gap:22px}}

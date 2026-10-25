@@ -142,11 +142,24 @@
           ]
         },
         "color": {
-          "condition": {
-            "test": "datum.change < 0",
-            "value": "#bb6244"
+          "field": "direction",
+          "type": "nominal",
+          "title": "Change in weekly participation",
+          "scale": {
+            "domain": [
+              "Increase",
+              "Decrease"
+            ],
+            "range": [
+              "#245646",
+              "#a4482f"
+            ]
           },
-          "value": "#245646"
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 2
+          }
         },
         "tooltip": [
           {
@@ -258,6 +271,12 @@
           "filter": "datum.change<0"
         }
       ]
+    }
+  ],
+  "transform": [
+    {
+      "calculate": "datum.change>=0 ? 'Increase' : 'Decrease'",
+      "as": "direction"
     }
   ]
 }

@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "autosize": {
-    "type": "fit",
+    "type": "fit-x",
     "contains": "padding",
     "resize": true
   },
@@ -44,7 +44,7 @@
     }
   },
   "description": "Weekly cycling participation by age in 2025; national comparison is 14.9%. Two to four is the youngest published band here.",
-  "height": 345,
+  "height": 320,
   "data": {
     "values": [
       {
@@ -149,23 +149,7 @@
       },
       "encoding": {
         "color": {
-          "field": "lifeStage",
-          "type": "nominal",
-          "title": null,
-          "scale": {
-            "domain": [
-              "Under 18",
-              "18 and over"
-            ],
-            "range": [
-              "#245646",
-              "#477bad"
-            ]
-          },
-          "legend": {
-            "orient": "bottom",
-            "columns": 2
-          }
+          "value": "#245646"
         },
         "tooltip": [
           {
@@ -179,7 +163,28 @@
             "title": "Weekly (%)",
             "format": ".1f"
           }
-        ]
+        ],
+        "shape": {
+          "field": "lifeStage",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Under 18",
+              "18 and over"
+            ],
+            "range": [
+              "circle",
+              "square"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 2,
+            "offset": 14
+          }
+        }
       }
     },
     {
@@ -229,5 +234,11 @@
       "calculate": "datum.order < 3 ? 'Under 18' : '18 and over'",
       "as": "lifeStage"
     }
-  ]
+  ],
+  "padding": {
+    "top": 25,
+    "right": 5,
+    "bottom": 5,
+    "left": 5
+  }
 }

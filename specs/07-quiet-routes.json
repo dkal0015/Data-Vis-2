@@ -2,7 +2,12 @@
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "width": 500,
   "height": 300,
-  "padding": 5,
+  "padding": {
+    "top": 26,
+    "right": 5,
+    "bottom": 10,
+    "left": 5
+  },
   "autosize": {
     "type": "fit",
     "contains": "padding",
@@ -783,16 +788,16 @@
       "encode": {
         "update": {
           "x": {
-            "signal": "datum.col*plot/10"
+            "signal": "datum.col*(plot+2)/10"
           },
           "y": {
-            "signal": "10+datum.row*plot/10"
+            "signal": "datum.row*(plot+2)/10"
           },
           "width": {
-            "signal": "plot/10-2"
+            "signal": "(plot-18)/10"
           },
           "height": {
-            "signal": "plot/10-2"
+            "signal": "(plot-18)/10"
           },
           "cornerRadius": {
             "value": 2
@@ -816,7 +821,7 @@
       "encode": {
         "update": {
           "path": {
-            "signal": "'M'+plot+','+(10+plot*datum.source)+'L'+(plot+10)+','+(10+plot*datum.target)+'L'+(plot+18)+','+(10+plot*datum.target)"
+            "signal": "'M'+plot+','+(plot*datum.source)+'L'+(plot+10)+','+(plot*datum.target)+'L'+(plot+18)+','+(plot*datum.target)"
           },
           "stroke": {
             "scale": "style",
@@ -840,7 +845,7 @@
             "signal": "plot+24"
           },
           "y": {
-            "signal": "plot*datum.target-1"
+            "signal": "plot*datum.target-11"
           },
           "text": {
             "field": "lines"

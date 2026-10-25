@@ -215,8 +215,8 @@
             ],
             "range": [
               "#245646",
-              "#477bad",
-              "#7c5a87"
+              "#806926",
+              "#a4482f"
             ]
           }
         },
@@ -244,7 +244,33 @@
             "title": "Population (%)",
             "format": ".1f"
           }
-        ]
+        ],
+        "strokeDash": {
+          "field": "period",
+          "type": "nominal",
+          "title": "Rode within the last",
+          "scale": {
+            "domain": [
+              "Week",
+              "Month",
+              "Year"
+            ],
+            "range": [
+              [
+                1,
+                0
+              ],
+              [
+                7,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ]
+          }
+        }
       },
       "params": [
         {
@@ -317,8 +343,8 @@
             ],
             "range": [
               "#245646",
-              "#477bad",
-              "#7c5a87"
+              "#806926",
+              "#a4482f"
             ]
           }
         },

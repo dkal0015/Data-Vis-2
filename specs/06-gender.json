@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "autosize": {
-    "type": "fit",
+    "type": "fit-x",
     "contains": "padding",
     "resize": true
   },
@@ -44,7 +44,7 @@
     }
   },
   "description": "2025 participation within each reported gender group. The male/female categories are those available in the report.",
-  "height": 300,
+  "height": 320,
   "layer": [
     {
       "data": {
@@ -162,18 +162,7 @@
           ]
         },
         "color": {
-          "field": "gender",
-          "scale": {
-            "domain": [
-              "Female",
-              "Male"
-            ],
-            "range": [
-              "#7c5a87",
-              "#245646"
-            ]
-          },
-          "title": null
+          "value": "#245646"
         },
         "tooltip": [
           {
@@ -192,7 +181,28 @@
             "title": "Population (%)",
             "format": ".1f"
           }
-        ]
+        ],
+        "shape": {
+          "field": "gender",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Female",
+              "Male"
+            ],
+            "range": [
+              "circle",
+              "diamond"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 2,
+            "offset": 14
+          }
+        }
       }
     },
     {
@@ -308,5 +318,11 @@
         }
       }
     }
-  ]
+  ],
+  "padding": {
+    "top": 26,
+    "right": 5,
+    "bottom": 5,
+    "left": 5
+  }
 }
