@@ -304,7 +304,8 @@
           "title": null,
           "axis": {
             "labelLimit": 230,
-            "labelFontSize": 12
+            "labelFontSize": 12,
+            "labelExpr": "(datum.label==='Denmark – Nornalup Heritage' || datum.label==='NW Tasmanian Coastal Pathway' ? '† ' : '') + datum.label"
           }
         },
         "x": {

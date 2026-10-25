@@ -44,7 +44,7 @@
     }
   },
   "description": "Proportional-symbol map of 14 purposefully selected trail listings, not a national inventory. Area represents published trail length, not usage. Markers indicate representative trail locations.",
-  "height": 420,
+  "height": 330,
   "projection": {
     "type": "conicEqualArea",
     "parallels": [
@@ -9245,8 +9245,8 @@
       "mark": {
         "type": "circle",
         "opacity": 1,
-        "stroke": "#f5f3e9",
-        "strokeWidth": 1.6
+        "strokeWidth": 2.2,
+        "filled": false
       },
       "encoding": {
         "longitude": {
@@ -9268,7 +9268,7 @@
             ],
             "range": [
               0,
-              1100
+              500
             ]
           },
           "legend": {
@@ -9326,7 +9326,7 @@
           "condition": [
             {
               "test": "highlight===''",
-              "value": 0.68
+              "value": 0.85
             },
             {
               "test": "datum.short_name===highlight",
@@ -9335,6 +9335,52 @@
           ],
           "value": 0.14
         }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    143.5,
+                    -43
+                  ],
+                  [
+                    155,
+                    -43
+                  ],
+                  [
+                    155,
+                    -24.5
+                  ],
+                  [
+                    143.5,
+                    -24.5
+                  ],
+                  [
+                    143.5,
+                    -43
+                  ]
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "stroke": "#526354",
+        "strokeDash": [
+          3,
+          3
+        ],
+        "strokeWidth": 1
       }
     }
   ]

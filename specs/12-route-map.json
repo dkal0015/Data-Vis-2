@@ -43,8 +43,8 @@
       "fontSize": 12
     }
   },
-  "description": "Actual OSM member-way geometry coloured by each way’s recorded surface. Explicit terminal node IDs were checked for degree-one topology and the relation from/to towns. This is a dated community mapping snapshot, not navigation or a surface inspection.",
-  "height": 280,
+  "description": "OSM surface-tagged route geometry with mapped town centres. Line width is constant. Original gaps remain unconnected on the geographic map; the companion strip records their small distance allowances explicitly.",
+  "height": 240,
   "projection": {
     "type": "mercator"
   },
@@ -5819,7 +5819,7 @@
         "type": "geoshape",
         "filled": false,
         "stroke": "#d9dfce",
-        "strokeWidth": 9
+        "strokeWidth": 12
       }
     },
     {
@@ -12886,7 +12886,7 @@
       "mark": {
         "type": "geoshape",
         "filled": false,
-        "strokeWidth": 3.7
+        "strokeWidth": 7
       },
       "encoding": {
         "color": {
@@ -12905,12 +12905,7 @@
               "#777777"
             ]
           },
-          "legend": {
-            "orient": "bottom",
-            "columns": 1,
-            "symbolType": "stroke",
-            "symbolStrokeWidth": 3.7
-          }
+          "legend": null
         },
         "tooltip": [
           {
@@ -12981,7 +12976,7 @@
         "values": [
           {
             "town": "Lilydale",
-            "label": "Lilydale mapped end",
+            "label": "Lilydale",
             "node_id": 634093804,
             "lon": 145.3499496,
             "lat": -37.7538298,
@@ -12992,7 +12987,7 @@
           },
           {
             "town": "Warburton",
-            "label": "Warburton mapped end",
+            "label": "Warburton",
             "node_id": 4383369108,
             "lon": 145.6959959,
             "lat": -37.753023,
@@ -13005,7 +13000,7 @@
       },
       "mark": {
         "type": "text",
-        "dy": -15,
+        "dy": -20,
         "color": "#203b32",
         "fontSize": 12,
         "align": "center"
@@ -13028,9 +13023,9 @@
       "data": {
         "values": [
           {
-            "lon": 145.39,
+            "lon": 145.56,
             "lat": -37.7981013,
-            "lon2": 145.44684252273308,
+            "lon2": 145.6168425227331,
             "lat2": -37.7981013
           }
         ]
@@ -13061,7 +13056,7 @@
       "data": {
         "values": [
           {
-            "lon": 145.41842126136652,
+            "lon": 145.58842126136653,
             "lat": -37.7981013,
             "label": "5 km (approx.)"
           }
@@ -13102,10 +13097,140 @@
       },
       "encoding": {
         "x": {
-          "value": 25
+          "value": 18
         },
         "y": {
-          "value": 20
+          "value": 12
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "name": "Mount Evelyn",
+            "lon": 145.3883037,
+            "lat": -37.7873186,
+            "route_lon": 145.3874825,
+            "route_lat": -37.7886922,
+            "km": 7.193486647177861,
+            "osm_place_id": 2423826,
+            "place_search_url": "https://nominatim.openstreetmap.org/search?q=Mount+Evelyn%2C+Victoria%2C+Australia&format=jsonv2&limit=1",
+            "kind": "Town centre; strip marker uses nearest mapped route vertex",
+            "labelDy": 25
+          },
+          {
+            "name": "Woori Yallock",
+            "lon": 145.5301262,
+            "lat": -37.7793329,
+            "route_lon": 145.5306925,
+            "route_lat": -37.7754792,
+            "km": 22.25601586407273,
+            "osm_place_id": 2432752,
+            "place_search_url": "https://nominatim.openstreetmap.org/search?q=Woori+Yallock%2C+Victoria%2C+Australia&format=jsonv2&limit=1",
+            "kind": "Town centre; strip marker uses nearest mapped route vertex",
+            "labelDy": -22
+          },
+          {
+            "name": "Yarra Junction",
+            "lon": 145.6150255,
+            "lat": -37.7821693,
+            "route_lon": 145.6156507,
+            "route_lat": -37.7812463,
+            "km": 30.863471380809912,
+            "osm_place_id": 2439914,
+            "place_search_url": "https://nominatim.openstreetmap.org/search?q=Yarra+Junction%2C+Victoria%2C+Australia&format=jsonv2&limit=1",
+            "kind": "Town centre; strip marker uses nearest mapped route vertex",
+            "labelDy": 25
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "fill": "#f7f5ed",
+        "stroke": "#203b32",
+        "strokeWidth": 1.5,
+        "size": 58
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "type": "nominal",
+            "title": "Mapped town centre"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "name": "Mount Evelyn",
+            "lon": 145.3883037,
+            "lat": -37.7873186,
+            "route_lon": 145.3874825,
+            "route_lat": -37.7886922,
+            "km": 7.193486647177861,
+            "osm_place_id": 2423826,
+            "place_search_url": "https://nominatim.openstreetmap.org/search?q=Mount+Evelyn%2C+Victoria%2C+Australia&format=jsonv2&limit=1",
+            "kind": "Town centre; strip marker uses nearest mapped route vertex",
+            "labelDy": 25
+          },
+          {
+            "name": "Woori Yallock",
+            "lon": 145.5301262,
+            "lat": -37.7793329,
+            "route_lon": 145.5306925,
+            "route_lat": -37.7754792,
+            "km": 22.25601586407273,
+            "osm_place_id": 2432752,
+            "place_search_url": "https://nominatim.openstreetmap.org/search?q=Woori+Yallock%2C+Victoria%2C+Australia&format=jsonv2&limit=1",
+            "kind": "Town centre; strip marker uses nearest mapped route vertex",
+            "labelDy": -22
+          },
+          {
+            "name": "Yarra Junction",
+            "lon": 145.6150255,
+            "lat": -37.7821693,
+            "route_lon": 145.6156507,
+            "route_lat": -37.7812463,
+            "km": 30.863471380809912,
+            "osm_place_id": 2439914,
+            "place_search_url": "https://nominatim.openstreetmap.org/search?q=Yarra+Junction%2C+Victoria%2C+Australia&format=jsonv2&limit=1",
+            "kind": "Town centre; strip marker uses nearest mapped route vertex",
+            "labelDy": 25
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "color": "#203b32",
+        "dy": {
+          "expr": "datum.labelDy"
+        }
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "name"
         }
       }
     }

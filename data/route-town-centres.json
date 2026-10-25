@@ -1,0 +1,47 @@
+{
+  "elements": [
+    {
+      "id": 2423826,
+      "lon": 145.3883037,
+      "lat": -37.7873186,
+      "tags": {
+        "name": "Mount Evelyn"
+      },
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Mount+Evelyn%2C+Victoria%2C+Australia&format=jsonv2&limit=1"
+    },
+    {
+      "id": 2432752,
+      "lon": 145.5301262,
+      "lat": -37.7793329,
+      "tags": {
+        "name": "Woori Yallock"
+      },
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Woori+Yallock%2C+Victoria%2C+Australia&format=jsonv2&limit=1"
+    },
+    {
+      "id": 2439914,
+      "lon": 145.6150255,
+      "lat": -37.7821693,
+      "tags": {
+        "name": "Yarra Junction"
+      },
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Yarra+Junction%2C+Victoria%2C+Australia&format=jsonv2&limit=1"
+    },
+    {
+      "id": 2446192,
+      "lon": 145.6612026,
+      "lat": -37.7515012,
+      "tags": {
+        "name": "Millgrove"
+      },
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Millgrove%2C+Victoria%2C+Australia&format=jsonv2&limit=1"
+    }
+  ],
+  "metadata": {
+    "source": "OpenStreetMap Nominatim place search; query URL retained per record",
+    "retrieved": "2026-10-25",
+    "licence": "ODbL 1.0",
+    "attribution": "OpenStreetMap contributors",
+    "meaning": "Mapped place centres, not station or trailhead coordinates"
+  }
+}

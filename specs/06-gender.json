@@ -44,7 +44,7 @@
     }
   },
   "description": "2025 participation within each reported gender group. The male/female categories are those available in the report.",
-  "height": 255,
+  "height": 300,
   "layer": [
     {
       "data": {
@@ -238,7 +238,7 @@
       },
       "mark": {
         "type": "text",
-        "dy": -13,
+        "dy": 18,
         "fontSize": 12,
         "color": "#203b32"
       },
@@ -284,9 +284,10 @@
       },
       "mark": {
         "type": "text",
-        "dy": 23,
+        "dy": -23,
         "color": "#203b32",
-        "fontSize": 12
+        "fontSize": 12,
+        "fontWeight": 600
       },
       "encoding": {
         "x": {

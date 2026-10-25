@@ -1,0 +1,743 @@
+{
+  "metadata": {
+    "source": "OpenStreetMap relation 29695, geometry snapshot 15 October 2026",
+    "licence": "ODbL 1.0",
+    "attribution": "OpenStreetMap contributors",
+    "method": "Shortest node-edge path between explicit mapped termini, with two sub-10 m geometry gaps included as straight-distance allowances. Haversine edge lengths; branches off this path excluded. Town strip positions use nearest path vertex to the mapped town centre. Approximate cartographic chainage, not surveyed riding distance.",
+    "total_km": 39.481625269112094,
+    "gap_m": 9.526363491533864,
+    "gaps": [
+      {
+        "from_node": 9265406421,
+        "to_node": 9265406446,
+        "length_m": 4.583078409846347
+      },
+      {
+        "from_node": 291495046,
+        "to_node": 633115678,
+        "length_m": 4.943285081687517
+      }
+    ],
+    "town_query_date": "2026-10-25"
+  },
+  "segments": [
+    {
+      "start_km": 0,
+      "end_km": 0.07820928899482874,
+      "surface": "Unsealed",
+      "surface_tag": "gravel",
+      "way_id": 49891485
+    },
+    {
+      "start_km": 0.07820928899482874,
+      "end_km": 0.08576893963877297,
+      "surface": "Sealed",
+      "surface_tag": "concrete",
+      "way_id": 49891487
+    },
+    {
+      "start_km": 0.08576893963877297,
+      "end_km": 0.35736816864503707,
+      "surface": "Unsealed",
+      "surface_tag": "gravel",
+      "way_id": 764503865
+    },
+    {
+      "start_km": 0.35736816864503707,
+      "end_km": 0.37420340692063986,
+      "surface": "Sealed",
+      "surface_tag": "concrete",
+      "way_id": 231988982
+    },
+    {
+      "start_km": 0.37420340692063986,
+      "end_km": 0.6693611799751675,
+      "surface": "Unsealed",
+      "surface_tag": "fine_gravel",
+      "way_id": 549399540
+    },
+    {
+      "start_km": 0.6693611799751675,
+      "end_km": 0.6793207839589974,
+      "surface": "Sealed",
+      "surface_tag": "concrete",
+      "way_id": 231988980
+    },
+    {
+      "start_km": 0.6793207839589974,
+      "end_km": 0.9377904097040181,
+      "surface": "Sealed",
+      "surface_tag": "concrete",
+      "way_id": 549399541
+    },
+    {
+      "start_km": 0.9377904097040181,
+      "end_km": 0.9939394805900309,
+      "surface": "Sealed",
+      "surface_tag": "concrete",
+      "way_id": 1003933474
+    },
+    {
+      "start_km": 0.9939394805900309,
+      "end_km": 1.295085811647951,
+      "surface": "Sealed",
+      "surface_tag": "concrete",
+      "way_id": 49830971
+    },
+    {
+      "start_km": 1.295085811647951,
+      "end_km": 1.6888675962379442,
+      "surface": "Sealed",
+      "surface_tag": "asphalt",
+      "way_id": 122801544
+    },
+    {
+      "start_km": 1.6888675962379442,
+      "end_km": 1.7300361921449918,
+      "surface": "Unsealed",
+      "surface_tag": "gravel",
+      "way_id": 549399542
+    },
+    {
+      "start_km": 1.7300361921449918,
+      "end_km": 2.0825455536537647,
+      "surface": "Unsealed",
+      "surface_tag": "gravel",
+      "way_id": 126483806
+    },
+    {
+      "start_km": 2.0825455536537647,
+      "end_km": 2.2127519797434916,
+      "surface": "Unsealed",
+      "surface_tag": "dirt",
+      "way_id": 122798105
+    },
+    {
+      "start_km": 2.2127519797434916,
+      "end_km": 2.272429205084231,
+      "surface": "Sealed",
+      "surface_tag": "concrete",
+      "way_id": 122801554
+    },
+    {
+      "start_km": 2.272429205084231,
+      "end_km": 2.3073341754497707,
+      "surface": "Sealed",
+      "surface_tag": "concrete",
+      "way_id": 1003826493
+    },
+    {
+      "start_km": 2.3073341754497707,
+      "end_km": 2.388648348431258,
+      "surface": "Unsealed",
+      "surface_tag": "dirt",
+      "way_id": 549399543
+    },
+    {
+      "start_km": 2.388648348431258,
+      "end_km": 2.729286384379402,
+      "surface": "Unsealed",
+      "surface_tag": "dirt",
+      "way_id": 122801548
+    },
+    {
+      "start_km": 2.729286384379402,
+      "end_km": 3.144089713797486,
+      "surface": "Unsealed",
+      "surface_tag": "dirt",
+      "way_id": 1263931454
+    },
+    {
+      "start_km": 3.144089713797486,
+      "end_km": 3.1490329988791737,
+      "surface": "Geometry gap",
+      "surface_tag": "gap",
+      "way_id": null
+    },
+    {
+      "start_km": 3.1490329988791737,
+      "end_km": 3.200667374970403,
+      "surface": "Not recorded",
+      "surface_tag": "not recorded",
+      "way_id": 49830531
+    },
+    {
+      "start_km": 3.200667374970403,
+      "end_km": 3.2052504533802493,
+      "surface": "Geometry gap",
+      "surface_tag": "gap",
+      "way_id": null
+    },
+    {
+      "start_km": 3.2052504533802493,
+      "end_km": 3.2127925878924004,
+      "surface": "Unsealed",
+      "surface_tag": "dirt",
+      "way_id": 1004181015
+    },
+    {
+      "start_km": 3.2127925878924004,
+      "end_km": 3.656280216907107,
+      "surface": "Unsealed",
+      "surface_tag": "dirt",
+      "way_id": 26581644
+    },
+    {
+      "start_km": 3.656280216907107,
+      "end_km": 4.279307945498513,
+      "surface": "Unsealed",
+      "surface_tag": "dirt",
+      "way_id": 1263931453
+    },
+    {
+      "start_km": 4.279307945498513,
+      "end_km": 4.3210420532967895,
+      "surface": "Unsealed",
+      "surface_tag": "dirt",
+      "way_id": 255023969
+    },
+    {
+      "start_km": 4.3210420532967895,
+      "end_km": 6.138967617579977,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 26581662
+    },
+    {
+      "start_km": 6.138967617579977,
+      "end_km": 6.181484891890244,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 1004191961
+    },
+    {
+      "start_km": 6.181484891890244,
+      "end_km": 6.1937088195797365,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 1004191960
+    },
+    {
+      "start_km": 6.1937088195797365,
+      "end_km": 6.230547828187075,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 1004181019
+    },
+    {
+      "start_km": 6.230547828187075,
+      "end_km": 6.357183354185915,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 549399544
+    },
+    {
+      "start_km": 6.357183354185915,
+      "end_km": 6.497896886391066,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 26581701
+    },
+    {
+      "start_km": 6.497896886391066,
+      "end_km": 6.528543046186576,
+      "surface": "Sealed",
+      "surface_tag": "asphalt",
+      "way_id": 1035891644
+    },
+    {
+      "start_km": 6.528543046186576,
+      "end_km": 6.56920304565059,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 1035891643
+    },
+    {
+      "start_km": 6.56920304565059,
+      "end_km": 6.688529326374642,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 1004191967
+    },
+    {
+      "start_km": 6.688529326374642,
+      "end_km": 6.768711371337584,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 1004191968
+    },
+    {
+      "start_km": 6.768711371337584,
+      "end_km": 7.04121604577231,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 549399545
+    },
+    {
+      "start_km": 7.04121604577231,
+      "end_km": 7.128465373054875,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 549399546
+    },
+    {
+      "start_km": 7.128465373054875,
+      "end_km": 7.146836572883976,
+      "surface": "Sealed",
+      "surface_tag": "concrete",
+      "way_id": 549399547
+    },
+    {
+      "start_km": 7.146836572883976,
+      "end_km": 7.237176698722336,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 1004191969
+    },
+    {
+      "start_km": 7.237176698722336,
+      "end_km": 9.586103626847278,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 218043954
+    },
+    {
+      "start_km": 9.586103626847278,
+      "end_km": 9.623600026767667,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 253787238
+    },
+    {
+      "start_km": 9.623600026767667,
+      "end_km": 10.340258725781675,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 253787237
+    },
+    {
+      "start_km": 10.340258725781675,
+      "end_km": 11.106741503010543,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 26581807
+    },
+    {
+      "start_km": 11.106741503010543,
+      "end_km": 11.137602382906564,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 1004619671
+    },
+    {
+      "start_km": 11.137602382906564,
+      "end_km": 11.171625870632813,
+      "surface": "Unsealed",
+      "surface_tag": "dirt",
+      "way_id": 1004619670
+    },
+    {
+      "start_km": 11.171625870632813,
+      "end_km": 11.594016600368972,
+      "surface": "Unsealed",
+      "surface_tag": "dirt",
+      "way_id": 239017657
+    },
+    {
+      "start_km": 11.594016600368972,
+      "end_km": 11.726911352546077,
+      "surface": "Unsealed",
+      "surface_tag": "dirt",
+      "way_id": 1004619673
+    },
+    {
+      "start_km": 11.726911352546077,
+      "end_km": 11.886481686391491,
+      "surface": "Unsealed",
+      "surface_tag": "dirt",
+      "way_id": 1004619672
+    },
+    {
+      "start_km": 11.886481686391491,
+      "end_km": 14.167476120705965,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 26581857
+    },
+    {
+      "start_km": 14.167476120705965,
+      "end_km": 14.199169690745109,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 1163820491
+    },
+    {
+      "start_km": 14.199169690745109,
+      "end_km": 14.3901365122086,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 1163820490
+    },
+    {
+      "start_km": 14.3901365122086,
+      "end_km": 14.413760225869478,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 1163820487
+    },
+    {
+      "start_km": 14.413760225869478,
+      "end_km": 14.495479519264087,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 1163820486
+    },
+    {
+      "start_km": 14.495479519264087,
+      "end_km": 17.772708844027225,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 26581858
+    },
+    {
+      "start_km": 17.772708844027225,
+      "end_km": 18.03910977098974,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 904432218
+    },
+    {
+      "start_km": 18.03910977098974,
+      "end_km": 18.463475473047883,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 26581951
+    },
+    {
+      "start_km": 18.463475473047883,
+      "end_km": 18.488366409439788,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 253787239
+    },
+    {
+      "start_km": 18.488366409439788,
+      "end_km": 19.66443524595228,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 253787240
+    },
+    {
+      "start_km": 19.66443524595228,
+      "end_km": 19.70090211604685,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 239529687
+    },
+    {
+      "start_km": 19.70090211604685,
+      "end_km": 19.992899654554712,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 239529689
+    },
+    {
+      "start_km": 19.992899654554712,
+      "end_km": 20.24411751230532,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 239529685
+    },
+    {
+      "start_km": 20.24411751230532,
+      "end_km": 21.672574793510858,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 239529683
+    },
+    {
+      "start_km": 21.672574793510858,
+      "end_km": 21.678371050417343,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 239529680
+    },
+    {
+      "start_km": 21.678371050417343,
+      "end_km": 23.013789903267458,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 239529678
+    },
+    {
+      "start_km": 23.013789903267458,
+      "end_km": 27.012661119954053,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 26581993
+    },
+    {
+      "start_km": 27.012661119954053,
+      "end_km": 27.026162632023954,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 253787242
+    },
+    {
+      "start_km": 27.026162632023954,
+      "end_km": 27.769075055901787,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 253787241
+    },
+    {
+      "start_km": 27.769075055901787,
+      "end_km": 27.795269983967536,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 549399548
+    },
+    {
+      "start_km": 27.795269983967536,
+      "end_km": 27.854790182801086,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 549399549
+    },
+    {
+      "start_km": 27.854790182801086,
+      "end_km": 28.07751788704255,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 549399550
+    },
+    {
+      "start_km": 28.07751788704255,
+      "end_km": 28.416807742427924,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 26582068
+    },
+    {
+      "start_km": 28.416807742427924,
+      "end_km": 29.429496532572344,
+      "surface": "Unsealed",
+      "surface_tag": "gravel",
+      "way_id": 549399551
+    },
+    {
+      "start_km": 29.429496532572344,
+      "end_km": 29.458933981514033,
+      "surface": "Unsealed",
+      "surface_tag": "gravel",
+      "way_id": 549399552
+    },
+    {
+      "start_km": 29.458933981514033,
+      "end_km": 29.716491848199993,
+      "surface": "Unsealed",
+      "surface_tag": "gravel",
+      "way_id": 1227531116
+    },
+    {
+      "start_km": 29.716491848199993,
+      "end_km": 30.18878534935572,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 1227531117
+    },
+    {
+      "start_km": 30.18878534935572,
+      "end_km": 30.525066119784277,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 1227531118
+    },
+    {
+      "start_km": 30.525066119784277,
+      "end_km": 31.303816665007442,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 106858587
+    },
+    {
+      "start_km": 31.303816665007442,
+      "end_km": 31.375057428149606,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 26582142
+    },
+    {
+      "start_km": 31.375057428149606,
+      "end_km": 31.41593941711263,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 239527054
+    },
+    {
+      "start_km": 31.41593941711263,
+      "end_km": 31.49834304425309,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 239527053
+    },
+    {
+      "start_km": 31.49834304425309,
+      "end_km": 31.62503476288095,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 255023968
+    },
+    {
+      "start_km": 31.62503476288095,
+      "end_km": 31.890860044653433,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 255023967
+    },
+    {
+      "start_km": 31.890860044653433,
+      "end_km": 33.6694245674221,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 26582156
+    },
+    {
+      "start_km": 33.6694245674221,
+      "end_km": 33.67484140675939,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 255199389
+    },
+    {
+      "start_km": 33.67484140675939,
+      "end_km": 34.14910408007,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 1565281255
+    },
+    {
+      "start_km": 34.14910408007,
+      "end_km": 34.1503459683456,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 1565281256
+    },
+    {
+      "start_km": 34.1503459683456,
+      "end_km": 35.312719716645354,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 255199388
+    },
+    {
+      "start_km": 35.312719716645354,
+      "end_km": 35.43156938253502,
+      "surface": "Unsealed",
+      "surface_tag": "unpaved",
+      "way_id": 549399554
+    },
+    {
+      "start_km": 35.43156938253502,
+      "end_km": 35.51094220217885,
+      "surface": "Sealed",
+      "surface_tag": "paved",
+      "way_id": 549399555
+    },
+    {
+      "start_km": 35.51094220217885,
+      "end_km": 35.658080707455206,
+      "surface": "Sealed",
+      "surface_tag": "paved",
+      "way_id": 1227531119
+    },
+    {
+      "start_km": 35.658080707455206,
+      "end_km": 38.00575743409954,
+      "surface": "Sealed",
+      "surface_tag": "paved",
+      "way_id": 26582198
+    },
+    {
+      "start_km": 38.00575743409954,
+      "end_km": 38.03041336567247,
+      "surface": "Sealed",
+      "surface_tag": "paved",
+      "way_id": 253787243
+    },
+    {
+      "start_km": 38.03041336567247,
+      "end_km": 38.60325639727596,
+      "surface": "Sealed",
+      "surface_tag": "paved",
+      "way_id": 253787244
+    },
+    {
+      "start_km": 38.60325639727596,
+      "end_km": 39.03062688355102,
+      "surface": "Sealed",
+      "surface_tag": "paved",
+      "way_id": 832850224
+    },
+    {
+      "start_km": 39.03062688355102,
+      "end_km": 39.32394325980091,
+      "surface": "Sealed",
+      "surface_tag": "paved",
+      "way_id": 832850225
+    },
+    {
+      "start_km": 39.32394325980091,
+      "end_km": 39.481625269112094,
+      "surface": "Sealed",
+      "surface_tag": "paved",
+      "way_id": 549399556
+    }
+  ],
+  "towns": [
+    {
+      "name": "Mount Evelyn",
+      "lon": 145.3883037,
+      "lat": -37.7873186,
+      "route_lon": 145.3874825,
+      "route_lat": -37.7886922,
+      "km": 7.193486647177861,
+      "osm_place_id": 2423826,
+      "place_search_url": "https://nominatim.openstreetmap.org/search?q=Mount+Evelyn%2C+Victoria%2C+Australia&format=jsonv2&limit=1",
+      "kind": "Town centre; strip marker uses nearest mapped route vertex"
+    },
+    {
+      "name": "Woori Yallock",
+      "lon": 145.5301262,
+      "lat": -37.7793329,
+      "route_lon": 145.5306925,
+      "route_lat": -37.7754792,
+      "km": 22.25601586407273,
+      "osm_place_id": 2432752,
+      "place_search_url": "https://nominatim.openstreetmap.org/search?q=Woori+Yallock%2C+Victoria%2C+Australia&format=jsonv2&limit=1",
+      "kind": "Town centre; strip marker uses nearest mapped route vertex"
+    },
+    {
+      "name": "Yarra Junction",
+      "lon": 145.6150255,
+      "lat": -37.7821693,
+      "route_lon": 145.6156507,
+      "route_lat": -37.7812463,
+      "km": 30.863471380809912,
+      "osm_place_id": 2439914,
+      "place_search_url": "https://nominatim.openstreetmap.org/search?q=Yarra+Junction%2C+Victoria%2C+Australia&format=jsonv2&limit=1",
+      "kind": "Town centre; strip marker uses nearest mapped route vertex"
+    },
+    {
+      "name": "Millgrove",
+      "lon": 145.6612026,
+      "lat": -37.7515012,
+      "route_lon": 145.6606112,
+      "route_lat": -37.7539574,
+      "km": 36.19656710816074,
+      "osm_place_id": 2446192,
+      "place_search_url": "https://nominatim.openstreetmap.org/search?q=Millgrove%2C+Victoria%2C+Australia&format=jsonv2&limit=1",
+      "kind": "Town centre; strip marker uses nearest mapped route vertex"
+    }
+  ]
+}

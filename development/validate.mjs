@@ -12,26 +12,37 @@ const data=JSON.parse(fs.readFileSync('data/participation.json'));
 assert.equal(data.length,162);assert.equal(data.filter(r=>r.year===2025&&r.period==='Week'&&r.state==='AUS')[0].rate,14.9);
 const trails=JSON.parse(fs.readFileSync('data/trails.json'));assert.equal(trails.length,14);
 assert.deepEqual(['Sealed','Mixed','Unsealed'].map(g=>trails.filter(t=>t.surface_group===g).length),[5,5,4]);
-const summary=JSON.parse(fs.readFileSync('data/trail-summary.json'));assert.equal(summary.totalListedKm,905);assert.equal(summary.flows.reduce((n,d)=>n+d.count,0),14);assert.equal(summary.flows.filter(d=>d.cats[2]==='Partly open').reduce((n,d)=>n+d.count,0),2);
-const specs=fs.readdirSync('specs').filter(f=>f.endsWith('.json'));assert.equal(specs.length,16);
+const summary=JSON.parse(fs.readFileSync('data/trail-summary.json'));assert.equal(summary.totalListedKm,905);assert.equal(summary.flows.reduce((n,d)=>n+d.count,0),14);assert.equal(summary.partlyOpen.length,2);
+const specs=fs.readdirSync('specs').filter(f=>f.endsWith('.json'));assert.equal(specs.length,18);
+const profile=JSON.parse(fs.readFileSync('data/route-profile.json'));
+assert(profile.metadata.total_km>38&&profile.metadata.total_km<41);
+assert.equal(profile.metadata.gaps.length,2);assert(profile.metadata.gap_m>9&&profile.metadata.gap_m<10);
+assert.equal(profile.segments[0].start_km,0);
+for(let i=0;i<profile.segments.length;i++){const d=profile.segments[i];assert(d.end_km>d.start_km);if(i)assert(Math.abs(d.start_km-profile.segments[i-1].end_km)<1e-9);}
+assert(Math.abs(profile.segments.at(-1).end_km-profile.metadata.total_km)<1e-9);
+assert.equal(summary.flows.length,7);assert(summary.flows.every(f=>f.cats.length===2));
+assert.deepEqual(['0–49 km','50–99 km','100–149 km','150–199 km'].map(b=>summary.flows.filter(f=>f.cats[1]===b).reduce((n,f)=>n+f.count,0)),[6,6,1,1]);
 let failures=0;
 for(const file of specs){try{
- const spec=JSON.parse(fs.readFileSync(`specs/${file}`,'utf8'));inline(spec);spec.width=500;spec.autosize={type:'fit',contains:'padding'};
+ const spec=JSON.parse(fs.readFileSync(`specs/${file}`,'utf8'));inline(spec);if(spec.vconcat){for(const p of spec.vconcat)p.width=450;}else{spec.width=500;spec.autosize={type:'fit',contains:'padding'};}
  const vega=spec.$schema.includes('/vega/v5')?spec:ctx.vegaLite.compile(spec).spec;
  const view=new ctx.vega.View(ctx.vega.parse(vega),{renderer:'none'});await view.runAsync();
  if(file.startsWith('02-')){await view.signal('period','Year').runAsync();assert.equal(view.signal('period'),'Year');}
  if(file.startsWith('09-')||file.startsWith('10-')){await view.signal('surface','Sealed').runAsync();assert.equal(view.signal('surface'),'Sealed');}
  if(file.startsWith('03-')){const nodes=items(view),rects=nodes.filter(n=>n.mark?.marktype==='rect'&&n.datum?.state),labels=nodes.filter(n=>n.mark?.marktype==='text'&&n.datum?.state);let minimum=100;for(const r of rects){const t=labels.find(t=>t.datum.state===r.datum.state&&t.datum.year===r.datum.year);minimum=Math.min(minimum,contrast(r.fill,t.fill));}assert(minimum>=4.5);console.log('CHECK heatmap minimum text contrast',minimum.toFixed(2)+':1');}
- if(file.startsWith('02-')){for(const period of ['Week','Month','Year']){await view.signal('period',period).runAsync();const nodes=items(view),regions=nodes.filter(n=>n.mark?.marktype==='shape'&&n.datum?.properties?.state),labels=nodes.filter(n=>n.mark?.marktype==='text'&&n.datum?.state);for(const t of labels){const region=regions.find(r=>r.datum.properties.state===t.datum.state);assert(contrast(t.fill,t.datum.state==='ACT'?'#f7f5ed':region.fill)>=4.5);}}}
- if(file.startsWith('09-')){let b=items(view).filter(n=>n.mark?.marktype==='symbol'&&n.datum?.km);assert.equal(b.length,5);assert(b.every(n=>n.opacity===.68));await view.signal('highlight','Murray to Mountains').runAsync();b=items(view).filter(n=>n.mark?.marktype==='symbol'&&n.datum?.km);assert.equal(b.filter(n=>n.opacity===1).length,1);}
- if(file.startsWith('11-')){const dots=items(view).filter(n=>n.mark?.marktype==='symbol'&&n.datum?.km);assert.equal(dots.length,14);assert(dots.every(n=>n.fill==='#ffffff'&&n.stroke==='#10251d'&&n.opacity===1));}
- if(file.startsWith('12-')){const segments=items(view).filter(n=>n.mark?.marktype==='shape'&&n.datum?.properties?.way_id);assert.equal(segments.length,94);assert.equal(new Set(segments.map(n=>n.datum.properties.surface_group)).size,3);const ends=items(view).filter(n=>n.mark?.marktype==='text'&&n.datum?.node_id);assert.deepEqual(ends.map(n=>n.text).sort(),['Lilydale mapped end','Warburton mapped end']);}
+ if(file.startsWith('02-')){for(const period of ['Week','Month','Year']){await view.signal('period',period).runAsync();assert.deepEqual([...view.scale('color').domain()],{Week:[10,22],Month:[20,34],Year:[30,43]}[period]);const nodes=items(view),regions=nodes.filter(n=>n.mark?.marktype==='shape'&&n.datum?.properties?.state),labels=nodes.filter(n=>n.mark?.marktype==='text'&&n.datum?.state);for(const t of labels){const region=regions.find(r=>r.datum.properties.state===t.datum.state);assert(contrast(t.fill,t.datum.state==='ACT'?'#f7f5ed':region.fill)>=4.5);}}}
+ if(file.startsWith('09-')){let b=items(view).filter(n=>n.mark?.marktype==='symbol'&&n.datum?.km);assert.equal(b.length,5);assert(b.every(n=>n.opacity===.85));await view.signal('highlight','Murray to Mountains').runAsync();b=items(view).filter(n=>n.mark?.marktype==='symbol'&&n.datum?.km);assert.equal(b.filter(n=>n.opacity===1).length,1);}
+ if(file.startsWith('11-')){const dots=items(view).filter(n=>n.mark?.marktype==='symbol'&&n.datum?.short_name);assert.equal(dots.length,14);assert.deepEqual(dots.map(n=>n.datum.km).sort((a,b)=>a-b),trails.map(t=>t.km).sort((a,b)=>a-b));assert.deepEqual(['Sealed','Mixed','Unsealed'].map(g=>dots.filter(n=>n.datum.surface_group===g).length),[5,5,4]);assert(dots.every(n=>n.opacity===1));await view.width(330).runAsync();const smallDots=items(view).filter(n=>n.mark?.marktype==='symbol'&&n.datum?.short_name);assert.equal(smallDots.length,14);assert(smallDots.every(n=>Number.isFinite(n.x)&&Number.isFinite(n.y)));}
+ if(file.startsWith('07-')){const cells=items(view).filter(n=>n.mark?.marktype==='rect'&&n.datum?.cell);assert.equal(cells.length,100);assert.deepEqual(['Quiet','Direct','Never'].map(g=>cells.filter(n=>n.datum.group===g).length),[69,22,9]);}
+ if(file.startsWith('17-')){const points=items(view).filter(n=>n.mark?.marktype==='symbol'&&n.datum?.km);assert.equal(points.length,9);assert(points.every(n=>['#245646','#a4482f','#806926'].includes(n.stroke)));await view.signal('surface','Sealed').runAsync();assert.equal(items(view).filter(n=>n.mark?.marktype==='symbol'&&n.datum?.km).length,3);}
+ if(file.startsWith('18-')){const runs=spec.layer[0].data.values;assert(Math.abs(runs.reduce((n,d)=>n+d.end_km-d.start_km,0)-profile.metadata.total_km)<1e-8);assert.equal(runs.filter(d=>d.surface==='Geometry gap').length,2);}
+ if(file.startsWith('12-')){const segments=items(view).filter(n=>n.mark?.marktype==='shape'&&n.datum?.properties?.way_id);assert.equal(segments.length,94);assert.equal(new Set(segments.map(n=>n.datum.properties.surface_group)).size,3);const ends=items(view).filter(n=>n.mark?.marktype==='text'&&n.datum?.node_id);assert.deepEqual(ends.map(n=>n.text).sort(),['Lilydale','Warburton']);}
  const svg=await view.toSVG();assert(svg.includes('<svg'));assert(!/\bNaN\b/.test(svg));
- if(file.startsWith('15-')){await view.width(330).signal('hoverFlow',0).runAsync();const small=await view.toSVG();assert(!/\bNaN\b/.test(small));assert(small.includes('Partly open'));}
+ if(file.startsWith('15-')){await view.width(330).signal('hoverFlow',0).runAsync();const small=await view.toSVG();assert(!/\bNaN\b/.test(small));assert(small.includes('150–199 km'));}
 
  view.finalize();console.log('PASS',file);
  }catch(e){console.error('FAIL',file,e);failures++;}}
 assert.equal(failures,0,'Every chart must compile and render');
 const total=fs.readdirSync('data').reduce((n,f)=>n+fs.statSync(`data/${f}`).size,0);
-console.log('PASS data size:',total,'bytes; 16 specs (15 charts + inset) compiled and rendered; filter signals updated.');
+console.log('PASS data size:',total,'bytes; 18 specs (15 main figures, locator, eastern detail and route strip) compiled and rendered; filter signals updated.');
 

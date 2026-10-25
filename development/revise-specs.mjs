@@ -87,5 +87,5 @@ const ht=av.marks[4].encode.update;ht.x={signal:'narrow ? 10 : datum.axis===0 ? 
 tx.text={signal:"[datum.cat,datum.count+' listings']"};tx.limit={value:160};tx.y={signal:'narrow ? 42+datum.axis*150 : 35+unit*(datum.start+datum.end)/2'};
 bg.y={signal:'narrow ? 30+datum.axis*150 : 22+unit*(datum.start+datum.end)/2'};bg.height={value:34};
 av.marks.splice(4,0,{type:'rect',interactive:false,from:{data:'headers'},encode:{update:{x:{value:5},y:{signal:'8+datum.axis*150'},width:{value:110},height:{value:20},fill:{value:P},opacity:{signal:'narrow ? 1 : 0'}}}});put('15-trail-alluvial',av);
-console.log('Reviewed specs: 15 main charts + 1 contextual inset; 8 distinct advanced idioms.');
+console.log('Intermediate specs: 15 main charts + 1 contextual inset; final idiom inventory is documented in REVIEW.md.');
 

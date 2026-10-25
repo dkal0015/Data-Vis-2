@@ -1,698 +1,867 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 260,
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 500,
+  "height": 300,
+  "padding": 5,
   "autosize": {
-    "type": "pad",
-    "contains": "padding"
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
   },
-  "config": {
-    "background": "transparent",
-    "font": "Arial",
-    "view": {
-      "stroke": null
-    },
-    "axis": {
-      "labelColor": "#526354",
-      "titleColor": "#203b32",
-      "gridColor": "#e1e4d9",
-      "domain": false,
-      "ticks": false,
-      "labelFontSize": 12,
-      "titleFontSize": 12,
-      "titleFontWeight": "normal",
-      "labelPadding": 8,
-      "titlePadding": 12
-    },
-    "legend": {
-      "labelColor": "#203b32",
-      "titleColor": "#203b32",
-      "labelFontSize": 12,
-      "titleFontSize": 12,
-      "orient": "bottom",
-      "padding": 10,
-      "labelLimit": 270,
-      "columns": 1
-    },
-    "title": {
-      "anchor": "start",
-      "color": "#203b32",
-      "fontSize": 15
-    },
-    "text": {
-      "fontSize": 12
+  "background": "transparent",
+  "description": "100 visible waffle cells, with direct connected labels for 69% paths or quiet streets, 22% most direct route, and 9% never on a road. One cell is one percentage point.",
+  "signals": [
+    {
+      "name": "plot",
+      "update": "min(280,width-125)"
     }
-  },
-  "description": "100-cell waffle. Each square represents one percentage point, not one respondent. 2025 main respondents who rode in past year, n=1656.",
-  "height": 260,
-  "data": {
-    "values": [
-      {
-        "col": 0,
-        "row": 0,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 1
-      },
-      {
-        "col": 1,
-        "row": 0,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 2
-      },
-      {
-        "col": 2,
-        "row": 0,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 3
-      },
-      {
-        "col": 3,
-        "row": 0,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 4
-      },
-      {
-        "col": 4,
-        "row": 0,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 5
-      },
-      {
-        "col": 5,
-        "row": 0,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 6
-      },
-      {
-        "col": 6,
-        "row": 0,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 7
-      },
-      {
-        "col": 7,
-        "row": 0,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 8
-      },
-      {
-        "col": 8,
-        "row": 0,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 9
-      },
-      {
-        "col": 9,
-        "row": 0,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 10
-      },
-      {
-        "col": 0,
-        "row": 1,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 11
-      },
-      {
-        "col": 1,
-        "row": 1,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 12
-      },
-      {
-        "col": 2,
-        "row": 1,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 13
-      },
-      {
-        "col": 3,
-        "row": 1,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 14
-      },
-      {
-        "col": 4,
-        "row": 1,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 15
-      },
-      {
-        "col": 5,
-        "row": 1,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 16
-      },
-      {
-        "col": 6,
-        "row": 1,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 17
-      },
-      {
-        "col": 7,
-        "row": 1,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 18
-      },
-      {
-        "col": 8,
-        "row": 1,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 19
-      },
-      {
-        "col": 9,
-        "row": 1,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 20
-      },
-      {
-        "col": 0,
-        "row": 2,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 21
-      },
-      {
-        "col": 1,
-        "row": 2,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 22
-      },
-      {
-        "col": 2,
-        "row": 2,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 23
-      },
-      {
-        "col": 3,
-        "row": 2,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 24
-      },
-      {
-        "col": 4,
-        "row": 2,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 25
-      },
-      {
-        "col": 5,
-        "row": 2,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 26
-      },
-      {
-        "col": 6,
-        "row": 2,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 27
-      },
-      {
-        "col": 7,
-        "row": 2,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 28
-      },
-      {
-        "col": 8,
-        "row": 2,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 29
-      },
-      {
-        "col": 9,
-        "row": 2,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 30
-      },
-      {
-        "col": 0,
-        "row": 3,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 31
-      },
-      {
-        "col": 1,
-        "row": 3,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 32
-      },
-      {
-        "col": 2,
-        "row": 3,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 33
-      },
-      {
-        "col": 3,
-        "row": 3,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 34
-      },
-      {
-        "col": 4,
-        "row": 3,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 35
-      },
-      {
-        "col": 5,
-        "row": 3,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 36
-      },
-      {
-        "col": 6,
-        "row": 3,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 37
-      },
-      {
-        "col": 7,
-        "row": 3,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 38
-      },
-      {
-        "col": 8,
-        "row": 3,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 39
-      },
-      {
-        "col": 9,
-        "row": 3,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 40
-      },
-      {
-        "col": 0,
-        "row": 4,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 41
-      },
-      {
-        "col": 1,
-        "row": 4,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 42
-      },
-      {
-        "col": 2,
-        "row": 4,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 43
-      },
-      {
-        "col": 3,
-        "row": 4,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 44
-      },
-      {
-        "col": 4,
-        "row": 4,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 45
-      },
-      {
-        "col": 5,
-        "row": 4,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 46
-      },
-      {
-        "col": 6,
-        "row": 4,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 47
-      },
-      {
-        "col": 7,
-        "row": 4,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 48
-      },
-      {
-        "col": 8,
-        "row": 4,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 49
-      },
-      {
-        "col": 9,
-        "row": 4,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 50
-      },
-      {
-        "col": 0,
-        "row": 5,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 51
-      },
-      {
-        "col": 1,
-        "row": 5,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 52
-      },
-      {
-        "col": 2,
-        "row": 5,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 53
-      },
-      {
-        "col": 3,
-        "row": 5,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 54
-      },
-      {
-        "col": 4,
-        "row": 5,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 55
-      },
-      {
-        "col": 5,
-        "row": 5,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 56
-      },
-      {
-        "col": 6,
-        "row": 5,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 57
-      },
-      {
-        "col": 7,
-        "row": 5,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 58
-      },
-      {
-        "col": 8,
-        "row": 5,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 59
-      },
-      {
-        "col": 9,
-        "row": 5,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 60
-      },
-      {
-        "col": 0,
-        "row": 6,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 61
-      },
-      {
-        "col": 1,
-        "row": 6,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 62
-      },
-      {
-        "col": 2,
-        "row": 6,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 63
-      },
-      {
-        "col": 3,
-        "row": 6,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 64
-      },
-      {
-        "col": 4,
-        "row": 6,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 65
-      },
-      {
-        "col": 5,
-        "row": 6,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 66
-      },
-      {
-        "col": 6,
-        "row": 6,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 67
-      },
-      {
-        "col": 7,
-        "row": 6,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 68
-      },
-      {
-        "col": 8,
-        "row": 6,
-        "style": "Paths or quiet streets · 69%",
-        "cell": 69
-      },
-      {
-        "col": 9,
-        "row": 6,
-        "style": "Most direct route · 22%",
-        "cell": 70
-      },
-      {
-        "col": 0,
-        "row": 7,
-        "style": "Most direct route · 22%",
-        "cell": 71
-      },
-      {
-        "col": 1,
-        "row": 7,
-        "style": "Most direct route · 22%",
-        "cell": 72
-      },
-      {
-        "col": 2,
-        "row": 7,
-        "style": "Most direct route · 22%",
-        "cell": 73
-      },
-      {
-        "col": 3,
-        "row": 7,
-        "style": "Most direct route · 22%",
-        "cell": 74
-      },
-      {
-        "col": 4,
-        "row": 7,
-        "style": "Most direct route · 22%",
-        "cell": 75
-      },
-      {
-        "col": 5,
-        "row": 7,
-        "style": "Most direct route · 22%",
-        "cell": 76
-      },
-      {
-        "col": 6,
-        "row": 7,
-        "style": "Most direct route · 22%",
-        "cell": 77
-      },
-      {
-        "col": 7,
-        "row": 7,
-        "style": "Most direct route · 22%",
-        "cell": 78
-      },
-      {
-        "col": 8,
-        "row": 7,
-        "style": "Most direct route · 22%",
-        "cell": 79
-      },
-      {
-        "col": 9,
-        "row": 7,
-        "style": "Most direct route · 22%",
-        "cell": 80
-      },
-      {
-        "col": 0,
-        "row": 8,
-        "style": "Most direct route · 22%",
-        "cell": 81
-      },
-      {
-        "col": 1,
-        "row": 8,
-        "style": "Most direct route · 22%",
-        "cell": 82
-      },
-      {
-        "col": 2,
-        "row": 8,
-        "style": "Most direct route · 22%",
-        "cell": 83
-      },
-      {
-        "col": 3,
-        "row": 8,
-        "style": "Most direct route · 22%",
-        "cell": 84
-      },
-      {
-        "col": 4,
-        "row": 8,
-        "style": "Most direct route · 22%",
-        "cell": 85
-      },
-      {
-        "col": 5,
-        "row": 8,
-        "style": "Most direct route · 22%",
-        "cell": 86
-      },
-      {
-        "col": 6,
-        "row": 8,
-        "style": "Most direct route · 22%",
-        "cell": 87
-      },
-      {
-        "col": 7,
-        "row": 8,
-        "style": "Most direct route · 22%",
-        "cell": 88
-      },
-      {
-        "col": 8,
-        "row": 8,
-        "style": "Most direct route · 22%",
-        "cell": 89
-      },
-      {
-        "col": 9,
-        "row": 8,
-        "style": "Most direct route · 22%",
-        "cell": 90
-      },
-      {
-        "col": 0,
-        "row": 9,
-        "style": "Most direct route · 22%",
-        "cell": 91
-      },
-      {
-        "col": 1,
-        "row": 9,
-        "style": "Never on a road · 9%",
-        "cell": 92
-      },
-      {
-        "col": 2,
-        "row": 9,
-        "style": "Never on a road · 9%",
-        "cell": 93
-      },
-      {
-        "col": 3,
-        "row": 9,
-        "style": "Never on a road · 9%",
-        "cell": 94
-      },
-      {
-        "col": 4,
-        "row": 9,
-        "style": "Never on a road · 9%",
-        "cell": 95
-      },
-      {
-        "col": 5,
-        "row": 9,
-        "style": "Never on a road · 9%",
-        "cell": 96
-      },
-      {
-        "col": 6,
-        "row": 9,
-        "style": "Never on a road · 9%",
-        "cell": 97
-      },
-      {
-        "col": 7,
-        "row": 9,
-        "style": "Never on a road · 9%",
-        "cell": 98
-      },
-      {
-        "col": 8,
-        "row": 9,
-        "style": "Never on a road · 9%",
-        "cell": 99
-      },
-      {
-        "col": 9,
-        "row": 9,
-        "style": "Never on a road · 9%",
-        "cell": 100
-      }
-    ]
-  },
-  "mark": {
-    "type": "rect",
-    "cornerRadius": 3,
-    "stroke": "#f5f3e9",
-    "strokeWidth": 3
-  },
-  "encoding": {
-    "x": {
-      "field": "col",
+  ],
+  "data": [
+    {
+      "name": "cells",
+      "values": [
+        {
+          "col": 0,
+          "row": 0,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 1,
+          "group": "Quiet"
+        },
+        {
+          "col": 1,
+          "row": 0,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 2,
+          "group": "Quiet"
+        },
+        {
+          "col": 2,
+          "row": 0,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 3,
+          "group": "Quiet"
+        },
+        {
+          "col": 3,
+          "row": 0,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 4,
+          "group": "Quiet"
+        },
+        {
+          "col": 4,
+          "row": 0,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 5,
+          "group": "Quiet"
+        },
+        {
+          "col": 5,
+          "row": 0,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 6,
+          "group": "Quiet"
+        },
+        {
+          "col": 6,
+          "row": 0,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 7,
+          "group": "Quiet"
+        },
+        {
+          "col": 7,
+          "row": 0,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 8,
+          "group": "Quiet"
+        },
+        {
+          "col": 8,
+          "row": 0,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 9,
+          "group": "Quiet"
+        },
+        {
+          "col": 9,
+          "row": 0,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 10,
+          "group": "Quiet"
+        },
+        {
+          "col": 0,
+          "row": 1,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 11,
+          "group": "Quiet"
+        },
+        {
+          "col": 1,
+          "row": 1,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 12,
+          "group": "Quiet"
+        },
+        {
+          "col": 2,
+          "row": 1,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 13,
+          "group": "Quiet"
+        },
+        {
+          "col": 3,
+          "row": 1,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 14,
+          "group": "Quiet"
+        },
+        {
+          "col": 4,
+          "row": 1,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 15,
+          "group": "Quiet"
+        },
+        {
+          "col": 5,
+          "row": 1,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 16,
+          "group": "Quiet"
+        },
+        {
+          "col": 6,
+          "row": 1,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 17,
+          "group": "Quiet"
+        },
+        {
+          "col": 7,
+          "row": 1,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 18,
+          "group": "Quiet"
+        },
+        {
+          "col": 8,
+          "row": 1,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 19,
+          "group": "Quiet"
+        },
+        {
+          "col": 9,
+          "row": 1,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 20,
+          "group": "Quiet"
+        },
+        {
+          "col": 0,
+          "row": 2,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 21,
+          "group": "Quiet"
+        },
+        {
+          "col": 1,
+          "row": 2,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 22,
+          "group": "Quiet"
+        },
+        {
+          "col": 2,
+          "row": 2,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 23,
+          "group": "Quiet"
+        },
+        {
+          "col": 3,
+          "row": 2,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 24,
+          "group": "Quiet"
+        },
+        {
+          "col": 4,
+          "row": 2,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 25,
+          "group": "Quiet"
+        },
+        {
+          "col": 5,
+          "row": 2,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 26,
+          "group": "Quiet"
+        },
+        {
+          "col": 6,
+          "row": 2,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 27,
+          "group": "Quiet"
+        },
+        {
+          "col": 7,
+          "row": 2,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 28,
+          "group": "Quiet"
+        },
+        {
+          "col": 8,
+          "row": 2,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 29,
+          "group": "Quiet"
+        },
+        {
+          "col": 9,
+          "row": 2,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 30,
+          "group": "Quiet"
+        },
+        {
+          "col": 0,
+          "row": 3,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 31,
+          "group": "Quiet"
+        },
+        {
+          "col": 1,
+          "row": 3,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 32,
+          "group": "Quiet"
+        },
+        {
+          "col": 2,
+          "row": 3,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 33,
+          "group": "Quiet"
+        },
+        {
+          "col": 3,
+          "row": 3,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 34,
+          "group": "Quiet"
+        },
+        {
+          "col": 4,
+          "row": 3,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 35,
+          "group": "Quiet"
+        },
+        {
+          "col": 5,
+          "row": 3,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 36,
+          "group": "Quiet"
+        },
+        {
+          "col": 6,
+          "row": 3,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 37,
+          "group": "Quiet"
+        },
+        {
+          "col": 7,
+          "row": 3,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 38,
+          "group": "Quiet"
+        },
+        {
+          "col": 8,
+          "row": 3,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 39,
+          "group": "Quiet"
+        },
+        {
+          "col": 9,
+          "row": 3,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 40,
+          "group": "Quiet"
+        },
+        {
+          "col": 0,
+          "row": 4,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 41,
+          "group": "Quiet"
+        },
+        {
+          "col": 1,
+          "row": 4,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 42,
+          "group": "Quiet"
+        },
+        {
+          "col": 2,
+          "row": 4,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 43,
+          "group": "Quiet"
+        },
+        {
+          "col": 3,
+          "row": 4,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 44,
+          "group": "Quiet"
+        },
+        {
+          "col": 4,
+          "row": 4,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 45,
+          "group": "Quiet"
+        },
+        {
+          "col": 5,
+          "row": 4,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 46,
+          "group": "Quiet"
+        },
+        {
+          "col": 6,
+          "row": 4,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 47,
+          "group": "Quiet"
+        },
+        {
+          "col": 7,
+          "row": 4,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 48,
+          "group": "Quiet"
+        },
+        {
+          "col": 8,
+          "row": 4,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 49,
+          "group": "Quiet"
+        },
+        {
+          "col": 9,
+          "row": 4,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 50,
+          "group": "Quiet"
+        },
+        {
+          "col": 0,
+          "row": 5,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 51,
+          "group": "Quiet"
+        },
+        {
+          "col": 1,
+          "row": 5,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 52,
+          "group": "Quiet"
+        },
+        {
+          "col": 2,
+          "row": 5,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 53,
+          "group": "Quiet"
+        },
+        {
+          "col": 3,
+          "row": 5,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 54,
+          "group": "Quiet"
+        },
+        {
+          "col": 4,
+          "row": 5,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 55,
+          "group": "Quiet"
+        },
+        {
+          "col": 5,
+          "row": 5,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 56,
+          "group": "Quiet"
+        },
+        {
+          "col": 6,
+          "row": 5,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 57,
+          "group": "Quiet"
+        },
+        {
+          "col": 7,
+          "row": 5,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 58,
+          "group": "Quiet"
+        },
+        {
+          "col": 8,
+          "row": 5,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 59,
+          "group": "Quiet"
+        },
+        {
+          "col": 9,
+          "row": 5,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 60,
+          "group": "Quiet"
+        },
+        {
+          "col": 0,
+          "row": 6,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 61,
+          "group": "Quiet"
+        },
+        {
+          "col": 1,
+          "row": 6,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 62,
+          "group": "Quiet"
+        },
+        {
+          "col": 2,
+          "row": 6,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 63,
+          "group": "Quiet"
+        },
+        {
+          "col": 3,
+          "row": 6,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 64,
+          "group": "Quiet"
+        },
+        {
+          "col": 4,
+          "row": 6,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 65,
+          "group": "Quiet"
+        },
+        {
+          "col": 5,
+          "row": 6,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 66,
+          "group": "Quiet"
+        },
+        {
+          "col": 6,
+          "row": 6,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 67,
+          "group": "Quiet"
+        },
+        {
+          "col": 7,
+          "row": 6,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 68,
+          "group": "Quiet"
+        },
+        {
+          "col": 8,
+          "row": 6,
+          "style": "Paths or quiet streets · 69%",
+          "cell": 69,
+          "group": "Quiet"
+        },
+        {
+          "col": 9,
+          "row": 6,
+          "style": "Most direct route · 22%",
+          "cell": 70,
+          "group": "Direct"
+        },
+        {
+          "col": 0,
+          "row": 7,
+          "style": "Most direct route · 22%",
+          "cell": 71,
+          "group": "Direct"
+        },
+        {
+          "col": 1,
+          "row": 7,
+          "style": "Most direct route · 22%",
+          "cell": 72,
+          "group": "Direct"
+        },
+        {
+          "col": 2,
+          "row": 7,
+          "style": "Most direct route · 22%",
+          "cell": 73,
+          "group": "Direct"
+        },
+        {
+          "col": 3,
+          "row": 7,
+          "style": "Most direct route · 22%",
+          "cell": 74,
+          "group": "Direct"
+        },
+        {
+          "col": 4,
+          "row": 7,
+          "style": "Most direct route · 22%",
+          "cell": 75,
+          "group": "Direct"
+        },
+        {
+          "col": 5,
+          "row": 7,
+          "style": "Most direct route · 22%",
+          "cell": 76,
+          "group": "Direct"
+        },
+        {
+          "col": 6,
+          "row": 7,
+          "style": "Most direct route · 22%",
+          "cell": 77,
+          "group": "Direct"
+        },
+        {
+          "col": 7,
+          "row": 7,
+          "style": "Most direct route · 22%",
+          "cell": 78,
+          "group": "Direct"
+        },
+        {
+          "col": 8,
+          "row": 7,
+          "style": "Most direct route · 22%",
+          "cell": 79,
+          "group": "Direct"
+        },
+        {
+          "col": 9,
+          "row": 7,
+          "style": "Most direct route · 22%",
+          "cell": 80,
+          "group": "Direct"
+        },
+        {
+          "col": 0,
+          "row": 8,
+          "style": "Most direct route · 22%",
+          "cell": 81,
+          "group": "Direct"
+        },
+        {
+          "col": 1,
+          "row": 8,
+          "style": "Most direct route · 22%",
+          "cell": 82,
+          "group": "Direct"
+        },
+        {
+          "col": 2,
+          "row": 8,
+          "style": "Most direct route · 22%",
+          "cell": 83,
+          "group": "Direct"
+        },
+        {
+          "col": 3,
+          "row": 8,
+          "style": "Most direct route · 22%",
+          "cell": 84,
+          "group": "Direct"
+        },
+        {
+          "col": 4,
+          "row": 8,
+          "style": "Most direct route · 22%",
+          "cell": 85,
+          "group": "Direct"
+        },
+        {
+          "col": 5,
+          "row": 8,
+          "style": "Most direct route · 22%",
+          "cell": 86,
+          "group": "Direct"
+        },
+        {
+          "col": 6,
+          "row": 8,
+          "style": "Most direct route · 22%",
+          "cell": 87,
+          "group": "Direct"
+        },
+        {
+          "col": 7,
+          "row": 8,
+          "style": "Most direct route · 22%",
+          "cell": 88,
+          "group": "Direct"
+        },
+        {
+          "col": 8,
+          "row": 8,
+          "style": "Most direct route · 22%",
+          "cell": 89,
+          "group": "Direct"
+        },
+        {
+          "col": 9,
+          "row": 8,
+          "style": "Most direct route · 22%",
+          "cell": 90,
+          "group": "Direct"
+        },
+        {
+          "col": 0,
+          "row": 9,
+          "style": "Most direct route · 22%",
+          "cell": 91,
+          "group": "Direct"
+        },
+        {
+          "col": 1,
+          "row": 9,
+          "style": "Never on a road · 9%",
+          "cell": 92,
+          "group": "Never"
+        },
+        {
+          "col": 2,
+          "row": 9,
+          "style": "Never on a road · 9%",
+          "cell": 93,
+          "group": "Never"
+        },
+        {
+          "col": 3,
+          "row": 9,
+          "style": "Never on a road · 9%",
+          "cell": 94,
+          "group": "Never"
+        },
+        {
+          "col": 4,
+          "row": 9,
+          "style": "Never on a road · 9%",
+          "cell": 95,
+          "group": "Never"
+        },
+        {
+          "col": 5,
+          "row": 9,
+          "style": "Never on a road · 9%",
+          "cell": 96,
+          "group": "Never"
+        },
+        {
+          "col": 6,
+          "row": 9,
+          "style": "Never on a road · 9%",
+          "cell": 97,
+          "group": "Never"
+        },
+        {
+          "col": 7,
+          "row": 9,
+          "style": "Never on a road · 9%",
+          "cell": 98,
+          "group": "Never"
+        },
+        {
+          "col": 8,
+          "row": 9,
+          "style": "Never on a road · 9%",
+          "cell": 99,
+          "group": "Never"
+        },
+        {
+          "col": 9,
+          "row": 9,
+          "style": "Never on a road · 9%",
+          "cell": 100,
+          "group": "Never"
+        }
+      ]
+    },
+    {
+      "name": "labels",
+      "values": [
+        {
+          "group": "Quiet",
+          "source": 0.35,
+          "target": 0.24,
+          "lines": [
+            "69%",
+            "Paths or",
+            "quiet streets"
+          ]
+        },
+        {
+          "group": "Direct",
+          "source": 0.78,
+          "target": 0.66,
+          "lines": [
+            "22%",
+            "Most direct",
+            "route"
+          ]
+        },
+        {
+          "group": "Never",
+          "source": 0.95,
+          "target": 1.04,
+          "lines": [
+            "9%",
+            "Never on",
+            "a road"
+          ]
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "style",
       "type": "ordinal",
-      "axis": null
-    },
-    "y": {
-      "field": "row",
-      "type": "ordinal",
-      "axis": null
-    },
-    "color": {
-      "field": "style",
-      "type": "nominal",
-      "title": "Preferred riding style",
-      "scale": {
-        "domain": [
-          "Paths or quiet streets · 69%",
-          "Most direct route · 22%",
-          "Never on a road · 9%"
-        ],
-        "range": [
-          "#245646",
-          "#a4bc69",
-          "#bb6244"
-        ]
+      "domain": [
+        "Quiet",
+        "Direct",
+        "Never"
+      ],
+      "range": [
+        "#245646",
+        "#a4bc69",
+        "#a4482f"
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {
+        "data": "cells"
       },
-      "legend": {
-        "orient": "bottom",
-        "columns": 1,
-        "labelLimit": 300
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "datum.col*plot/10"
+          },
+          "y": {
+            "signal": "10+datum.row*plot/10"
+          },
+          "width": {
+            "signal": "plot/10-2"
+          },
+          "height": {
+            "signal": "plot/10-2"
+          },
+          "cornerRadius": {
+            "value": 2
+          },
+          "fill": {
+            "scale": "style",
+            "field": "group"
+          },
+          "tooltip": {
+            "signal": "{'Preference':datum.style,'One square':'one percentage point'}"
+          }
+        }
       }
     },
-    "tooltip": [
-      {
-        "field": "style",
-        "type": "nominal",
-        "title": "Riding style"
+    {
+      "type": "path",
+      "from": {
+        "data": "labels"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "path": {
+            "signal": "'M'+plot+','+(10+plot*datum.source)+'L'+(plot+10)+','+(10+plot*datum.target)+'L'+(plot+18)+','+(10+plot*datum.target)"
+          },
+          "stroke": {
+            "scale": "style",
+            "field": "group"
+          },
+          "strokeWidth": {
+            "value": 1.3
+          }
+        }
       }
-    ]
-  }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "labels"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "plot+24"
+          },
+          "y": {
+            "signal": "plot*datum.target-1"
+          },
+          "text": {
+            "field": "lines"
+          },
+          "lineHeight": {
+            "value": 14
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": 600
+          },
+          "fill": {
+            "value": "#203b32"
+          },
+          "baseline": {
+            "value": "top"
+          }
+        }
+      }
+    }
+  ]
 }

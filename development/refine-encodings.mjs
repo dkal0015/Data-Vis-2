@@ -7,16 +7,21 @@ const G='#245646',R='#a4482f',U='#806926',I='#203b32',P='#f7f5ed';
 const domain=[0,45],range=['#f1f4e9',G];
 const rgb=s=>s.slice(1).match(/../g).map(x=>parseInt(x,16));
 const lum=rgb=>rgb.map(x=>x/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4).reduce((n,x,i)=>n+x*[.2126,.7152,.0722][i],0);
-const fillFor=rate=>{const a=rgb(range[0]),b=rgb(range[1]),t=Math.max(0,Math.min(1,(rate-domain[0])/(domain[1]-domain[0])));return a.map((x,i)=>Math.round(x+(b[i]-x)*t));};
-const textFor=rate=>{const l=lum(fillFor(rate));return (l+.05)/.05 >= 1.05/(l+.05) ? '#000000' : '#ffffff';};
+const fillFor=(rate,d=domain)=>{const a=rgb(range[0]),b=rgb(range[1]),t=Math.max(0,Math.min(1,(rate-d[0])/(d[1]-d[0])));return a.map((x,i)=>Math.round(x+(b[i]-x)*t));};
+const textFor=(rate,d=domain)=>{const l=lum(fillFor(rate,d));return (l+.05)/.05 >= 1.05/(l+.05) ? '#000000' : '#ffffff';};
 let s=get('03-state-heatmap');
 for(const d of s.data.values)d.labelColor=textFor(d.rate);
 s.layer[0].encoding.color.scale={domain,range,interpolate:'rgb'};
-s.layer[0].encoding.color.title='Participation (%) · same scale as map';
+s.layer[0].encoding.color.title='Weekly participation (%) · fixed 0–45% scale';
 s.layer[0].encoding.color.legend={orient:'bottom',direction:'horizontal',gradientLength:170,values:[0,15,30,45],titleLimit:330};
 delete s.layer[1].encoding.color;s.layer[1].mark.color={expr:'datum.labelColor'};put('03-state-heatmap',s);
-s=get('02-participation-map');s.layer[0].encoding.color.scale={domain,range,interpolate:'rgb'};s.layer[0].encoding.color.title='Participation (%) · common 0–45% scale';
-for(const d of s.layer[1].data.values)for(const period of ['Week','Month','Year'])d[period+'Text']=textFor(d[period]);
+s=get('02-participation-map');
+const mapDomains={Week:[10,22],Month:[20,34],Year:[30,43]};
+s.params.push({name:'mapLow',expr:"period==='Week' ? 10 : period==='Month' ? 20 : 30"},{name:'mapHigh',expr:"period==='Week' ? 22 : period==='Month' ? 34 : 43"});
+s.layer[0].encoding.color.scale={domainMin:{expr:'mapLow'},domainMax:{expr:'mapHigh'},range,interpolate:'rgb',zero:false,nice:false,clamp:true};
+s.layer[0].encoding.color.title='Participation · window-specific scale';
+s.layer[0].encoding.color.legend={orient:'bottom',direction:'horizontal',gradientLength:190,tickCount:3,values:{expr:'[mapLow,(mapLow+mapHigh)/2,mapHigh]'},labelExpr:"format(datum.value,'.1f')+'%'",titleLimit:300};
+for(const d of s.layer[1].data.values)for(const period of ['Week','Month','Year'])d[period+'Text']=textFor(d[period],mapDomains[period]);
 delete s.layer[1].encoding.color;s.layer[1].mark.color={expr:"datum.state==='ACT' ? '#000000' : datum.labelColor"};
 s.layer[1].transform.push({calculate:"datum[period+'Text']",as:'labelColor'});put('02-participation-map',s);
 s=get('11-trail-boxplot');s.layer[0].mark.box={fillOpacity:.16,stroke:'#526354',strokeWidth:1.3};s.layer[0].mark.median={color:'#000000',strokeWidth:2};s.layer[0].mark.rule={color:'#526354',strokeWidth:1.3};
@@ -55,4 +60,34 @@ for(const name of fs.readdirSync('specs').filter(f=>f.endsWith('.json'))){
  if(spec.config){spec.config.text={...spec.config.text,fontSize:12};}
  const walk=o=>{if(!o||typeof o!=='object')return;if(typeof o.fontSize==='number'&&o.fontSize<12)o.fontSize=12;for(const v of Object.values(o))if(typeof v==='object')walk(v);};walk(spec);put(n,spec);
 }
-console.log('Contrast, shared rate scale, mark visibility, unit labels and verified route attributes updated.');
+console.log('Contrast, explicit rate scales, mark visibility, unit labels and verified route attributes updated.');
+// A grouped dot plot preserves every exact listing length without statistical summaries.
+const trails=JSON.parse(fs.readFileSync('data/trails.json','utf8'));
+const groups=['Sealed','Mixed','Unsealed'];
+const plotted=groups.flatMap(surface=>{
+ const placed=[];
+ for(const trail of trails.filter(t=>t.surface_group===surface).sort((a,b)=>a.km-b.km)){
+  const offset=[0,-14,14,-28,28].find(lane=>!placed.some(t=>t.offset===lane&&Math.abs(t.km-trail.km)<12));
+  placed.push({...trail,offset});
+ }
+ return placed;
+});
+const base=get('11-trail-boxplot');
+const dots={
+ $schema:'https://vega.github.io/schema/vega-lite/v5.json',width:'container',height:250,
+ autosize:{type:'fit',contains:'padding',resize:true},background:'transparent',config:base.config,
+ description:'Grouped dot plot of exact published lengths for 14 selected trail listings. Each dot is one trail; horizontal position is kilometres and colour/row identifies surface. Vertical offsets prevent overlap and do not encode data.',
+ layer:[
+  {data:{values:groups.map(surface_group=>({surface_group}))},mark:{type:'rule',color:'#d9ddc9',strokeWidth:1},encoding:{x:{datum:0,type:'quantitative',scale:{domain:[0,180],nice:false}},x2:{datum:180},y:{field:'surface_group',type:'nominal',sort:groups,title:null,axis:{labelExpr:"datum.label + (datum.label === 'Unsealed' ? ' (4)' : ' (5)')",labelPadding:12}}}},
+  {data:{values:plotted},mark:{type:'point',filled:true,size:110,stroke:P,strokeWidth:1.5,opacity:1,yOffset:{expr:'datum.offset'}},encoding:{
+   x:{field:'km',type:'quantitative',title:'Published listing length (km)',scale:{domain:[0,180],nice:false},axis:{values:[0,50,100,150],grid:true,labelAngle:0}},
+   y:{field:'surface_group',type:'nominal',sort:groups,title:null},
+   color:{field:'surface_group',type:'nominal',scale:{domain:groups,range:[G,R,U]},legend:null},
+   tooltip:[{field:'name',type:'nominal',title:'Trail'},{field:'km',type:'quantitative',title:'Listed length (km)'},{field:'surface_group',type:'nominal',title:'Surface'},{field:'state',type:'nominal',title:'State'},{field:'status',type:'nominal',title:'Status'}]
+  }},
+  {data:{values:[{km:137,surface_group:'Sealed',label:'137 km'}]},mark:{type:'text',dy:-18,fontSize:12,fontWeight:600,color:I},encoding:{x:{field:'km',type:'quantitative'},y:{field:'surface_group',type:'nominal',sort:groups},text:{field:'label'}}}
+ ]
+};
+put('11-trail-grouped-dots',dots);
+for(const old of ['11-trail-boxplot','11-trail-length-histogram'])if(fs.existsSync(`specs/${old}.json`))fs.unlinkSync(`specs/${old}.json`);
+console.log('Figure 5: grouped dots preserve all 14 exact lengths; vertical offsets only prevent overlap.');

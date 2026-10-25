@@ -6,7 +6,7 @@ Revised 25 October 2026. The current figure inventory, encoding rationale and se
 
 **Domain:** Cycling participation and recreational rail trails in Australia.
 
-**Who:** An Australian general audience, including occasional riders considering recreational cycling. The page avoids requiring specialist cycling or statistical knowledge; unfamiliar boxplot components are explained.
+**Who:** An Australian general audience, including occasional riders considering recreational cycling. The page avoids requiring specialist cycling or statistical knowledge; Figure 5 uses one dot per selected trail on a common kilometre scale, grouped into surface rows. Slight vertical offsets keep close lengths visible and carry no data meaning.
 
 **Why:** Compare the geographic distribution of participation, investigate the claim that cycling is growing, identify differences among population groups, and connect rider preferences with the variety of recreational trail options. The evidence supports an uneven recovery and stable national weekly participation, rather than a blanket growth claim.
 
@@ -20,9 +20,9 @@ Revised 25 October 2026. The current figure inventory, encoding rationale and se
 
 ## How: marks, channels and tasks
 
-The revised page leads with the trail selection, then presents participation, rider preferences and a local route. See [REVIEW.md](REVIEW.md) for the current figure-by-figure inventory and justification of the eight advanced idioms. Basic diagrams are not classified as advanced simply because they are interactive.
+The revised page leads with the trail selection, then presents participation, rider preferences and a local route. See [REVIEW.md](REVIEW.md) for the current figure-by-figure inventory and justification of the seven remaining advanced idioms. The grouped dot plot is basic under the supplied rubric, so the current version is below the eight-advanced-idiom criterion. Basic diagrams are not classified as advanced simply because they are interactive.
 
-Additional derived views: the treemap sums published listing lengths within this selection; its areas are not unique network kilometres. The alluvial preserves joint surface, length-band and status attributes, with width counting listings rather than distance. Its stages are not changes over time. The final rate comparison uses a 0–100% scale with national and 50% references. It is weekly population rate divided by annual population rate, multiplied by 100; it is not individual retention or measured riding frequency.
+Additional derived views: the treemap sums published listing lengths within this selection; its areas are not unique network kilometres. The alluvial preserves joint surface and equal 50 km length-band attributes; opening status is marked with a dagger in the ranked-length chart, with width counting listings rather than distance. Its stages are not changes over time. The final rate comparison uses a 0–100% scale with national and 50% references. It is weekly population rate divided by annual population rate, multiplied by 100; it is not individual retention or measured riding frequency.
 
 ## Munzner What / Why / How
 
@@ -37,7 +37,7 @@ Additional derived views: the treemap sums published listing lengths within this
 - 15 main chart panels and three map idioms: choropleth, proportional symbols and route lines.
 - More than two substantive sources; local data and libraries, with no live API requests required to view charts.
 - Readable chart JSON in `specs/`; prepared CSV/JSON/GeoJSON in `data/`.
-- All 16 specifications (15 main charts plus locator inset) compiled and rendered in Vega; selector signals exercised. Desktop/mobile browser checks recorded during implementation.
+- All 18 specifications (15 main figures, locator, eastern detail and route surface strip) compiled and rendered in Vega; selector signals exercised. Desktop/mobile browser checks recorded during implementation.
 - Responsive CSS, chart descriptions, labelled controls, visible source links, downloadable data and a keyboard-accessible data table.
 - Metadata includes author, revision date, source dates, licences and an AI acknowledgement. No external photographs or copied charts. The small bicycle icon is original inline SVG decoration.
 
@@ -49,3 +49,7 @@ Additional derived views: the treemap sums published listing lengths within this
 - The specification separately requires a hand-drawn A4 sketch and a PDF image of it. No sketch was supplied and none has been fabricated; this deliverable is intentionally excluded at your request. The brief describes penalties for a missing sketch. A digital mock-up is not a substitute under the rubric.
 - The specification gives the deadline as Sunday 25 October 2026, 11:55 PM. Check Moodle for the campus timezone and any later updates.
 - AI acknowledgement in the page: OpenAI Codex assisted with source research, data preparation, narrative, implementation and specifications. Adapt the acknowledgement to accurately reflect your use and the university's required format.
+
+## Final presentation refinements
+
+Figure 1 pairs the national overview with a cropped eastern detail using the same smaller outlined symbols and shared filter/highlight. Figure 3 wraps tile labels and retains complete unsealed names below the diagram. Figure 4 has two stages and four equal 50 km bands, with external labels and surface order based on median listed length. Figure 11 places gaps above lines and endpoint values below. Figure 12 directly connects three labels to waffle regions and has no separate legend. Figure 14 uses a full-width card, thicker surface colours, mapped town centres and an explicitly approximate distance strip; supporting views are not counted as additional advanced idioms.

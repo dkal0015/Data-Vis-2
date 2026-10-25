@@ -1,0 +1,406 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 165,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "background": "transparent",
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#526354",
+      "titleColor": "#203b32",
+      "gridColor": "#e1e4d9",
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelPadding": 8,
+      "titlePadding": 12
+    },
+    "legend": {
+      "labelColor": "#203b32",
+      "titleColor": "#203b32",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "orient": "bottom",
+      "padding": 10,
+      "labelLimit": 270,
+      "columns": 1
+    },
+    "title": {
+      "anchor": "start",
+      "color": "#203b32",
+      "fontSize": 15
+    },
+    "text": {
+      "fontSize": 12
+    }
+  },
+  "description": "Surface by approximate cartographic distance from the Lilydale mapped end along the ordered main OSM corridor. Two geometry gaps totalling under ten metres are explicit. This is not surveyed ride distance.",
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "start_km": 0,
+            "end_km": 0.07820928899482874,
+            "surface": "Unsealed",
+            "surface_tag": "gravel",
+            "way_id": 49891485
+          },
+          {
+            "start_km": 0.07820928899482874,
+            "end_km": 0.08576893963877297,
+            "surface": "Sealed",
+            "surface_tag": "concrete",
+            "way_id": 49891487
+          },
+          {
+            "start_km": 0.08576893963877297,
+            "end_km": 0.35736816864503707,
+            "surface": "Unsealed",
+            "surface_tag": "gravel",
+            "way_id": 764503865
+          },
+          {
+            "start_km": 0.35736816864503707,
+            "end_km": 0.37420340692063986,
+            "surface": "Sealed",
+            "surface_tag": "concrete",
+            "way_id": 231988982
+          },
+          {
+            "start_km": 0.37420340692063986,
+            "end_km": 0.6693611799751675,
+            "surface": "Unsealed",
+            "surface_tag": "fine_gravel",
+            "way_id": 549399540
+          },
+          {
+            "start_km": 0.6693611799751675,
+            "end_km": 1.6888675962379442,
+            "surface": "Sealed",
+            "surface_tag": "concrete, asphalt",
+            "way_id": 231988980
+          },
+          {
+            "start_km": 1.6888675962379442,
+            "end_km": 2.2127519797434916,
+            "surface": "Unsealed",
+            "surface_tag": "gravel, dirt",
+            "way_id": 549399542
+          },
+          {
+            "start_km": 2.2127519797434916,
+            "end_km": 2.3073341754497707,
+            "surface": "Sealed",
+            "surface_tag": "concrete",
+            "way_id": 122801554
+          },
+          {
+            "start_km": 2.3073341754497707,
+            "end_km": 3.144089713797486,
+            "surface": "Unsealed",
+            "surface_tag": "dirt",
+            "way_id": 549399543
+          },
+          {
+            "start_km": 3.144089713797486,
+            "end_km": 3.1490329988791737,
+            "surface": "Geometry gap",
+            "surface_tag": "gap",
+            "way_id": null
+          },
+          {
+            "start_km": 3.1490329988791737,
+            "end_km": 3.200667374970403,
+            "surface": "Not recorded",
+            "surface_tag": "not recorded",
+            "way_id": 49830531
+          },
+          {
+            "start_km": 3.200667374970403,
+            "end_km": 3.2052504533802493,
+            "surface": "Geometry gap",
+            "surface_tag": "gap",
+            "way_id": null
+          },
+          {
+            "start_km": 3.2052504533802493,
+            "end_km": 6.497896886391066,
+            "surface": "Unsealed",
+            "surface_tag": "dirt, unpaved",
+            "way_id": 1004181015
+          },
+          {
+            "start_km": 6.497896886391066,
+            "end_km": 6.528543046186576,
+            "surface": "Sealed",
+            "surface_tag": "asphalt",
+            "way_id": 1035891644
+          },
+          {
+            "start_km": 6.528543046186576,
+            "end_km": 7.128465373054875,
+            "surface": "Unsealed",
+            "surface_tag": "unpaved",
+            "way_id": 1035891643
+          },
+          {
+            "start_km": 7.128465373054875,
+            "end_km": 7.146836572883976,
+            "surface": "Sealed",
+            "surface_tag": "concrete",
+            "way_id": 549399547
+          },
+          {
+            "start_km": 7.146836572883976,
+            "end_km": 35.43156938253502,
+            "surface": "Unsealed",
+            "surface_tag": "unpaved, dirt, gravel",
+            "way_id": 1004191969
+          },
+          {
+            "start_km": 35.43156938253502,
+            "end_km": 39.481625269112094,
+            "surface": "Sealed",
+            "surface_tag": "paved",
+            "way_id": 549399555
+          }
+        ]
+      },
+      "mark": {
+        "type": "rect"
+      },
+      "encoding": {
+        "x": {
+          "field": "start_km",
+          "type": "quantitative",
+          "title": "Approx. distance from Lilydale (km)",
+          "scale": {
+            "domain": [
+              0,
+              39.481625269112094
+            ],
+            "nice": false
+          },
+          "axis": {
+            "values": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "grid": false
+          }
+        },
+        "x2": {
+          "field": "end_km"
+        },
+        "y": {
+          "value": 48
+        },
+        "y2": {
+          "value": 72
+        },
+        "color": {
+          "field": "surface",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Sealed",
+              "Unsealed",
+              "Not recorded",
+              "Geometry gap"
+            ],
+            "range": [
+              "#245646",
+              "#806926",
+              "#777777",
+              "#ffffff"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "surface",
+            "type": "nominal",
+            "title": "Surface / mapping status"
+          },
+          {
+            "field": "start_km",
+            "type": "quantitative",
+            "title": "Start km",
+            "format": ".2f"
+          },
+          {
+            "field": "end_km",
+            "type": "quantitative",
+            "title": "End km",
+            "format": ".2f"
+          },
+          {
+            "field": "surface_tag",
+            "type": "nominal",
+            "title": "Original OSM tag(s)"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "name": "Mount Evelyn",
+            "lon": 145.3883037,
+            "lat": -37.7873186,
+            "route_lon": 145.3874825,
+            "route_lat": -37.7886922,
+            "km": 7.193486647177861,
+            "osm_place_id": 2423826,
+            "place_search_url": "https://nominatim.openstreetmap.org/search?q=Mount+Evelyn%2C+Victoria%2C+Australia&format=jsonv2&limit=1",
+            "kind": "Town centre; strip marker uses nearest mapped route vertex"
+          },
+          {
+            "name": "Woori Yallock",
+            "lon": 145.5301262,
+            "lat": -37.7793329,
+            "route_lon": 145.5306925,
+            "route_lat": -37.7754792,
+            "km": 22.25601586407273,
+            "osm_place_id": 2432752,
+            "place_search_url": "https://nominatim.openstreetmap.org/search?q=Woori+Yallock%2C+Victoria%2C+Australia&format=jsonv2&limit=1",
+            "kind": "Town centre; strip marker uses nearest mapped route vertex"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#203b32"
+      },
+      "encoding": {
+        "x": {
+          "field": "km",
+          "type": "quantitative"
+        },
+        "y": {
+          "value": 32
+        },
+        "y2": {
+          "value": 48
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "name": "Mount Evelyn",
+            "lon": 145.3883037,
+            "lat": -37.7873186,
+            "route_lon": 145.3874825,
+            "route_lat": -37.7886922,
+            "km": 7.193486647177861,
+            "osm_place_id": 2423826,
+            "place_search_url": "https://nominatim.openstreetmap.org/search?q=Mount+Evelyn%2C+Victoria%2C+Australia&format=jsonv2&limit=1",
+            "kind": "Town centre; strip marker uses nearest mapped route vertex"
+          },
+          {
+            "name": "Woori Yallock",
+            "lon": 145.5301262,
+            "lat": -37.7793329,
+            "route_lon": 145.5306925,
+            "route_lat": -37.7754792,
+            "km": 22.25601586407273,
+            "osm_place_id": 2432752,
+            "place_search_url": "https://nominatim.openstreetmap.org/search?q=Woori+Yallock%2C+Victoria%2C+Australia&format=jsonv2&limit=1",
+            "kind": "Town centre; strip marker uses nearest mapped route vertex"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "color": "#203b32"
+      },
+      "encoding": {
+        "x": {
+          "field": "km",
+          "type": "quantitative"
+        },
+        "y": {
+          "value": 22
+        },
+        "text": {
+          "field": "name"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "km": 0,
+            "label": "Lilydale"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontSize": 12,
+        "color": "#203b32"
+      },
+      "encoding": {
+        "x": {
+          "field": "km",
+          "type": "quantitative"
+        },
+        "y": {
+          "value": 93
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "km": 39.481625269112094,
+            "label": "Warburton · 39.5 km"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "fontSize": 12,
+        "color": "#203b32"
+      },
+      "encoding": {
+        "x": {
+          "field": "km",
+          "type": "quantitative"
+        },
+        "y": {
+          "value": 93
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ]
+}
