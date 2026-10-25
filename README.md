@@ -1,16 +1,12 @@
 # Australia on Two Wheels
 
-**Duveen Kalansooriya · FIT3179 Data Visualisation 2 · Revised 25 October 2026**
+**Duveen Kalansooriya · FIT3179 Data Visualisation 2
 
 A single scrolling data story about Australian cycling participation and recreational rail trails. It includes **15 original Vega/Vega-Lite charts**, with three map idioms: choropleth, proportional-symbol and geographic route-line maps.
 
 ## Website
 
 GitHub Pages address: https://dkal0015.github.io/Data-Vis-2/
-
-## Local preview
-
-From this repository run `python -m http.server 8000` and open http://localhost:8000. There is no build step or package installation. Use an HTTP server because browsers restrict requests from `file://` pages.
 
 ## Source files
 
@@ -36,10 +32,4 @@ The participation-map selector switches between weekly, monthly and annual recal
 
 ## AI acknowledgement
 
-OpenAI Codex assisted with research, data preparation, narrative, implementation and Vega-Lite specifications. Duveen Kalansooriya is responsible for reviewing, adapting and understanding the submission. The page includes this acknowledgement visibly.
-
-## Validation
-
-Run `node development/validate.mjs` to compile/render all 16 specifications (15 main charts and one inset), verify selected source values and exercise filter signals, check actual rendered label contrast, verify all individual boxplot points and named route ends, and reconcile 94 route surface segments. Browser checks covered desktop and mobile widths, all 16 specification renders, the annual recall-window selection and five sealed trails in the linked filter. Numerical survey estimates and source definitions should be reviewed before submission.
-
-The updated review and eight-advanced-idiom inventory are in [REVIEW.md](REVIEW.md). The alluvial becomes vertical on a phone. Map geometry is embedded in the specifications to avoid separate GeoJSON requests.
+OpenAI Codex was used to support research, data preparation, narrative, implementation and Vega-Lite specifications.
