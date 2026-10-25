@@ -445,7 +445,7 @@
             ],
             "titleLimit": 330
           },
-          "title": "Participation (%) · same scale as map"
+          "title": "Weekly participation (%) · fixed 0–45% scale"
         },
         "tooltip": [
           {

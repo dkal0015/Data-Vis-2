@@ -1,5 +1,5 @@
 'use strict';
-const chartList=[['chart-trail-map','09-trail-map'],['chart-lengths','10-trail-lengths'],['chart-treemap','14-trail-treemap'],['chart-alluvial','15-trail-alluvial'],['chart-boxplot','11-trail-boxplot'],['chart-map','02-participation-map'],['chart-trend','01-national-trend'],['chart-heatmap','03-state-heatmap'],['chart-change','04-state-change'],['chart-age','05-age'],['chart-gender','06-gender'],['chart-quiet','07-quiet-routes'],['chart-frequency','08-frequency'],['chart-locator','16-route-locator'],['chart-route','12-route-map'],['chart-scatter','13-reach-routine']];
+const chartList=[['chart-trail-map','09-trail-map'],['chart-lengths','10-trail-lengths'],['chart-treemap','14-trail-treemap'],['chart-alluvial','15-trail-alluvial'],['chart-length-distribution','11-trail-grouped-dots'],['chart-map','02-participation-map'],['chart-trend','01-national-trend'],['chart-heatmap','03-state-heatmap'],['chart-change','04-state-change'],['chart-age','05-age'],['chart-gender','06-gender'],['chart-quiet','07-quiet-routes'],['chart-frequency','08-frequency'],['chart-locator','16-route-locator'],['chart-route','12-route-map'],['chart-scatter','13-reach-routine']];
 const views=new Map();
 const nativeViews=new Set();
 let lockedFocus='',currentFocus='';
@@ -7,7 +7,7 @@ window.chartStatus={ready:0,errors:[]};
 async function draw(id,name){
  const el=document.getElementById(id);el.innerHTML='<p class="loading">Drawing the data…</p>';
  try{
-  const response=await fetch(`specs/${name}.json?rev=20261025`);if(!response.ok)throw new Error(`Chart source: ${response.status}`);
+  const response=await fetch(`specs/${name}.json?rev=20261025-map-softened`);if(!response.ok)throw new Error(`Chart source: ${response.status}`);
   const spec=await response.json();
   const native=spec.$schema.includes('/vega/v5');
   if(native){spec.width=el.clientWidth;spec.height=id==='chart-alluvial'&&el.clientWidth<500?460:410;nativeViews.add(id);}
@@ -16,7 +16,7 @@ async function draw(id,name){
   if(id==='chart-map'&&el.clientWidth<500)spec.layer[1].transform[0].calculate='datum.state';
   if(id==='chart-route') spec.height=Math.max(240,Math.min(300,el.clientWidth*.5));
   if(id==='chart-lengths'&&el.clientWidth<450){for(const layer of spec.layer){if(layer.encoding?.y?.axis)layer.encoding.y.axis.labelLimit=140;}}
-  const result=await vegaEmbed(el,spec,{actions:false,renderer:'svg',tooltip:{theme:'light'}});
+  const result=await vegaEmbed(el,spec,{mode:native?'vega':'vega-lite',actions:false,renderer:'svg',tooltip:{theme:'light'}});
   views.set(id,result.view);
   if(id==='chart-map')await result.view.signal('period',document.getElementById('period').value).runAsync();
   if(['chart-trail-map','chart-lengths'].includes(id))await result.view.signal('surface',document.getElementById('surface').value).runAsync();
@@ -31,7 +31,7 @@ async function draw(id,name){
 document.getElementById('period').addEventListener('change',async e=>{const v=views.get('chart-map');if(v)await v.signal('period',e.target.value).runAsync();updateMapSummary();});
 let trailData=[];
 let participationData=[];
-function updateMapSummary(){const period=document.getElementById('period').value;const selected=participationData.filter(d=>d.year===2025&&d.period===period&&d.state!=='AUS').sort((a,b)=>b.rate-a.rate);if(!selected.length)return;const national=participationData.find(d=>d.year===2025&&d.period===period&&d.state==='AUS');document.getElementById('map-summary').textContent=`Last ${period.toLowerCase()}: ${selected[0].state} ${selected[0].rate.toFixed(1)}% (highest), ${selected.at(-1).state} ${selected.at(-1).rate.toFixed(1)}% (lowest); national ${national.rate.toFixed(1)}%.`;}
+function updateMapSummary(){const period=document.getElementById('period').value;const selected=participationData.filter(d=>d.year===2025&&d.period===period&&d.state!=='AUS').sort((a,b)=>b.rate-a.rate);if(!selected.length)return;const national=participationData.find(d=>d.year===2025&&d.period===period&&d.state==='AUS');document.getElementById('map-summary').textContent=`Last ${period.toLowerCase()}: ${selected[0].state} ${selected[0].rate.toFixed(1)}% (highest), ${selected.at(-1).state} ${selected.at(-1).rate.toFixed(1)}% (lowest); national ${national.rate.toFixed(1)}%. Colour range: ${{Week:"10–22",Month:"20–34",Year:"30–43"}[period]}%; rescaled for each window.`;}
 document.getElementById('surface').addEventListener('change',async e=>{const value=e.target.value;await Promise.all(['chart-trail-map','chart-lengths'].map(id=>views.get(id)?.signal('surface',value).runAsync()));const n=trailData.filter(t=>value==='All'||t.surface_group===value).length;document.getElementById('trail-count').textContent=`${n} of 14 selected listings`;for(const option of document.getElementById('trail-focus').options){const trail=trailData.find(t=>t.short_name===option.value);option.disabled=!!trail&&value!=='All'&&trail.surface_group!==value;}lockedFocus='';document.getElementById('trail-focus').value='';await setHighlight('');updateTrailReadout();});
 async function setHighlight(name){if(name===currentFocus)return;currentFocus=name;await Promise.all(['chart-trail-map','chart-lengths','chart-treemap'].map(id=>views.get(id)?.signal('highlight',name).runAsync()));}
 function updateTrailReadout(){const t=trailData.find(t=>t.short_name===lockedFocus);document.getElementById('trail-readout').textContent=t?`Selected listing: ${t.name} — ${t.state} · ${t.km} listed km · ${t.surface_group} · ${t.status.replace('Trail ','')}.`:'Choose a trail to read its full name, surface and published length. Hover to preview a highlight; click or use the selector to keep it selected.';}

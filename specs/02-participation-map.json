@@ -65,6 +65,14 @@
     {
       "name": "period",
       "value": "Week"
+    },
+    {
+      "name": "mapLow",
+      "expr": "period==='Week' ? 10 : period==='Month' ? 20 : 30"
+    },
+    {
+      "name": "mapHigh",
+      "expr": "period==='Week' ? 22 : period==='Month' ? 34 : 43"
     }
   ],
   "layer": [
@@ -9026,17 +9034,33 @@
         "color": {
           "field": "rate",
           "type": "quantitative",
-          "title": "Participation (%) · common 0–45% scale",
+          "title": "Participation · window-specific scale",
           "scale": {
-            "domain": [
-              0,
-              45
-            ],
+            "domainMin": {
+              "expr": "mapLow"
+            },
+            "domainMax": {
+              "expr": "mapHigh"
+            },
             "range": [
               "#f1f4e9",
               "#245646"
             ],
-            "interpolate": "rgb"
+            "interpolate": "rgb",
+            "zero": false,
+            "nice": false,
+            "clamp": true
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 190,
+            "tickCount": 3,
+            "values": {
+              "expr": "[mapLow,(mapLow+mapHigh)/2,mapHigh]"
+            },
+            "labelExpr": "format(datum.value,'.1f')+'%'",
+            "titleLimit": 300
           }
         },
         "tooltip": [
@@ -9066,7 +9090,7 @@
             "Year": 37.6,
             "WeekText": "#000000",
             "MonthText": "#000000",
-            "YearText": "#ffffff"
+            "YearText": "#000000"
           },
           {
             "state": "NT",
@@ -9077,7 +9101,7 @@
             "Year": 36.7,
             "WeekText": "#000000",
             "MonthText": "#000000",
-            "YearText": "#ffffff"
+            "YearText": "#000000"
           },
           {
             "state": "SA",
@@ -9110,7 +9134,7 @@
             "Year": 33.9,
             "WeekText": "#000000",
             "MonthText": "#000000",
-            "YearText": "#ffffff"
+            "YearText": "#000000"
           },
           {
             "state": "VIC",
@@ -9121,7 +9145,7 @@
             "Year": 36.6,
             "WeekText": "#000000",
             "MonthText": "#000000",
-            "YearText": "#ffffff"
+            "YearText": "#000000"
           },
           {
             "state": "TAS",
@@ -9141,8 +9165,8 @@
             "Week": 20,
             "Month": 31.3,
             "Year": 40.5,
-            "WeekText": "#000000",
-            "MonthText": "#000000",
+            "WeekText": "#ffffff",
+            "MonthText": "#ffffff",
             "YearText": "#ffffff"
           }
         ]
