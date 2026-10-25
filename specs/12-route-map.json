@@ -12983,7 +12983,9 @@
             "role": "Mapped relation terminus, not a certified navigation trailhead",
             "verification": "Degree-one node in relation member-way topology; relation from/to towns agree with the Rail Trails Australia trail guide",
             "checked": "2026-10-25",
-            "source_url": "https://www.openstreetmap.org/node/634093804"
+            "source_url": "https://www.openstreetmap.org/node/634093804",
+            "labelLon": 145.3599496,
+            "labelLat": -37.739829799999995
           },
           {
             "town": "Warburton",
@@ -12994,24 +12996,30 @@
             "role": "Mapped relation terminus, not a certified navigation trailhead",
             "verification": "Degree-one node in relation member-way topology; relation from/to towns agree with the Rail Trails Australia trail guide",
             "checked": "2026-10-25",
-            "source_url": "https://www.openstreetmap.org/node/4383369108"
+            "source_url": "https://www.openstreetmap.org/node/4383369108",
+            "labelLon": 145.6959959,
+            "labelLat": -37.753023
           }
         ]
       },
       "mark": {
         "type": "text",
-        "dy": -20,
+        "dy": {
+          "expr": "datum.town==='Lilydale' ? -8 : -20"
+        },
         "color": "#203b32",
         "fontSize": 12,
-        "align": "center"
+        "align": {
+          "expr": "datum.town==='Lilydale' ? 'left' : 'right'"
+        }
       },
       "encoding": {
         "longitude": {
-          "field": "lon",
+          "field": "labelLon",
           "type": "quantitative"
         },
         "latitude": {
-          "field": "lat",
+          "field": "labelLat",
           "type": "quantitative"
         },
         "text": {
@@ -13097,7 +13105,9 @@
       },
       "encoding": {
         "x": {
-          "value": 18
+          "value": {
+            "expr": "width/2"
+          }
         },
         "y": {
           "value": 12
@@ -13129,7 +13139,7 @@
             "osm_place_id": 2432752,
             "place_search_url": "https://nominatim.openstreetmap.org/search?q=Woori+Yallock%2C+Victoria%2C+Australia&format=jsonv2&limit=1",
             "kind": "Town centre; strip marker uses nearest mapped route vertex",
-            "labelDy": -22
+            "labelDy": 25
           },
           {
             "name": "Yarra Junction",
@@ -13196,7 +13206,7 @@
             "osm_place_id": 2432752,
             "place_search_url": "https://nominatim.openstreetmap.org/search?q=Woori+Yallock%2C+Victoria%2C+Australia&format=jsonv2&limit=1",
             "kind": "Town centre; strip marker uses nearest mapped route vertex",
-            "labelDy": -22
+            "labelDy": 25
           },
           {
             "name": "Yarra Junction",
@@ -13231,6 +13241,39 @@
         },
         "text": {
           "field": "name"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 145.3499496,
+            "lat": -37.7538298,
+            "lon2": 145.3599496,
+            "lat2": -37.739829799999995
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#526354",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "lon2"
+        },
+        "latitude2": {
+          "field": "lat2"
         }
       }
     }

@@ -7,14 +7,22 @@ window.chartStatus={ready:0,errors:[]};
 async function draw(id,name){
  const el=document.getElementById(id);el.innerHTML='<p class="loading">Drawing the data…</p>';
  try{
-  const response=await fetch(`specs/${name}.json?rev=20261025-layout-polish-final3`);if(!response.ok)throw new Error(`Chart source: ${response.status}`);
+  const response=await fetch(`specs/${name}.json?rev=20261025-map-selection-labels2`);if(!response.ok)throw new Error(`Chart source: ${response.status}`);
   const spec=await response.json();
   const native=spec.$schema.includes('/vega/v5');
   if(native){spec.width=el.clientWidth;spec.height=id==='chart-alluvial'?360:id==='chart-quiet'?(el.clientWidth<450?300:360):440;nativeViews.add(id);}
   // Keep national maps legible on narrow screens while preserving their aspect.
   if(['chart-map','chart-trail-map','chart-trail-inset'].includes(id)) spec.height=Math.max(270,Math.min(spec.height,el.clientWidth*.8));
   if(id==='chart-map'&&el.clientWidth<500)spec.layer[1].transform[0].calculate='datum.state';
-  if(id==='chart-route'){spec.height=el.clientWidth<500?170:240;if(el.clientWidth<500)for(const layer of spec.layer.slice(7))if(layer.data?.values)layer.data.values=layer.data.values.filter(d=>d.name!=='Yarra Junction');}
+  if(id==='chart-route'){
+   spec.height=el.clientWidth<500?170:240;
+   if(el.clientWidth<500){
+    for(const layer of spec.layer.slice(7))if(layer.data?.values)layer.data.values=layer.data.values.filter(d=>d.name!=='Yarra Junction');
+    // Keep the scale reference below the town labels on a narrow map.
+    const scale=spec.layer[4].data.values[0];scale.lat-=.025;scale.lat2=scale.lat;scale.lon2=scale.lon+5/(111.32*Math.cos(scale.lat*Math.PI/180));
+    const scaleLabel=spec.layer[5].data.values[0];scaleLabel.lat=scale.lat;scaleLabel.lon=(scale.lon+scale.lon2)/2;
+   }
+  }
   if(id==='chart-lengths'&&el.clientWidth<450){for(const layer of spec.layer){if(layer.encoding?.y?.axis)layer.encoding.y.axis.labelLimit=140;}}
   const result=await vegaEmbed(el,spec,{mode:native?'vega':'vega-lite',actions:false,renderer:'svg',tooltip:{theme:'light'}});
   views.set(id,result.view);
@@ -34,8 +42,15 @@ let participationData=[];
 function updateMapSummary(){const period=document.getElementById('period').value;const selected=participationData.filter(d=>d.year===2025&&d.period===period&&d.state!=='AUS').sort((a,b)=>b.rate-a.rate);if(!selected.length)return;const national=participationData.find(d=>d.year===2025&&d.period===period&&d.state==='AUS');document.getElementById('map-summary').textContent=`Last ${period.toLowerCase()}: ${selected[0].state} ${selected[0].rate.toFixed(1)}% (highest), ${selected.at(-1).state} ${selected.at(-1).rate.toFixed(1)}% (lowest); national ${national.rate.toFixed(1)}%. Colour range: ${{Week:"10–22",Month:"20–34",Year:"30–43"}[period]}%; rescaled for each window.`;}
 document.getElementById('surface').addEventListener('change',async e=>{const value=e.target.value;await Promise.all(['chart-trail-map','chart-trail-inset','chart-lengths'].map(id=>views.get(id)?.signal('surface',value).runAsync()));const n=trailData.filter(t=>value==='All'||t.surface_group===value).length;document.getElementById('trail-count').textContent=`${n} of 14 selected listings`;for(const option of document.getElementById('trail-focus').options){const trail=trailData.find(t=>t.short_name===option.value);option.disabled=!!trail&&value!=='All'&&trail.surface_group!==value;}lockedFocus='';document.getElementById('trail-focus').value='';await setHighlight('');updateTrailReadout();});
 async function setHighlight(name){if(name===currentFocus)return;currentFocus=name;await Promise.all(['chart-trail-map','chart-trail-inset','chart-lengths','chart-treemap'].map(id=>views.get(id)?.signal('highlight',name).runAsync()));}
-function updateTrailReadout(){const t=trailData.find(t=>t.short_name===lockedFocus);document.getElementById('trail-readout').textContent=t?`Selected listing: ${t.name} — ${t.state} · ${t.km} listed km · ${t.surface_group} · ${t.status.replace('Trail ','')}.`:'Choose a trail to read its full name, surface and published length. Hover to preview a highlight; click or use the selector to keep it selected.';}
+function updateTrailReadout(){const t=trailData.find(t=>t.short_name===lockedFocus);document.getElementById('trail-readout').textContent=t?`Selected listing: ${t.name} — ${t.state} · ${t.km} listed km · ${t.surface_group} · ${t.status.replace('Trail ','')}.`:'Choose a trail to read its full name, surface and published length. Hover to preview a highlight; click or use the selector to keep it selected. Click outside the linked charts or press Escape to clear.';}
 document.getElementById('trail-focus').addEventListener('change',e=>{lockedFocus=e.target.value;setHighlight(lockedFocus);updateTrailReadout();});
+function clearTrailSelection(){lockedFocus='';document.getElementById('trail-focus').value='';setHighlight('');updateTrailReadout();}
+document.addEventListener('click',event=>{
+ if(!lockedFocus||!(event.target instanceof Element))return;
+ if(event.target.closest('#chart-trail-map, #chart-trail-inset, #chart-lengths, #chart-treemap, #trail-focus, #surface'))return;
+ clearTrailSelection();
+});
+document.addEventListener('keydown',event=>{if(event.key==='Escape')clearTrailSelection();});
 function cell(text,tag='td'){const el=document.createElement(tag);el.textContent=text;return el;}
 async function setupData(){
  trailData=await(await fetch('data/trails.json')).json();
